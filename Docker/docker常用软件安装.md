@@ -116,7 +116,7 @@ docker search redis
 2.拉取redis镜像
 
 ```shell
-docker pull redis:5.0
+docker pull redis:latest
 ```
 
 3.配置redis.conf
