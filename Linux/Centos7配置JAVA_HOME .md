@@ -32,8 +32,6 @@ ls -lrt /etc/alternatives/java
 
  /etc/alternatives/java -> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64/jre/bin/java
 
- 
-
 至此，我们确定java的安装目录为： /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64
 
  
@@ -46,7 +44,7 @@ ls -lrt /etc/alternatives/java
 vim /etc/profile
 ```
 
-\2. 添加以下配置：
+2. 添加以下配置：
 
 ```shell
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64
@@ -57,7 +55,7 @@ export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
 :wq保存退出。
 
-\3. 让配置生效
+3. 让配置生效
 
 ```shell
 source  /etc/profile
@@ -68,3 +66,10 @@ source  /etc/profile
 ```shell
 echo $JAVA_HOME
 ```
+
+   5.安装java-devel
+
+```shell
+ yum -y install java-devel
+```
+
