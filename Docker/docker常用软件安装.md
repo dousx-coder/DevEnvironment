@@ -48,7 +48,7 @@ systemctl stop docker
 
 ## 二、Docker 应用部署
 
-### 一、部署MySQL
+### 1、部署MySQL
 
 1. 搜索mysql镜像
 
@@ -105,6 +105,37 @@ docker exec -it mysql57 /bin/bash
 
 
 
+##### 如果是部署mysql8.0
+
+```shell
+docker pull mysql:8.0
+```
+
+```shell
+docker run -id \
+--restart=always \
+-p 3306:3306 \
+--name=mysql80 \
+-v $PWD/conf:/etc/mysql/conf.d \
+-v $PWD/logs:/logs \
+-v $PWD/data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=root \
+mysql:8.0 \
+--lower_case_table_names=1
+```
+
+###### 更新密码规则
+
+```shell
+docker exec -it mysql80 /bin/bash
+mysql -uroot -p
+use mysql;
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+FLUSH PRIVILEGES; 
+```
+
+
+
 ### 2、部署Redis
 
 1.搜索redis镜像
@@ -157,7 +188,7 @@ redis-cli -h 192.168.0.181 -p 6379 -a redis
 
 
 
-### 三、部署RabbitMQ
+#### 3、部署RabbitMQ
 
 1. 拉取镜像，并指定版本，该版本包含了web控制页面
 
