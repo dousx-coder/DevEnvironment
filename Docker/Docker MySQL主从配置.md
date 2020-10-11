@@ -4,6 +4,8 @@
 
 ```shell
 # 主
+mkdir -p /opt/dockerSoftware/mysql801
+
 docker run -id \
 --restart=always \
 -p 3801:3306 \
@@ -16,6 +18,8 @@ mysql:8.0 \
 --lower_case_table_names=1
 
 # 从
+mkdir -p /opt/dockerSoftware/mysql802
+
 docker run -id \
 --restart=always \
 -p 3802:3306 \
@@ -43,6 +47,17 @@ mysql -uroot -p
 use mysql;
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 FLUSH PRIVILEGES; 
+```
+
+```mysql
+# 在主数据库上创建数据同步用户，授予用户 slave REPLICATION SLAVE权限和REPLICATION CLIENT权限，用于在主从库之间同步数据。
+create user 'slave'@'%' identified by '123456';
+flush privileges;
+grant REPLICATION SLAVE, REPLICATION CLIENT on *.* to 'slave'@'%' with grant option;
+flush privileges;
+# 如果是MySQL8 则还需修改密码规则
+ALTER USER 'slave'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+flush privileges;
 ```
 
 
@@ -99,10 +114,10 @@ docker exec -it mysql802 /bin/bash
 ```
 
 ```mysql
-# 在从库mysql中执行
-change master to master_host='172.17.0.3', master_user='root', master_password='root', master_port=3306, master_log_file='master-bin.000001', =156, master_connect_retry=30;
+change master to master_host='172.17.0.2', master_user='slave', master_password='123456', master_port=3306, master_log_file='master-bin.000002', master_log_pos=156, master_connect_retry=30;
 # 命令说明：
-# master_host ：主库，指的是容器的独立ip,可以通过docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名称  进行查询
+# master_host ：主库，指的是容器的独立ip,
+# 容器的独立ip可以通过docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名称  进行查询
 # master_port：Master的端口号，指的是容器的端口号
 # master_user：用于数据同步的用户
 # master_password：用于同步的用户的密码
@@ -123,3 +138,22 @@ show slave status \G;
 # Slave_IO_Running: Yes
 # Slave_SQL_Running: Yes
 ```
+
+#### 5.从库 创建只读用户 方便客户端读取
+
+```mysql
+# 从库 创建只读用户
+create user 'onlyReader'@'%' identified by '123456';
+flush privileges;
+# 授权 select 可换成all privileges,update,insert,delete,drop,create等操作
+grant select on *.* to 'onlyReader'@'%' with grant option;
+flush privileges;
+# mysql8 修改密码规则
+ALTER USER 'onlyReader'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+flush privileges;
+```
+
+
+
+
+
