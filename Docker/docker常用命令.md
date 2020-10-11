@@ -22,3 +22,18 @@
 13. --expose=x: 开放端口x
 ```
 
+
+
+```shell
+查询容器独立ip
+docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器id或者名称
+```
+
+```shell
+# 从容器中拷贝文件到宿主机
+docker cp mysql801:/etc/mysql/my.cnf /opt/dockerSoftware/my.cnf
+
+# 从宿主机拷贝文件到容器
+docker cp /opt/dockerSoftware/my.cnf mysql802:/etc/mysql/my.cnf
+```
+
