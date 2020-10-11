@@ -346,3 +346,11 @@ docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
 直接访问 http://192.168.0.182:8848/nacos， 使用账号：nacos，密码：nacos 直接登录
 ```
 
+### 7、docker内部安装vim
+
+```
+apt-get update
+
+apt-get install vim
+```
+
