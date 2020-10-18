@@ -91,7 +91,7 @@ read_only=1  ## 设置为只读,该项如果不设置，表示slave可读可写
 
 # 容器内的my.cnf拷贝到宿主机
 docker cp mysql801:/etc/mysql/my.cnf /opt/dockerSoftware/my.cnf
-
+exit
 # 宿主机的my.cnf拷贝到容器内
 docker cp /opt/dockerSoftware/my.cnf mysql802:/etc/mysql/my.cnf
 ```

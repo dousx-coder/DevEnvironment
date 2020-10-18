@@ -39,12 +39,12 @@
 ```shell
 # 其中app是镜像名称  字母貌似要全小写 
 # 切换到jar包和Dockerfile所在目录执行
-docker build -t app .
+docker build -t app:0.1 .
 ```
 
 ### 创建容器
 
 ```shell
-docker run -d -p 8848:8848 app --name=app
+docker run -d -p 8899:8899 --name=app app:0.1
 ```
 
