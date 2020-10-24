@@ -209,7 +209,7 @@ redis-cli -h 192.168.0.181 -p 6379 -a redis
 1. 拉取镜像，并指定版本，该版本包含了web控制页面
 
 ```shell
-docker pull rabbitmq:3-management
+docker pull rabbitmq:3.7.19-management
 ```
 
 2.创建容器
@@ -221,7 +221,7 @@ docker run -d \
 --name rabbit \
 -p 5672:5672 \
 -p 15672:15672 \
-rabbitmq:3-management
+rabbitmq:3.7.19-management
 ```
 
 3.测试
