@@ -46,6 +46,16 @@ systemctl stop docker
 
 
 
+```
+# docker 可视化web界面
+docker pull uifd/ui-for-docker
+docker run -it -d --restart=always --name docker-web -p 9000:9000 uifd/ui-for-docker
+```
+
+
+
+
+
 ## 二、Docker 应用部署
 
 ### 1、部署MySQL
