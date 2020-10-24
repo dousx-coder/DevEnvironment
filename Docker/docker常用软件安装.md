@@ -46,10 +46,16 @@ systemctl stop docker
 
 
 
-```
+```shell
 # docker 可视化web界面
 docker pull uifd/ui-for-docker
-docker run -it -d --restart=always --name docker-web -p 9000:9000 uifd/ui-for-docker
+
+# 创建容器
+docker run -it -d  \
+--restart=always \
+--name docker-web \
+-p 9000:9000 \
+-v /var/run/docker.sock:/var/run/docker.sock docker.io/uifd/ui-for-docker
 ```
 
 
