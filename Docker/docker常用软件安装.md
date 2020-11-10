@@ -202,6 +202,20 @@ docker run -p 6379:6379 \
 redis-cli -h 192.168.0.181 -p 6379 -a redis
 ```
 
+>Docker安装redis布隆过滤器
+
+```sh
+#
+docker search rebloom
+#
+docker pull redislabs/rebloom:latest
+#
+docker run -p 6379:6379 \
+--restart=always \
+--name redisbloom \
+-d redislabs/rebloom:latest  
+```
+
 
 
 #### 3、部署RabbitMQ
