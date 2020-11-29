@@ -48,9 +48,9 @@ mkdir rocketmq
 ```yaml
 version: '3.2'
 services:
-  rmqnamesrv:
+  rmqserver:
     image: foxiswho/rocketmq:server
-    container_name: rmqnamesrv
+    container_name: rmqserver
     ports:
       - 9876:9876
     volumes:
@@ -59,7 +59,7 @@ services:
     networks:
         rmq:
           aliases:
-            - rmqnamesrv
+            - rmqserver
  
   rmqbroker:
     image: foxiswho/rocketmq:broker
@@ -72,12 +72,12 @@ services:
       - ./store:/opt/store
       - ./conf/broker.conf:/etc/rocketmq/broker.conf
     environment:
-        NAMESRV_ADDR: "rmqnamesrv:9876"
+        NAMESRV_ADDR: "rmqserver:9876"
         JAVA_OPTS: " -Duser.home=/opt"
         JAVA_OPT_EXT: "-server -Xms128m -Xmx128m -Xmn128m"
     command: mqbroker -c /etc/rocketmq/broker.conf
     depends_on:
-      - rmqnamesrv
+      - rmqserver
     networks:
       rmq:
         aliases:
@@ -89,9 +89,9 @@ services:
     ports:
       - 8080:8080
     environment:
-        JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+        JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqserver:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
     depends_on:
-      - rmqnamesrv
+      - rmqserver
     networks:
       rmq:
         aliases:
