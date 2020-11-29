@@ -232,7 +232,7 @@ docker pull rabbitmq:3.7.19-management
 docker run -d \
 --restart=always \
 --hostname my-rabbit \
---name rabbit \
+--name rabbitmq \
 -p 5672:5672 \
 -p 15672:15672 \
 rabbitmq:3.7.19-management
