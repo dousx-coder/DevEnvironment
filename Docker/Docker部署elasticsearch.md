@@ -47,4 +47,3 @@ docker cp es:/usr/share/elasticsearch/plugins/ik/config/IKAnalyzer.cfg.xml /IKAn
 # 修改之后再次导入
 docker cp /IKAnalyzer.cfg.xml es:/usr/share/elasticsearch/plugins/ik/config/IKAnalyzer.cfg.xml 
 ```
-
