@@ -16,3 +16,4 @@ firewall-cmd --zone=public --list-ports  
 firewall-cmd --permanent --zone=public --add-port=8484/tcp
 
 ```
+
