@@ -216,9 +216,7 @@ docker run -p 6379:6379 \
 -d redislabs/rebloom:latest  
 ```
 
-
-
-#### 3、部署RabbitMQ
+### 3、部署RabbitMQ
 
 1. 拉取镜像，并指定版本，该版本包含了web控制页面
 
@@ -384,3 +382,10 @@ apt-get update
 apt-get install vim
 ```
 
+## 提示
+
+如果win上映射文件目录，文件目录中间不要出现空格
+
+例：
+
+>docker run -p 6379:6379 --restart=always --name redis -v c:/docker_data/redis/redis.conf:/etc/redis/redis.conf  -d redis redis-server /etc/redis/redis.conf --appendonly yes
