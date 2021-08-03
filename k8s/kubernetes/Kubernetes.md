@@ -1475,7 +1475,7 @@ kube-public       Active   21h
 kube-system       Active   21h
 
 # 在此namespace下创建并运行一个nginx的Pod
-[root@master ~]# kubectl run pod --image=nginx:latest -n dev
+[root@master ~]# kubectl run pod --image=nginx:1.17.1 -n dev
 kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
 deployment.apps/pod created
 
@@ -1515,7 +1515,7 @@ metadata:
 spec:
   containers:
   - name: nginx-containers
-    image: nginx:latest
+    image: nginx:1.17.1
 ```
 
 2）执行create命令，创建资源：
@@ -1584,8 +1584,29 @@ pod/nginxpod unchanged
 
 kubectl的运行是需要进行配置的，它的配置文件是$HOME/.kube，如果想要在node节点运行此命令，需要将master上的.kube文件复制到node节点上，即在master节点上执行下面操作：
 
+>scp  -r  $HOME/.kube   k8s-node-1: $HOME/
+
 ```shell
-scp  -r  HOME/.kube   node1: HOME/
+[root@k8s-master ~]# scp  -r  $HOME/.kube   k8s-node-1: $HOME/
+cp: "/root/.kube" 与"/root/.kube" 为同一文件
+The authenticity of host 'k8s-node-1 (192.168.174.182)' can't be established.
+ECDSA key fingerprint is SHA256:CeLSxBAy4a7Da1sQvyG4mjr2BkC041clE1pQt4VnOGs.
+ECDSA key fingerprint is MD5:96:6e:6c:cb:8e:b2:34:1e:ea:0d:fa:cf:c1:34:a8:a2.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'k8s-node-1,192.168.174.182' (ECDSA) to the list of known hosts.
+root@k8s-node-1's password:
+.bash_logout                                                                                                                                                100%   18     6.4KB/s   00:00
+.bash_profile                                                                                                                                               100%  176   130.6KB/s   00:00
+.bashrc                                                                                                                                                     100%  176   166.8KB/s   00:00
+.cshrc                                                                                                                                                      100%  100    52.8KB/s   00:00
+.tcshrc                                                                                                                                                     100%  129    77.4KB/s   00:00
+.bash_history                                                                                                                                               100% 7907     6.5MB/s   00:00
+.gitconfig                                                                                                                                                  100%   48    20.5KB/s   00:00
+kubernetes.conf                                                                                                                                             100%  484   189.3KB/s   00:00
+k8s_images.sh                                                                                                                                               100%  418   230.1KB/s   00:00
+.k8s_images.sh.un~                                                                                                                                          100%  523   258.0KB/s   00:00
+.viminfo                                                                                                                                                    100% 4289     2.5MB/s   00:00
+[root@k8s-master ~]#
 ```
 
 > 使用推荐: 三种方式应该怎么用 ?
@@ -1755,7 +1776,7 @@ nginx   1/1     Running   0          43s
 Name:         nginx
 Namespace:    dev
 Priority:     0
-Node:         node1/192.168.174.182
+Node:         k8s-node-1/192.168.174.182
 Start Time:   Wed, 08 May 2021 09:29:24 +0800
 Labels:       pod-template-hash=5ff7956ff6
               run=nginx
@@ -1797,11 +1818,11 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
 Events:
   Type    Reason     Age        From               Message
   ----    ------     ----       ----               -------
-  Normal  Scheduled  <unknown>  default-scheduler  Successfully assigned dev/nginx-5ff7956ff6-fg2db to node1
-  Normal  Pulling    4m11s      kubelet, node1     Pulling image "nginx:latest"
-  Normal  Pulled     3m36s      kubelet, node1     Successfully pulled image "nginx:latest"
-  Normal  Created    3m36s      kubelet, node1     Created container nginx
-  Normal  Started    3m36s      kubelet, node1     Started container nginx
+  Normal  Scheduled  <unknown>  default-scheduler  Successfully assigned dev/nginx-5ff7956ff6-fg2db to k8s-node-1
+  Normal  Pulling    4m11s      kubelet, k8s-node-1     Pulling image "nginx:latest"
+  Normal  Pulled     3m36s      kubelet, k8s-node-1     Successfully pulled image "nginx:latest"
+  Normal  Created    3m36s      kubelet, k8s-node-1     Created container nginx
+  Normal  Started    3m36s      kubelet, k8s-node-1     Started container nginx
 ```
 
 **访问Pod**
@@ -1810,7 +1831,7 @@ Events:
 # 获取podIP
 [root@master ~]# kubectl get pods -n dev -o wide
 NAME    READY   STATUS    RESTARTS   AGE    IP             NODE    ... 
-nginx   1/1     Running   0          190s   10.244.1.23   node1   ...
+nginx   1/1     Running   0          190s   10.244.1.23   k8s-node-1   ...
 
 #访问POD
 [root@master ~]# curl http://10.244.1.23:80
@@ -2467,14 +2488,14 @@ pod/pod-imagepullpolicy created
 Events:
   Type     Reason     Age               From               Message
   ----     ------     ----              ----               -------
-  Normal   Scheduled  <unknown>         default-scheduler  Successfully assigned dev/pod-imagePullPolicy to node1
-  Normal   Pulling    32s               kubelet, node1     Pulling image "nginx:1.17.1"
-  Normal   Pulled     26s               kubelet, node1     Successfully pulled image "nginx:1.17.1"
-  Normal   Created    26s               kubelet, node1     Created container nginx
-  Normal   Started    25s               kubelet, node1     Started container nginx
-  Normal   Pulled     7s (x3 over 25s)  kubelet, node1     Container image "busybox:1.30" already present on machine
-  Normal   Created    7s (x3 over 25s)  kubelet, node1     Created container busybox
-  Normal   Started    7s (x3 over 25s)  kubelet, node1     Started container busybox
+  Normal   Scheduled  <unknown>         default-scheduler  Successfully assigned dev/pod-imagePullPolicy to k8s-node-1
+  Normal   Pulling    32s               kubelet, k8s-node-1     Pulling image "nginx:1.17.1"
+  Normal   Pulled     26s               kubelet, k8s-node-1     Successfully pulled image "nginx:1.17.1"
+  Normal   Created    26s               kubelet, k8s-node-1     Created container nginx
+  Normal   Started    25s               kubelet, k8s-node-1     Started container nginx
+  Normal   Pulled     7s (x3 over 25s)  kubelet, k8s-node-1     Container image "busybox:1.30" already present on machine
+  Normal   Created    7s (x3 over 25s)  kubelet, k8s-node-1     Created container busybox
+  Normal   Started    7s (x3 over 25s)  kubelet, k8s-node-1     Started container busybox
 ```
 
 ### 5.2.3 启动命令
@@ -2818,10 +2839,10 @@ root@k8s-master01 ~]# kubectl describe pod  pod-initcontainer -n dev
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  49s   default-scheduler  Successfully assigned dev/pod-initcontainer to node1
-  Normal  Pulled     48s   kubelet, node1     Container image "busybox:1.30" already present on machine
-  Normal  Created    48s   kubelet, node1     Created container test-mysql
-  Normal  Started    48s   kubelet, node1     Started container test-mysql
+  Normal  Scheduled  49s   default-scheduler  Successfully assigned dev/pod-initcontainer to k8s-node-1
+  Normal  Pulled     48s   kubelet, k8s-node-1     Container image "busybox:1.30" already present on machine
+  Normal  Created    48s   kubelet, k8s-node-1     Created container test-mysql
+  Normal  Started    48s   kubelet, k8s-node-1     Started container test-mysql
 
 # 动态查看pod
 [root@k8s-master01 ~]# kubectl get pods pod-initcontainer -n dev -w
@@ -2918,7 +2939,7 @@ pod/pod-hook-exec created
 # 查看pod
 [root@k8s-master01 ~]# kubectl get pods  pod-hook-exec -n dev -o wide
 NAME           READY   STATUS     RESTARTS   AGE    IP            NODE    
-pod-hook-exec  1/1     Running    0          29s    10.244.2.48   node2   
+pod-hook-exec  1/1     Running    0          29s    10.244.2.48   k8s-node-2   
 
 # 访问pod
 [root@k8s-master01 ~]# curl 10.244.2.48
@@ -3005,10 +3026,10 @@ pod/pod-liveness-exec created
 # 查看Pod详情
 [root@k8s-master01 ~]# kubectl describe pods pod-liveness-exec -n dev
 ......
-  Normal   Created    20s (x2 over 50s)  kubelet, node1     Created container nginx
-  Normal   Started    20s (x2 over 50s)  kubelet, node1     Started container nginx
-  Normal   Killing    20s                kubelet, node1     Container nginx failed liveness probe, will be restarted
-  Warning  Unhealthy  0s (x5 over 40s)   kubelet, node1     Liveness probe failed: cat: can't open '/tmp/hello11.txt': No such file or directory
+  Normal   Created    20s (x2 over 50s)  kubelet, k8s-node-1     Created container nginx
+  Normal   Started    20s (x2 over 50s)  kubelet, k8s-node-1     Started container nginx
+  Normal   Killing    20s                kubelet, k8s-node-1     Container nginx failed liveness probe, will be restarted
+  Warning  Unhealthy  0s (x5 over 40s)   kubelet, k8s-node-1     Liveness probe failed: cat: can't open '/tmp/hello11.txt': No such file or directory
   
 # 观察上面的信息就会发现nginx容器启动之后就进行了健康检查
 # 检查失败之后，容器被kill掉，然后尝试进行重启（这是重启策略的作用，后面讲解）
@@ -3052,11 +3073,11 @@ pod/pod-liveness-tcpsocket created
 # 查看Pod详情
 [root@k8s-master01 ~]# kubectl describe pods pod-liveness-tcpsocket -n dev
 ......
-  Normal   Scheduled  31s                            default-scheduler  Successfully assigned dev/pod-liveness-tcpsocket to node2
-  Normal   Pulled     <invalid>                      kubelet, node2     Container image "nginx:1.17.1" already present on machine
-  Normal   Created    <invalid>                      kubelet, node2     Created container nginx
-  Normal   Started    <invalid>                      kubelet, node2     Started container nginx
-  Warning  Unhealthy  <invalid> (x2 over <invalid>)  kubelet, node2     Liveness probe failed: dial tcp 10.244.2.44:8080: connect: connection refused
+  Normal   Scheduled  31s                            default-scheduler  Successfully assigned dev/pod-liveness-tcpsocket to k8s-node-2
+  Normal   Pulled     <invalid>                      kubelet, k8s-node-2     Container image "nginx:1.17.1" already present on machine
+  Normal   Created    <invalid>                      kubelet, k8s-node-2     Created container nginx
+  Normal   Started    <invalid>                      kubelet, k8s-node-2     Started container nginx
+  Warning  Unhealthy  <invalid> (x2 over <invalid>)  kubelet, k8s-node-2     Liveness probe failed: dial tcp 10.244.2.44:8080: connect: connection refused
   
 # 观察上面的信息，发现尝试访问8080端口,但是失败了
 # 稍等一会之后，再观察pod信息，就可以看到RESTARTS不再是0，而是一直增长
@@ -3101,11 +3122,11 @@ pod/pod-liveness-httpget created
 # 查看Pod详情
 [root@k8s-master01 ~]# kubectl describe pod pod-liveness-httpget -n dev
 .......
-  Normal   Pulled     6s (x3 over 64s)  kubelet, node1     Container image "nginx:1.17.1" already present on machine
-  Normal   Created    6s (x3 over 64s)  kubelet, node1     Created container nginx
-  Normal   Started    6s (x3 over 63s)  kubelet, node1     Started container nginx
-  Warning  Unhealthy  6s (x6 over 56s)  kubelet, node1     Liveness probe failed: HTTP probe failed with statuscode: 404
-  Normal   Killing    6s (x2 over 36s)  kubelet, node1     Container nginx failed liveness probe, will be restarted
+  Normal   Pulled     6s (x3 over 64s)  kubelet, k8s-node-1     Container image "nginx:1.17.1" already present on machine
+  Normal   Created    6s (x3 over 64s)  kubelet, k8s-node-1     Created container nginx
+  Normal   Started    6s (x3 over 63s)  kubelet, k8s-node-1     Started container nginx
+  Warning  Unhealthy  6s (x6 over 56s)  kubelet, k8s-node-1     Liveness probe failed: HTTP probe failed with statuscode: 404
+  Normal   Killing    6s (x2 over 36s)  kubelet, k8s-node-1     Container nginx failed liveness probe, will be restarted
   
 # 观察上面信息，尝试访问路径，但是未找到,出现404错误
 # 稍等一会之后，再观察pod信息，就可以看到RESTARTS不再是0，而是一直增长
@@ -3199,8 +3220,8 @@ pod/pod-restartpolicy created
 # 查看Pod详情，发现nginx容器失败
 [root@k8s-master01 ~]# kubectl  describe pods pod-restartpolicy  -n dev
 ......
-  Warning  Unhealthy  15s (x3 over 35s)  kubelet, node1     Liveness probe failed: HTTP probe failed with statuscode: 404
-  Normal   Killing    15s                kubelet, node1     Container nginx failed liveness probe
+  Warning  Unhealthy  15s (x3 over 35s)  kubelet, k8s-node-1     Liveness probe failed: HTTP probe failed with statuscode: 404
+  Normal   Killing    15s                kubelet, k8s-node-1     Container nginx failed liveness probe
   
 # 多等一会，再观察pod的重启次数，发现一直是0，并未重启   
 [root@k8s-master01 ~]# kubectl  get pods pod-restartpolicy -n dev
@@ -3237,7 +3258,7 @@ spec:
   containers:
   - name: nginx
     image: nginx:1.17.1
-  nodeName: node1 # 指定调度到node1节点上
+  nodeName: k8s-node-1 # 指定调度到k8s-node-1节点上
 ```
 
 ```shell
@@ -3245,10 +3266,10 @@ spec:
 [root@k8s-master01 ~]# kubectl create -f pod-nodename.yaml
 pod/pod-nodename created
 
-#查看Pod调度到NODE属性，确实是调度到了node1节点上
+#查看Pod调度到NODE属性，确实是调度到了k8s-node-1节点上
 [root@k8s-master01 ~]# kubectl get pods pod-nodename -n dev -o wide
 NAME           READY   STATUS    RESTARTS   AGE   IP            NODE      ......
-pod-nodename   1/1     Running   0          56s   10.244.1.87   node1     ......   
+pod-nodename   1/1     Running   0          56s   10.244.1.87   k8s-node-1     ......   
 
 # 接下来，删除pod，修改nodeName的值为node3（并没有node3节点）
 [root@k8s-master01 ~]# kubectl delete -f pod-nodename.yaml
@@ -3272,10 +3293,10 @@ NodeSelector用于将pod调度到添加了指定标签的node节点上。它是�
 1 首先分别为node节点添加标签
 
 ```shell
-[root@k8s-master01 ~]# kubectl label nodes node1 nodeenv=pro
-node/node2 labeled
-[root@k8s-master01 ~]# kubectl label nodes node2 nodeenv=test
-node/node2 labeled
+[root@k8s-master01 ~]# kubectl label nodes k8s-node-1 nodeenv=pro
+node/k8s-node-2 labeled
+[root@k8s-master01 ~]# kubectl label nodes k8s-node-2 nodeenv=test
+node/k8s-node-2 labeled
 ```
 
 2 创建一个pod-nodeselector.yaml文件，并使用它创建Pod
@@ -3299,10 +3320,10 @@ spec:
 [root@k8s-master01 ~]# kubectl create -f pod-nodeselector.yaml
 pod/pod-nodeselector created
 
-#查看Pod调度到NODE属性，确实是调度到了node1节点上
+#查看Pod调度到NODE属性，确实是调度到了k8s-node-1节点上
 [root@k8s-master01 ~]# kubectl get pods pod-nodeselector -n dev -o wide
 NAME               READY   STATUS    RESTARTS   AGE     IP          NODE    ......
-pod-nodeselector   1/1     Running   0          47s   10.244.1.87   node1   ......
+pod-nodeselector   1/1     Running   0          47s   10.244.1.87   k8s-node-1   ......
 
 # 接下来，删除pod，修改nodeSelector的值为nodeenv: xxxx（不存在打有此标签的节点）
 [root@k8s-master01 ~]# kubectl delete -f pod-nodeselector.yaml
@@ -3432,10 +3453,10 @@ pod "pod-nodeaffinity-required" deleted
 [root@k8s-master01 ~]# kubectl create -f pod-nodeaffinity-required.yaml
 pod/pod-nodeaffinity-required created
 
-# 此时查看，发现调度成功，已经将pod调度到了node1上
+# 此时查看，发现调度成功，已经将pod调度到了k8s-node-1上
 [root@k8s-master01 ~]# kubectl get pods pod-nodeaffinity-required -n dev -o wide
 NAME                        READY   STATUS    RESTARTS   AGE   IP            NODE  ...... 
-pod-nodeaffinity-required   1/1     Running   0          11s   10.244.1.89   node1 ......
+pod-nodeaffinity-required   1/1     Running   0          11s   10.244.1.89   k8s-node-1 ......
 ```
 
 接下来再演示一下`requiredDuringSchedulingIgnoredDuringExecution` ,
@@ -3534,7 +3555,7 @@ spec:
   containers:
   - name: nginx
     image: nginx:1.17.1
-  nodeName: node1 # 将目标pod名确指定到node1上
+  nodeName: k8s-node-1 # 将目标pod名确指定到k8s-node-1上
 ```
 
 ```shell
@@ -3620,8 +3641,8 @@ PodAntiAffinity主要实现以运行的Pod为参照，让新创建的Pod跟参�
 ```shell
 [root@k8s-master01 ~]# kubectl get pods -n dev -o wide --show-labels
 NAME                     READY   STATUS    RESTARTS   AGE     IP            NODE    LABELS
-pod-podaffinity-required 1/1     Running   0          3m29s   10.244.1.38   node1   <none>     
-pod-podaffinity-target   1/1     Running   0          9m25s   10.244.1.37   node1   podenv=pro
+pod-podaffinity-required 1/1     Running   0          3m29s   10.244.1.38   k8s-node-1   <none>     
+pod-podaffinity-target   1/1     Running   0          9m25s   10.244.1.37   k8s-node-1   podenv=pro
 ```
 
 2）创建pod-podantiaffinity-required.yaml，内容如下：
@@ -3655,10 +3676,10 @@ spec:
 pod/pod-podantiaffinity-required created
 
 # 查看pod
-# 发现调度到了node2上
+# 发现调度到了k8s-node-2上
 [root@k8s-master01 ~]# kubectl get pods pod-podantiaffinity-required -n dev -o wide
 NAME                           READY   STATUS    RESTARTS   AGE   IP            NODE   .. 
-pod-podantiaffinity-required   1/1     Running   0          30s   10.244.1.96   node2  ..
+pod-podantiaffinity-required   1/1     Running   0          30s   10.244.1.96   k8s-node-2  ..
 ```
 
 ### 5.4.3 污点和容忍
@@ -3681,46 +3702,46 @@ Node被设置上污点之后就和Pod之间存在了一种相斥的关系，进�
 
 ```shell
 # 设置污点
-kubectl taint nodes node1 key=value:effect
+kubectl taint nodes k8s-node-1 key=value:effect
 
 # 去除污点
-kubectl taint nodes node1 key:effect-
+kubectl taint nodes k8s-node-1 key:effect-
 
 # 去除所有污点
-kubectl taint nodes node1 key-
+kubectl taint nodes k8s-node-1 key-
 ```
 
 接下来，演示下污点的效果：
 
-1. 准备节点node1（为了演示效果更加明显，暂时停止node2节点）
-2. 为node1节点设置一个污点: `tag=heima:PreferNoSchedule`；然后创建pod1( pod1 可以 )
-3. 修改为node1节点设置一个污点: `tag=heima:NoSchedule`；然后创建pod2( pod1 正常 pod2 失败 )
-4. 修改为node1节点设置一个污点: `tag=heima:NoExecute`；然后创建pod3 ( 3个pod都失败 )
+1. 准备节点k8s-node-1（为了演示效果更加明显，暂时停止k8s-node-2节点）
+2. 为k8s-node-1节点设置一个污点: `tag=heima:PreferNoSchedule`；然后创建pod1( pod1 可以 )
+3. 修改为k8s-node-1节点设置一个污点: `tag=heima:NoSchedule`；然后创建pod2( pod1 正常 pod2 失败 )
+4. 修改为k8s-node-1节点设置一个污点: `tag=heima:NoExecute`；然后创建pod3 ( 3个pod都失败 )
 
 ```shell
-# 为node1设置污点(PreferNoSchedule)
-[root@k8s-master01 ~]# kubectl taint nodes node1 tag=heima:PreferNoSchedule
+# 为k8s-node-1设置污点(PreferNoSchedule)
+[root@k8s-master01 ~]# kubectl taint nodes k8s-node-1 tag=heima:PreferNoSchedule
 
 # 创建pod1
 [root@k8s-master01 ~]# kubectl run taint1 --image=nginx:1.17.1 -n dev
 [root@k8s-master01 ~]# kubectl get pods -n dev -o wide
 NAME                      READY   STATUS    RESTARTS   AGE     IP           NODE   
-taint1-7665f7fd85-574h4   1/1     Running   0          2m24s   10.244.1.59   node1    
+taint1-7665f7fd85-574h4   1/1     Running   0          2m24s   10.244.1.59   k8s-node-1    
 
-# 为node1设置污点(取消PreferNoSchedule，设置NoSchedule)
-[root@k8s-master01 ~]# kubectl taint nodes node1 tag:PreferNoSchedule-
-[root@k8s-master01 ~]# kubectl taint nodes node1 tag=heima:NoSchedule
+# 为k8s-node-1设置污点(取消PreferNoSchedule，设置NoSchedule)
+[root@k8s-master01 ~]# kubectl taint nodes k8s-node-1 tag:PreferNoSchedule-
+[root@k8s-master01 ~]# kubectl taint nodes k8s-node-1 tag=heima:NoSchedule
 
 # 创建pod2
 [root@k8s-master01 ~]# kubectl run taint2 --image=nginx:1.17.1 -n dev
 [root@k8s-master01 ~]# kubectl get pods taint2 -n dev -o wide
 NAME                      READY   STATUS    RESTARTS   AGE     IP            NODE
-taint1-7665f7fd85-574h4   1/1     Running   0          2m24s   10.244.1.59   node1 
+taint1-7665f7fd85-574h4   1/1     Running   0          2m24s   10.244.1.59   k8s-node-1 
 taint2-544694789-6zmlf    0/1     Pending   0          21s     <none>        <none>   
 
-# 为node1设置污点(取消NoSchedule，设置NoExecute)
-[root@k8s-master01 ~]# kubectl taint nodes node1 tag:NoSchedule-
-[root@k8s-master01 ~]# kubectl taint nodes node1 tag=heima:NoExecute
+# 为k8s-node-1设置污点(取消NoSchedule，设置NoExecute)
+[root@k8s-master01 ~]# kubectl taint nodes k8s-node-1 tag:NoSchedule-
+[root@k8s-master01 ~]# kubectl taint nodes k8s-node-1 tag=heima:NoExecute
 
 # 创建pod3
 [root@k8s-master01 ~]# kubectl run taint3 --image=nginx:1.17.1 -n dev
@@ -3746,7 +3767,7 @@ taint3-6d78dbd749-tktkq   0/1     Pending   0          6s    <none>   <none>   <
 
 下面先通过一个案例看下效果：
 
-1. 上一小节，已经在node1节点上打上了`NoExecute`的污点，此时pod是调度不上去的
+1. 上一小节，已经在k8s-node-1节点上打上了`NoExecute`的污点，此时pod是调度不上去的
 2. 本小节，可以通过给pod添加容忍，然后将其调度上去
 
 创建pod-toleration.yaml,内容如下
@@ -3777,7 +3798,7 @@ pod-toleration   0/1     Pending   0          3s    <none>   <none>   <none>
 # 添加容忍之后的pod
 [root@k8s-master01 ~]# kubectl get pods -n dev -o wide
 NAME             READY   STATUS    RESTARTS   AGE   IP            NODE    NOMINATED
-pod-toleration   1/1     Running   0          3s    10.244.1.62   node1   <none>        
+pod-toleration   1/1     Running   0          3s    10.244.1.62   k8s-node-1   <none>        
 ```
 
 下面看一下容忍的详细配置:
@@ -4655,8 +4676,8 @@ pc-daemonset   2        2        2      2           2        24s   nginx        
 # 查看pod,发现在每个Node上都运行一个pod
 [root@k8s-master01 ~]#  kubectl get pods -n dev -o wide
 NAME                 READY   STATUS    RESTARTS   AGE   IP            NODE    
-pc-daemonset-9bck8   1/1     Running   0          37s   10.244.1.43   node1     
-pc-daemonset-k224w   1/1     Running   0          37s   10.244.2.74   node2      
+pc-daemonset-9bck8   1/1     Running   0          37s   10.244.1.43   k8s-node-1     
+pc-daemonset-k224w   1/1     Running   0          37s   10.244.2.74   k8s-node-2      
 
 # 删除daemonset
 [root@k8s-master01 ~]# kubectl delete -f pc-daemonset.yaml
@@ -4932,7 +4953,7 @@ Service在很多情况下只是一个概念，真正起作用的其实是kube-pr
 # 当访问这个入口的时候，可以发现后面有三个pod的服务在等待调用，
 # kube-proxy会基于rr（轮询）的策略，将请求分发到其中一个pod上去
 # 这个规则会同时在集群内的所有节点上都生成，所以在任何一个节点上访问都可以。
-[root@node1 ~]# ipvsadm -Ln
+[root@k8s-node-1 ~]# ipvsadm -Ln
 IP Virtual Server version 1.2.1 (size=4096)
 Prot LocalAddress:Port Scheduler Flags
   -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
@@ -4968,7 +4989,7 @@ ipvs模式和iptables类似，kube-proxy监控Pod的变化并创建相应的ipvs
 [root@k8s-master01 ~]# kubectl edit cm kube-proxy -n kube-system
 # 修改mode: "ipvs"
 [root@k8s-master01 ~]# kubectl delete pod -l k8s-app=kube-proxy -n kube-system
-[root@node1 ~]# ipvsadm -Ln
+[root@k8s-node-1 ~]# ipvsadm -Ln
 IP Virtual Server version 1.2.1 (size=4096)
 Prot LocalAddress:Port Scheduler Flags
   -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
@@ -5044,9 +5065,9 @@ deployment.apps/pc-deployment created
 # 查看pod详情
 [root@k8s-master01 ~]# kubectl get pods -n dev -o wide --show-labels
 NAME                             READY   STATUS     IP            NODE     LABELS
-pc-deployment-66cb59b984-8p84h   1/1     Running    10.244.1.39   node1    app=nginx-pod
-pc-deployment-66cb59b984-vx8vx   1/1     Running    10.244.2.33   node2    app=nginx-pod
-pc-deployment-66cb59b984-wnncx   1/1     Running    10.244.1.40   node1    app=nginx-pod
+pc-deployment-66cb59b984-8p84h   1/1     Running    10.244.1.39   k8s-node-1    app=nginx-pod
+pc-deployment-66cb59b984-vx8vx   1/1     Running    10.244.2.33   k8s-node-2    app=nginx-pod
+pc-deployment-66cb59b984-wnncx   1/1     Running    10.244.1.40   k8s-node-1    app=nginx-pod
 
 # 为了方便后面的测试，修改下三台nginx的index.html页面（三台修改的IP地址不一致）
 # kubectl exec -it pc-deployment-66cb59b984-8p84h -n dev /bin/sh
@@ -5645,7 +5666,7 @@ pod/volume-emptydir created
 # 查看pod
 [root@k8s-master01 ~]# kubectl get pods volume-emptydir -n dev -o wide
 NAME                  READY   STATUS    RESTARTS   AGE      IP       NODE   ...... 
-volume-emptydir       2/2     Running   0          97s   10.42.2.9   node1  ......
+volume-emptydir       2/2     Running   0          97s   10.42.2.9   k8s-node-1  ......
 
 # 通过podIp访问nginx
 [root@k8s-master01 ~]# curl 10.42.2.9
@@ -5713,14 +5734,14 @@ pod/volume-hostpath created
 # 查看Pod
 [root@k8s-master01 ~]# kubectl get pods volume-hostpath -n dev -o wide
 NAME                  READY   STATUS    RESTARTS   AGE   IP             NODE   ......
-pod-volume-hostpath   2/2     Running   0          16s   10.42.2.10     node1  ......
+pod-volume-hostpath   2/2     Running   0          16s   10.42.2.10     k8s-node-1  ......
 
 #访问nginx
 [root@k8s-master01 ~]# curl 10.42.2.10
 
 # 接下来就可以去host的/root/logs目录下查看存储的文件了
-###  注意: 下面的操作需要到Pod所在的节点运行（案例中是node1）
-[root@node1 ~]# ls /root/logs/
+###  注意: 下面的操作需要到Pod所在的节点运行（案例中是k8s-node-1）
+[root@k8s-node-1 ~]# ls /root/logs/
 access.log  error.log
 
 # 同样的道理，如果在此目录下创建一个文件，到容器中也是可以看到的
@@ -6123,8 +6144,8 @@ pod/pod2 created
 # 查看pod
 [root@k8s-master01 ~]# kubectl get pods -n dev -o wide
 NAME   READY   STATUS    RESTARTS   AGE   IP            NODE   
-pod1   1/1     Running   0          14s   10.244.1.69   node1   
-pod2   1/1     Running   0          14s   10.244.1.70   node1  
+pod1   1/1     Running   0          14s   10.244.1.69   k8s-node-1   
+pod2   1/1     Running   0          14s   10.244.1.70   k8s-node-1  
 
 # 查看pvc
 [root@k8s-master01 ~]# kubectl get pvc -n dev -o wide
@@ -6142,11 +6163,11 @@ pv3    3Gi        RWX            Retain           Bound    dev/pvc3    5h11m   F
 
 # 查看nfs中的文件存储
 [root@nfs ~]# more /root/data/pv1/out.txt
-node1
-node1
+k8s-node-1
+k8s-node-1
 [root@nfs ~]# more /root/data/pv2/out.txt
-node2
-node2
+k8s-node-2
+k8s-node-2
 ```
 
 ### 8.2.3 生命周期
