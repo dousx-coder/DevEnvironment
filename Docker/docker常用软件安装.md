@@ -271,6 +271,10 @@ docker run -d  \
 postgres:10
 ```
 
+>Win
+>
+>docker run -d  --name postgres --restart=always -e POSTGRES_PASSWORD=root -v  C:/docker_data/postgres9.5:/var/lib/postgresql/data -p 5432:5432 postgres:9.5
+
 4.说明
 
 ```

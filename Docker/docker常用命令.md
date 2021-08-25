@@ -37,3 +37,8 @@ docker cp mysql801:/etc/mysql/my.cnf /opt/dockerSoftware/my.cnf
 docker cp /opt/dockerSoftware/my.cnf mysql802:/etc/mysql/my.cnf
 ```
 
+```sh
+# ps查看指定的列
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}" -a
+```
+
