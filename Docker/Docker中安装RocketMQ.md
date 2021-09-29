@@ -70,12 +70,12 @@ services:
     volumes:
       - ./logs:/opt/logs
       - ./store:/opt/store
-      - ./conf/broker.conf:/etc/rocketmq/broker.conf
+      - ./conf/broker.conf:/usr/local/docker/rocketmq/broker.conf
     environment:
         NAMESRV_ADDR: "rmqserver:9876"
         JAVA_OPTS: " -Duser.home=/opt"
         JAVA_OPT_EXT: "-server -Xms128m -Xmx128m -Xmn128m"
-    command: mqbroker -c /etc/rocketmq/broker.conf
+    command: mqbroker -c /usr/local/docker/rocketmq/broker.conf
     depends_on:
       - rmqserver
     networks:

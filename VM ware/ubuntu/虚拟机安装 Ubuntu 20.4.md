@@ -163,7 +163,7 @@ deb-src http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
 deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
 deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
 deb-src http://mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse
-deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse:q
+deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
 ```
 
 刷新列表
