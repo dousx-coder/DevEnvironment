@@ -59,9 +59,11 @@
     直接复制 /etc/skel/.zshrc 到 ~/
 
   ```sh
-  cp /etc/skel/.zshrc ~/.zshrc
-  mkdir -p ~/.oh-my-zsh/cache
-  source ~/.zshrc
+  # 执行之后 关闭当前窗口 重新连接
+  cp /etc/skel/.zshrc ~/.zshrc && mkdir -p ~/.oh-my-zsh/cache && source ~/.zshrc
+  # 
+  # <username> 替换为实际用户名
+  sudo chsh -s /bin/zsh <username>
   ```
 
 ## 全局配置插件
