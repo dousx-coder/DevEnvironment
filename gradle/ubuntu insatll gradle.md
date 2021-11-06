@@ -11,7 +11,7 @@ sudo vim /etc/profile.d/gradle.sh
 ```
 ###  gradle.sh脚本中，加入如下两行
 ```sh
-export GRADLE_HOME=/opt/gradle/latest
+export GRADLE_HOME=/opt/gradle/gradle-7.2
 export PATH=${GRADLE_HOME}/bin:${PATH}
 ```
 ###  增加脚本执行权限
