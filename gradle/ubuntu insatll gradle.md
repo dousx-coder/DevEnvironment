@@ -38,3 +38,21 @@ OS:           Linux 5.4.0-90-generic amd64
 
 
 
+# Oh My Zsh
+
+>刷新之后 Oh My Zsh可能不生效
+
+```sh
+vim ~/.zshrc
+```
+
+在最后一行添加
+
+```sh
+source /etc/profile.d/gradle.sh
+```
+
+```sh
+source ~/.zshrc
+```
+
