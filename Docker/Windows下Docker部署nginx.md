@@ -47,7 +47,7 @@ server {
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
           # 如果要代理docker宿主机服务 ip则通过ipconfig查询填入
-          proxy_pass http://172.25.224.1:19851/;
+          proxy_pass http://192.168.174.1:19851/;
     }
 
     error_page   500 502 503 504  /50x.html;
@@ -58,6 +58,8 @@ server {
 ```
 
 查看win配置找到docker网络配置（172.25.224.1）
+
+>以太网适配器 vEthernet (Default Switch)每次开机会变，这里以太网适配器 VMware Network Adapter VMnet8的ip是固定的，且容器能ping通，故配置采用192.168.174.1
 
 ```powershell
 PS C:\Users\dousx> ipconfig
