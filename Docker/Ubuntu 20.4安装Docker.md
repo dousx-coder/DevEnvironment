@@ -11,8 +11,8 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 更新apt包索引，并允许apt通过https更新repo
 
 ```sh
-sudo apt update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo apt update -y
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 ```
 
 添加Docker的官方 GPG key
@@ -40,11 +40,28 @@ sudo add-apt-repository \
    stable"
 ```
 
+- ```sh
+  正在读取软件包列表... 完成
+  E: 仓库 “https://download.docker.com/linux/ubuntu impish Release” 没有 Release 文件。
+  N: 无法安全地用该源进行更新，所以默认禁用该源。
+  N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+  ```
+
+- 解决方案
+
+- ```sh
+  root@brother:~# cd /etc/apt/sources.list.d
+  root@brother:/etc/apt/sources.list.d# ls
+  docker.list
+  root@brother:/etc/apt/sources.list.d# rm docker.list 
+  root@brother:/etc/apt/sources.list.d# apt-get update && apt-get upgrade
+  ```
+
 安装docker，顺便安装docker-compose
 
 ```sh
-sudo apt update
-sudo apt install docker-ce  docker-compose -y
+apt-get update -y && apt-get upgrade -y
+sudo apt install docker docker-compose -y
 ```
 
 安装完成后，使用如下命令查看安装的docker版本：
