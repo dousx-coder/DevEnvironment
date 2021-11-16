@@ -6,8 +6,8 @@ docker pull nginx
 ```
 
 ```sh
-#创建容器 82映射
-docker run --name nginx -p 82:80 -d nginx --restart=always 
+#创建容器 
+docker run --restart=always --name nginx -p 81:81 -p 82:82 -d nginx
 ```
 
 ```powershell
@@ -18,8 +18,7 @@ docker exec -it nginx /bin/bash
 ```sh
 # 安装常用工具
 apt update -y
- apt install vim  net-tools iputils-ping -y
-
+apt install vim  net-tools iputils-ping -y
 ```
 ```sh
 # 切换到nginx配置目录下
@@ -31,15 +30,15 @@ cp default.conf default.conf.bak
 
 ```sh
 # 修改默认配置或者根据需要新建配置
-vim default.conf
+vim server_82.conf
 ```
 
-例
+> 例 vim server_82.conf
 
 ```conf
 server {
-    listen       80;
-    listen  [::]:80;
+    listen       82;
+    listen  [::]:82;
     server_name  localhost;
 
     location /chat-service/ {
