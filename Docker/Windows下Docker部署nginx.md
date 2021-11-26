@@ -18,7 +18,7 @@ docker exec -it nginx /bin/bash
 ```sh
 # 安装常用工具
 apt update -y
-apt install vim  net-tools iputils-ping -y
+apt install vim tree net-tools iputils-ping -y
 ```
 ```sh
 # 切换到nginx配置目录下
