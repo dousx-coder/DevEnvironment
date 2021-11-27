@@ -48,7 +48,7 @@
 
   ```sh
   # 编辑 /etc/skel/.zshrc 文件修改
-  sed -i '/^ZSH_THEME=.*/c ZSH_THEME="ys"' /etc/skel/.zshrc
+  sed -i '/^ZSH_THEME=.*/c ZSH_THEME="af-magic"' /etc/skel/.zshrc
   # 刷新配置
   source /etc/skel/.zshrc
   ```
