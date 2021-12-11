@@ -13,6 +13,5 @@ docker-compose version 1.27.4, build 40524192
 docker-py version: 4.3.1
 CPython version: 3.7.7
 OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019
-[root@centos ~]#
 ```
 

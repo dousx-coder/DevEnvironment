@@ -1,25 +1,24 @@
-## Windows下Docker部署nginx
+## Docker部署nginx
 
+###  拉取镜像
 ```sh
-# 拉取镜像
 docker pull nginx
 ```
-
+### 创建容器
 ```sh
-#创建容器 
 docker run --restart=always --name nginx -p 81:81 -p 82:82 -d nginx
 ```
-
-```powershell
-# 进入容器
+###  进入容器
+```sh
 docker exec -it nginx /bin/bash
 ```
-
+###  安装常用工具
 ```sh
-# 安装常用工具
+# 需要先 update一下 否则无法下载
 apt update -y
 apt install vim tree net-tools iputils-ping -y
 ```
+###  配置
 ```sh
 # 切换到nginx配置目录下
 cd /etc/nginx/conf.d/
@@ -45,16 +44,40 @@ server {
           proxy_set_header Host $host;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          # 如果要代理docker宿主机服务 ip则通过ipconfig查询填入
+          # 如果要代理docker宿主机服务 ip则通过ipconfig查询填入,linux和win稍有不同
           proxy_pass http://192.168.174.1:19851/;
     }
-
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
         root   /usr/share/nginx/html;
     }
 }
 ```
+
+#### Linux查看docker宿主机ip
+
+> ifconfig 找到docker0的ip，可以代理docker宿主机的服务
+
+```sh
+~ # ifconfig                                                                                  
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:d4ff:fe61:9861  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:d4:61:98:61  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 8  bytes 800 (800.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+~ # ip addr show docker0                                                                       
+3: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:d4:61:98:61 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:d4ff:fe61:9861/64 scope link
+       valid_lft forever preferred_lft forever
+```
+
+#### Windows查看docker宿主机ip 
 
 查看win配置找到docker网络配置（172.25.224.1）
 

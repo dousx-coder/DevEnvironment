@@ -13,13 +13,13 @@ make && make install
 
 ##### 加入systemctl
 
-```
+```sh
 vim /usr/lib/systemd/system/nginx.service
 ```
 
 编辑内容
 
-```
+```sh
 [Unit]                                                                                   
 Description=nginx - high performance web server   
 After=network.target remote-fs.target nss-lookup.target  
@@ -40,7 +40,7 @@ WantedBy=multi-user.target
 
 
 
-```service
+```sh
 [Unit]                                                                                      //对服务的说明
 Description=nginx - high performance web server              //描述服务
 After=network.target remote-fs.target nss-lookup.target   //描述服务类别
@@ -63,7 +63,7 @@ WantedBy=multi-user.target                                               //服�
 chmod +x /usr/lib/systemd/system/nginx.service
 ```
 
-```
+```sh
 systemctl daemon-reload
 systemctl start nginx.service
 systemctl enable nginx # 开机启动
