@@ -1,12 +1,9 @@
 allprojects {
-
     repositories {
         mavenLocal()
-        mavenCentral()
         maven { 
             url 'https://maven.aliyun.com/repository/jcenter'
         }
-
         maven {
             url 'https://maven.aliyun.com/repository/public/'
         }
@@ -22,7 +19,7 @@ allprojects {
         maven { 
             url 'https://maven.aliyun.com/repository/gradle-plugin'
         }
-
+        mavenCentral()
     
     }
 
