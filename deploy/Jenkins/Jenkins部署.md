@@ -36,8 +36,6 @@ Maven Integration
 
 Publish Over SSH
 
-
-
 ## Global Tool Configuration
 
 Global Tool Configuration需要配置jdk maven git 
@@ -46,17 +44,15 @@ Global Tool Configuration需要配置jdk maven git
 
 ## 添加 `SSH Server`
 
-![image-20210719223719515](D:\DevEnvironment\Jenkins\Jenkins部署.assets\image-20210719223719515.png)
+![image-20211217092039146](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-20-39-500.png)
 
 ## 添加GIT凭据
 
 凭据` 是用来从 Git 仓库拉取代码的，打开 `凭据` -> `系统` -> `全局凭据` -> `添加凭据
 
-
-
 ## 部署服务器配置 SSH Publishers
 
-![image-20210719223747304](D:\DevEnvironment\Jenkins\Jenkins部署.assets\image-20210719223747304.png)
+![image-20211217092057948](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-20-58-251.png)
 
 ## 部署服务器 准备deploy.sh脚本
 
