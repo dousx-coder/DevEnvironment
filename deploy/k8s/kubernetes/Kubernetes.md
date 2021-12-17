@@ -28,7 +28,7 @@ Kubernetes
   >
   > 容器化的应用程序可以跨云服务商、跨Linux操作系统发行版进行部署
 
-![image-20200505183738289](Kubenetes.assets/image-20200505183738289.png)
+![image-20200505183738289](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-22-55-465.assets\\image-20200505183738289)
 
 容器化部署方式给带来很多的便利，但是也会出现一些问题，比如说：
 
@@ -41,11 +41,11 @@ Kubernetes
 - **Mesos**：Apache的一个资源统一管控的工具，需要和Marathon结合使用
 - **Kubernetes**：Google开源的的容器编排工具
 
-![image-20200524150339551](Kubenetes.assets/image-20200524150339551.png)
+![image-20200524150339551](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-23-01-248.assets\\image-20200524150339551)
 
 ## 1.2 kubernetes简介
 
-![image-20200406232838722](Kubenetes.assets/image-20200406232838722.png)
+![image-20200406232838722](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-23-05-691.assets\\image-20200406232838722)
 
  
 
@@ -59,8 +59,6 @@ kubernetes的本质是**一组服务器集群**，它可以在集群的每个节
 - **负载均衡**：如果一个服务起动了多个容器，能够自动实现请求的负载均衡
 - **版本回退**：如果发现新发布的程序版本有问题，可以立即回退到原来的版本
 - **存储编排**：可以根据容器自身的需求自动创建存储卷
-
-![image-20200526203726071](Kubenetes.assets/image-20200526203726071-1626780706899.png)
 
 ## 1.3 kubernetes组件
 
@@ -84,7 +82,7 @@ kubernetes的本质是**一组服务器集群**，它可以在集群的每个节
 >
 > **Docker** : 负责节点上容器的各种操作
 
-![image-20200406184656917](Kubenetes.assets/image-20200406184656917.png)
+![image-20200406184656917](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-23-20-587.assets\\image-20200406184656917)
 
 下面，以部署一个nginx服务来说明kubernetes系统各个组件调用关系：
 
@@ -142,7 +140,7 @@ Kubeadm 是一个K8s 部署工具，提供kubeadm init 和kubeadm join，用于�
 
 Kubeadm 降低部署门槛，但屏蔽了很多细节，遇到问题很难排查。如果想更容易可控，推荐使用二进制包部署Kubernetes 集群，虽然手动部署麻烦点，期间可以学习很多工作原理，也利于后期维护。
 
-![image-20200404094800622](Kubenetes.assets/image-20200404094800622.png)
+![image-20200404094800622](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-23-25-631.assets\\image-20200404094800622)
 
 ## 2.2 kubeadm 部署方式介绍
 
@@ -173,7 +171,7 @@ kubeadm 是官方社区推出的一个用于快速部署kubernetes 集群的工�
 
  
 
-![image-20210609000002940](Kubenetes.assets/image-20210609000002940.png)
+![image-20210609000002940](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-23-31-459.assets\\image-20210609000002940)
 
 | 角色         | IP地址          | 组件                              |
 | :----------- | :-------------- | :-------------------------------- |
@@ -1260,7 +1258,7 @@ http://192.168.174.183:31459/
 >
 > 当然，如果Pod中程序的数据需要持久化，kubernetes还提供了各种`存储`系统。
 
-![image-20200406225334627](Kubenetes.assets/image-20200406225334627.png)
+![image-20200406225334627](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-23-51-100.assets\\image-20200406225334627)
 
 > 学习kubernetes的核心，就是学习如何对集群上的`Pod、Pod控制器、Service、存储`等各种资源进行操作
 
@@ -1629,7 +1627,7 @@ Namespace是kubernetes系统中的一种非常重要资源，它的主要作用�
 
 可以通过kubernetes的授权机制，将不同的namespace交给不同租户进行管理，这样就实现了多租户的资源隔离。此时还能结合kubernetes的资源配额机制，限定不同租户能占用的资源，例如CPU使用量、内存使用量等等，来实现租户可用资源的管理。
 
-![image-20200407100850484](Kubenetes.assets/image-20200407100850484.png)
+![image-20200407100850484](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-12-074.assets\\image-20200407100850484)
 
 kubernetes在集群启动之后，会默认创建几个namespace
 
@@ -1731,7 +1729,7 @@ Pod是kubernetes集群进行管理的最小单元，程序要运行必须部署�
 
 Pod可以认为是容器的封装，一个Pod中可以存在一个或者多个容器。
 
-![image-20200407121501907](Kubenetes.assets/image-20200407121501907.png)
+![image-20200407121501907](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-17-115.assets\\image-20200407121501907)
 
 kubernetes在集群启动之后，集群中的各个组件也都是以Pod方式运行的。可以通过下面命令查看：
 
@@ -2002,7 +2000,7 @@ spec:
 
 在kubernetes中Pod控制器的种类有很多，本章节只介绍一种：Deployment。
 
-![image-20200408193950807](Kubenetes.assets/image-20200408193950807.png)
+![image-20200408193950807](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-23-745.assets\\image-20200408193950807)
 
 **命令操作**
 
@@ -2119,7 +2117,7 @@ spec:
 
 Service可以看作是一组同类Pod**对外的访问接口**。借助Service，应用可以方便地实现服务发现和负载均衡。
 
-![image-20200408194716912](Kubenetes.assets/image-20200408194716912.png)
+![image-20200408194716912](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-28-868.assets\\image-20200408194716912)
 
 **操作一：创建集群内部可访问的Service**
 
@@ -2213,7 +2211,7 @@ spec:
 
 ### 5.1.1 Pod结构
 
-![image-20200407121501907](Kubenetes.assets/image-20200407121501907-1626781151898.png)
+![image-20200407121501907](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-35-563.assets\\image-20200407121501907-1626781151898)
 
 每个Pod中都可以包含一个或者多个容器，这些容器可以分为两类：
 
@@ -2413,7 +2411,7 @@ spec:
     image: busybox:1.30
 ```
 
-![image-20210617223823675](Kubenetes.assets/image-20210617223823675-1626781695411.png)
+![image-20210617223823675](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-43-786.assets\\image-20210617223823675-1626781695411)
 
 上面定义了一个比较简单Pod的配置，里面有两个容器：
 
@@ -2460,7 +2458,7 @@ spec:
     image: busybox:1.30
 ```
 
-![image-20210617223923659](Kubenetes.assets/image-20210617223923659.png)
+![image-20210617223923659](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-48-029.assets\\image-20210617223923659)
 
 imagePullPolicy，用于设置镜像拉取策略，kubernetes支持配置三种拉取策略：
 
@@ -2523,7 +2521,7 @@ spec:
     command: ["/bin/sh","-c","touch /tmp/hello.txt;while true;do /bin/echo $(date +%T) >> /tmp/hello.txt; sleep 3; done;"]
 ```
 
-![image-20210617224457945](Kubenetes.assets/image-20210617224457945.png)
+![image-20210617224457945](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-51-251.assets\\image-20210617224457945)
 
 command，用于在pod中的容器初始化完毕之后运行一个命令。
 
@@ -2745,7 +2743,7 @@ Warning  FailedScheduling  35s   default-scheduler  0/3 nodes are available: 1 n
   - 容器的存活性探测（liveness probe）、就绪性探测（readiness probe）
 - pod终止过程
 
-![image-20200412111402706](Kubenetes.assets/image-20200412111402706-1626782188724.png)
+![image-20200412111402706](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-55-359.assets\\image-20200412111402706-1626782188724)
 
 在整个生命周期中，Pod会出现5种**状态**（**相位**），分别如下：
 
@@ -2771,7 +2769,7 @@ Warning  FailedScheduling  35s   default-scheduler  0/3 nodes are available: 1 n
 
 6. apiServer将接收到的pod状态信息存入etcd中
 
-   ![image-20200406184656917](Kubenetes.assets/image-20200406184656917-1626782168787.png)
+   ![image-20200406184656917](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-24-58-217.assets\\image-20200406184656917-1626782168787)
 
 **pod的终止过程**
 
@@ -3696,7 +3694,7 @@ Node被设置上污点之后就和Pod之间存在了一种相斥的关系，进�
 - NoSchedule：kubernetes将不会把Pod调度到具有该污点的Node上，但不会影响当前Node上已存在的Pod
 - NoExecute：kubernetes将不会把Pod调度到具有该污点的Node上，同时也会将Node上已存在的Pod驱离
 
-![image-20200605021606508](Kubenetes.assets/image-20200605021831545.png)
+![image-20200605021606508](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-12-351.assets\\image-20200605021831545)
 
 使用kubectl设置和去除污点的命令示例如下：
 
@@ -3761,7 +3759,7 @@ taint3-6d78dbd749-tktkq   0/1     Pending   0          6s    <none>   <none>   <
 
 上面介绍了污点的作用，我们可以在node上添加污点用于拒绝pod调度上来，但是如果就是想将一个pod调度到一个有污点的node上去，这时候应该怎么做呢？这就要使用到**容忍**。
 
-![image-20200514095913741](Kubenetes.assets/image-20200514095913741.png)
+![image-20200514095913741](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-16-899.assets\\image-20200514095913741)
 
 > 污点就是拒绝，容忍就是忽略，Node通过污点拒绝pod调度上去，Pod通过容忍忽略拒绝
 
@@ -3844,7 +3842,7 @@ Pod是kubernetes的最小管理单元，在kubernetes中，按照pod的创建方
 
 ReplicaSet的主要作用是**保证一定数量的pod正常运行**，它会持续监听这些Pod的运行状态，一旦Pod发生故障，就会重启或重建。同时它还支持对pod数量的扩缩容和镜像版本的升降级。
 
-![img](Kubenetes.assets/image-20200612005334159.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-20-749.assets\\image-20200612005334159)
 
 ReplicaSet的资源清单文件：
 
@@ -4021,7 +4019,7 @@ replicaset.apps "pc-replicaset" deleted
 
 为了更好的解决服务编排的问题，kubernetes在V1.2版本开始，引入了Deployment控制器。值得一提的是，这种控制器并不直接管理pod，而是通过管理ReplicaSet来简介管理Pod，即：Deployment管理ReplicaSet，ReplicaSet管理Pod。所以Deployment比ReplicaSet功能更加强大。
 
-![img](Kubenetes.assets/image-20200612005524778.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-25-480.assets\\image-20200612005524778)
 
 Deployment主要功能有下面几个：
 
@@ -4260,7 +4258,7 @@ pc-deployment-c848d767-rrqcn    0/1     Terminating         0          34m
 
 滚动更新的过程：
 
-![img](Kubenetes.assets/image-20200416140251491.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-30-528.assets\\image-20200416140251491)
 
 镜像更新中rs的变化
 
@@ -4385,7 +4383,7 @@ deployment.apps "pc-deployment" deleted
 
 HPA可以获取每个Pod利用率，然后和HPA中定义的指标进行对比，同时计算出需要伸缩的具体值，最后实现Pod的数量的调整。其实HPA与之前的Deployment一样，也属于一种Kubernetes资源对象，它通过追踪分析RC控制的所有目标Pod的负载变化情况，来确定是否需要针对性地调整目标Pod的副本数，这是HPA的实现原理。
 
-![img](Kubenetes.assets/image-20200608155858271.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-34-968.assets\\image-20200608155858271)
 
 接下来，我们来做一个实验
 
@@ -4409,7 +4407,7 @@ args:
 - --kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP
 ```
 
-![image-20200608163326496](Kubenetes.assets/image-20200608163326496.png)
+![image-20200608163326496](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-39-211.assets\\image-20200608163326496)
 
 ```shell
 # 安装metrics-server
@@ -4601,7 +4599,7 @@ nginx-7df9756ccc-sl9c6   1/1     Terminating         0          6m50s
 
 DaemonSet类型的控制器可以保证在集群中的每一台（或指定）节点上都运行一个副本。一般适用于日志收集、节点监控等场景。也就是说，如果一个Pod提供的功能是节点级别的（每个节点都需要且只需要一个），那么这类Pod就适合使用DaemonSet类型的控制器创建。
 
-![img](Kubenetes.assets/image-20200612010223537.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-46-995.assets\\image-20200612010223537)
 
 DaemonSet控制器的特点：
 
@@ -4691,7 +4689,7 @@ Job，主要用于负责**批量处理(一次要处理指定数量任务)**短�
 - 当Job创建的pod执行成功结束时，Job将记录成功结束的pod数量
 - 当成功结束的pod达到指定的数量时，Job将完成执行
 
-![img](Kubenetes.assets/image-20200618213054113.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-50-687.assets\\image-20200618213054113)
 
 Job的资源清单文件：
 
@@ -4814,7 +4812,7 @@ job.batch "pc-job" deleted
 
 CronJob控制器以Job控制器资源为其管控对象，并借助它管理pod资源对象，Job控制器定义的作业任务在其控制器资源创建之后便会立即执行，但CronJob可以以类似于Linux操作系统的周期性任务作业计划的方式控制其运行**时间点**及**重复运行**的方式。也就是说，**CronJob可以在特定的时间点(反复的)去运行job任务**。
 
-![img](Kubenetes.assets/image-20200618213149531.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-53-796.assets\\image-20200618213149531)
 
 CronJob的资源清单文件：
 
@@ -4940,11 +4938,11 @@ cronjob.batch "pc-cronjob" deleted
 
 为了解决这个问题，kubernetes提供了Service资源，Service会对提供同一个服务的多个pod进行聚合，并且提供一个统一的入口地址。通过访问Service的入口地址就能访问到后面的pod服务。
 
-![img](Kubenetes.assets/image-20200408194716912-1626783758946.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-57-007.assets\\image-20200408194716912-1626783758946)
 
 Service在很多情况下只是一个概念，真正起作用的其实是kube-proxy服务进程，每个Node节点上都运行着一个kube-proxy服务进程。当创建Service的时候会通过api-server向etcd写入创建的service的信息，而kube-proxy会基于监听的机制发现这种Service的变动，然后**它会将最新的Service信息转换成对应的访问规则**。
 
-![img](Kubenetes.assets/image-20200509121254425.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-25-59-012.assets\\image-20200509121254425)
 
 
 
@@ -4969,19 +4967,19 @@ kube-proxy目前支持三种工作模式:
 
 userspace模式下，kube-proxy会为每一个Service创建一个监听端口，发向Cluster IP的请求被Iptables规则重定向到kube-proxy监听的端口上，kube-proxy根据LB算法选择一个提供服务的Pod并和其建立链接，以将请求转发到Pod上。  该模式下，kube-proxy充当了一个四层负责均衡器的角色。由于kube-proxy运行在userspace中，在进行转发处理时会增加内核和用户空间之间的数据拷贝，虽然比较稳定，但是效率比较低。
 
-![img](Kubenetes.assets/image-20200509151424280.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-01-292.assets\\image-20200509151424280)
 
 **iptables 模式**
 
 iptables模式下，kube-proxy为service后端的每个Pod创建对应的iptables规则，直接将发向Cluster IP的请求重定向到一个Pod IP。  该模式下kube-proxy不承担四层负责均衡器的角色，只负责创建iptables规则。该模式的优点是较userspace模式效率更高，但不能提供灵活的LB策略，当后端Pod不可用时也无法进行重试。
 
-![img](Kubenetes.assets/image-20200509152947714.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-04-542.assets\\image-20200509152947714)
 
 **ipvs 模式**
 
 ipvs模式和iptables类似，kube-proxy监控Pod的变化并创建相应的ipvs规则。ipvs相对iptables转发效率更高。除此以外，ipvs支持更多的LB算法。
 
-![img](Kubenetes.assets/image-20200509153731363.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-11-793.assets\\image-20200509153731363)
 
 ```shell
 # 此模式必须安装ipvs内核模块，否则会降级为iptables
@@ -5146,7 +5144,7 @@ Endpoint是kubernetes中的一个资源对象，存储在etcd中，用来记录�
 
 一个Service由一组Pod组成，这些Pod通过Endpoints暴露出来，**Endpoints是实现实际服务的端点集合**。换句话说，service和pod之间的联系是通过endpoints实现的。
 
-![image-20200509191917069](Kubenetes.assets/image-20200509191917069.png)
+![image-20200509191917069](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-17-177.assets\\image-20200509191917069)
 
 **负载分发策略**
 
@@ -5258,7 +5256,7 @@ service-headliness.dev.svc.cluster.local. 30 IN A 10.244.2.33
 
 在之前的样例中，创建的Service的ip地址只有集群内部才可以访问，如果希望将Service暴露给集群外部使用，那么就要使用到另外一种类型的Service，称为NodePort类型。NodePort的工作原理其实就是**将service的端口映射到Node的一个端口上**，然后就可以通过`NodeIp:NodePort`来访问service了。
 
-![img](Kubenetes.assets/image-20200620175731338.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-21-420.assets\\image-20200620175731338)
 
 创建service-nodeport.yaml
 
@@ -5295,13 +5293,13 @@ service-nodeport   NodePort   10.105.64.191   <none>        80:30002/TCP  app=ng
 
 LoadBalancer和NodePort很相似，目的都是向外部暴露一个端口，区别在于LoadBalancer会在集群的外部再来做一个负载均衡设备，而这个设备需要外部环境支持的，外部服务发送到这个设备上的请求，会被设备负载之后转发到集群中。
 
-![img](Kubenetes.assets/image-20200510103945494.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-23-486.assets\\image-20200510103945494)
 
 ### 7.3.6 ExternalName类型的Service
 
 ExternalName类型的Service用于引入集群外部的服务，它通过`externalName`属性指定外部一个服务的地址，然后在集群内部访问此service就可以访问到外部的服务了。
 
-![img](Kubenetes.assets/image-20200510113311209.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-28-03-139.assets\\image-20200510113311209)
 
 ```shell
 apiVersion: v1
@@ -5336,7 +5334,7 @@ www.a.shifen.com.       30      IN      A       39.156.66.14
 
 基于这种现状，kubernetes提供了Ingress资源对象，Ingress只需要一个NodePort或者一个LB就可以满足暴露多个Service的需求。工作机制大致如下图表示：
 
-![img](Kubenetes.assets/image-20200623092808049.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-26-786.assets\\image-20200623092808049)
 
 实际上，Ingress相当于一个7层的负载均衡器，是kubernetes对反向代理的一个抽象，它的工作原理类似于Nginx，可以理解成在**Ingress里建立诸多映射规则，Ingress Controller通过监听这些配置规则并转化成Nginx的反向代理配置 , 然后对外部提供服务**。在这里有两个核心概念：
 
@@ -5350,7 +5348,7 @@ Ingress（以Nginx为例）的工作原理如下：
 3. Ingress控制器会将生成的Nginx配置写入到一个运行着的Nginx服务中，并动态更新
 4. 到此为止，其实真正在工作的就是一个Nginx了，内部配置了用户定义的请求转发规则
 
-![img](Kubenetes.assets/image-20200516112704764.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-29-765.assets\\image-20200516112704764)
 
 ## 7.5 Ingress使用
 
@@ -5388,7 +5386,7 @@ ingress-nginx   NodePort   10.98.75.163   <none>        80:32240/TCP,443:31335/T
 
 为了后面的实验比较方便，创建如下图所示的模型
 
-![img](Kubenetes.assets/image-20200516102419998.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-32-737.assets\\image-20200516102419998)
 
 创建tomcat-nginx.yaml
 
@@ -5628,7 +5626,7 @@ EmptyDir是在Pod被分配到Node时创建的，它的初始内容为空，并�
 
 在一个Pod中准备两个容器nginx和busybox，然后声明一个Volume分别挂在到两个容器的目录中，然后nginx容器负责向Volume中写日志，busybox中通过命令将日志内容读到控制台。
 
-![img](Kubenetes.assets/image-20200413174713773.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-37-156.assets\\image-20200413174713773)
 
 创建一个volume-emptydir.yaml
 
@@ -5683,7 +5681,7 @@ volume-emptydir       2/2     Running   0          97s   10.42.2.9   k8s-node-1 
 
 HostPath就是将Node主机中一个实际目录挂在到Pod中，以供容器使用，这样的设计就可以保证Pod销毁了，但是数据依据可以存在于Node主机上。
 
-![img](Kubenetes.assets/image-20200413214031331.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-40-699.assets\\image-20200413214031331)
 
 创建一个volume-hostpath.yaml：
 
@@ -5753,7 +5751,7 @@ HostPath可以解决数据持久化的问题，但是一旦Node节点故障了�
 
 NFS是一个网络文件存储系统，可以搭建一台NFS服务器，然后将Pod中的存储直接连接到NFS系统上，这样的话，无论Pod在节点上怎么转移，只要Node跟NFS的对接没问题，数据就可以成功访问。
 
-![img](Kubenetes.assets/image-20200413215133559.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-44-728.assets\\image-20200413215133559)
 
 1）首先要准备nfs的服务器，这里为了简单，直接是master节点做nfs服务器
 
@@ -5835,7 +5833,7 @@ PV（Persistent Volume）是持久化卷的意思，是对底层的共享存储�
 
 PVC（Persistent Volume Claim）是持久卷声明的意思，是用户对于存储需求的一种声明。换句话说，PVC其实就是用户向kubernetes系统发出的一种资源需求申请。
 
-![img](Kubenetes.assets/image-20200514194111567.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-48-819.assets\\image-20200514194111567)
 
 使用了PV和PVC之后，工作可以得到进一步的细分：
 
@@ -6197,7 +6195,7 @@ PVC和PV是一一对应的，PV和PVC之间的相互作用遵循以下生命周�
 
   对于PV，管理员可以设定回收策略，用于设置与之绑定的PVC释放资源之后如何处理遗留数据的问题。只有PV的存储空间完成回收，才能供新的PVC绑定和使用
 
-![img](Kubenetes.assets/image-20200515002806726.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-26-55-626.assets\\image-20200515002806726)
 
 ## 8.3 配置存储
 
@@ -6389,7 +6387,7 @@ Kubernetes作为一个分布式集群的管理工具，保证集群的安全性�
 - **User Account**：一般是独立于kubernetes之外的其他服务管理的用户账号。
 - **Service Account**：kubernetes管理的账号，用于为Pod中的服务进程在访问Kubernetes时提供身份标识。
 
-![img](Kubenetes.assets/image-20200520102949189.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-00-666.assets\\image-20200520102949189)
 
 **认证、授权与准入控制**
 
@@ -6399,7 +6397,7 @@ ApiServer是访问及管理资源对象的唯一入口。任何一个请求访�
 - Authorization（授权）： 判断用户是否有权限对访问的资源执行特定的动作
 - Admission Control（准入控制）：用于补充授权机制以实现更加精细的访问控制功能。
 
-![img](Kubenetes.assets/image-20200520103942580.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-03-688.assets\\image-20200520103942580)
 
 ## 9.2 认证管理
 
@@ -6423,7 +6421,7 @@ Kubernetes集群安全的最关键点在于如何识别并认证客户端身份�
       这种认证方式是安全性最高的一种方式，但是同时也是操作起来最麻烦的一种方式。
   ```
 
-![img](Kubenetes.assets/image-20200518211037434.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-06-895.assets\\image-20200518211037434)
 
 **HTTPS认证大体分为3个过程：**
 
@@ -6475,7 +6473,7 @@ RBAC(Role-Based Access Control) 基于角色的访问控制，主要是在描述
 - 角色：代表着一组定义在资源上的可操作动作(权限)的集合
 - 绑定：将定义好的角色跟用户绑定在一起
 
-![img](Kubenetes.assets/image-20200519181209566.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-10-536.assets\\image-20200519181209566)
 
 RBAC引入了4个顶级资源对象：
 
@@ -6794,11 +6792,11 @@ ca.crt:     1025 bytes
 
 在登录页面上输入上面的token
 
-![image-20200520144548997](Kubenetes.assets/image-20200520144548997.png)
+![image-20200520144548997](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-16-940.assets\\image-20200520144548997)
 
 出现下面的页面代表成功
 
-![image-20200520144959353](Kubenetes.assets/image-20200520144959353.png)
+![image-20200520144959353](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-18-637.assets\\image-20200520144959353)
 
 ## 10.2 使用DashBoard
 
@@ -6808,31 +6806,31 @@ ca.crt:     1025 bytes
 
 选择指定的命名空间`dev`，然后点击`Deployments`，查看dev空间下的所有deployment
 
-![img](Kubenetes.assets/image-20200520154628679.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-20-752.assets\\image-20200520154628679)
 
 **扩缩容**
 
 在`Deployment`上点击`规模`，然后指定`目标副本数量`，点击确定
 
-![img](Kubenetes.assets/image-20200520162605102.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-23-049.assets\\image-20200520162605102)
 
 **编辑**
 
 在`Deployment`上点击`编辑`，然后修改`yaml文件`，点击确定
 
-![image-20200520163253644](Kubenetes.assets/image-20200520163253644.png)
+![image-20200520163253644](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-24-841.assets\\image-20200520163253644)
 
 **查看Pod**
 
 点击`Pods`, 查看pods列表
 
-![img](Kubenetes.assets/image-20200520163552110.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-26-332.assets\\image-20200520163552110)
 
 **操作Pod**
 
 选中某个Pod，可以对其执行日志（logs）、进入执行（exec）、编辑、删除操作
 
-![img](Kubenetes.assets/image-20200520163832827.png)
+![img](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2021/12/17/09-27-28-556.assets\\image-20200520163832827)
 
 > Dashboard提供了kubectl的绝大部分功能，这里不再一一演示
 
