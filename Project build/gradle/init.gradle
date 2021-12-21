@@ -1,32 +1,54 @@
 import java.util.concurrent.TimeUnit
 allprojects { Project project ->
-    repositories {
-        mavenLocal()
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/repository/spring' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://repo.spring.io/release' }
-        maven { url 'https://repo.spring.io/milestone' }
-        mavenCentral()
-    
+    // https://developer.aliyun.com/mvn/guide
+    allprojects {
+        repositories {
+            mavenLocal()
+            maven { url 'https://maven.aliyun.com/repository/central'}
+            maven { url 'https://maven.aliyun.com/repository/public'}
+            maven { url 'https://maven.aliyun.com/repository/google'}
+            maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+            maven { url 'https://maven.aliyun.com/repository/spring'}
+            maven { url 'https://maven.aliyun.com/repository/spring-plugin'}
+            maven { url 'https://maven.aliyun.com/repository/grails-core'}
+            maven { url 'https://maven.aliyun.com/repository/apache-snapshots'}
+            maven { url 'https://plugins.gradle.org/m2/' }
+            maven { url 'https://nexus.jmix.io/repository/public' }
+            maven { url 'https://global.repo.jmix.io/repository/public' }
+            maven { url 'https://developer.huawei.com/repo'}
+            maven { url 'https://jitpack.io' }
+            google()
+            mavenCentral()
+        }
     }
+
     buildscript { 
         repositories { 
             mavenLocal()
-            maven { url 'https://maven.aliyun.com/repository/central' }
-            maven { url 'https://maven.aliyun.com/repository/spring' }
-            maven { url 'https://maven.aliyun.com/repository/google' }
-            maven { url 'https://repo.spring.io/release' }
-            maven { url 'https://repo.spring.io/milestone' }
+            maven { url 'https://maven.aliyun.com/repository/central'}
+            maven { url 'https://maven.aliyun.com/repository/public'}
+            maven { url 'https://maven.aliyun.com/repository/google'}
+            maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+            maven { url 'https://maven.aliyun.com/repository/spring'}
+            maven { url 'https://maven.aliyun.com/repository/spring-plugin'}
+            maven { url 'https://maven.aliyun.com/repository/grails-core'}
+            maven { url 'https://maven.aliyun.com/repository/apache-snapshots'}
             maven { url 'https://plugins.gradle.org/m2/' }
+            maven { url 'https://nexus.jmix.io/repository/public' }
+            maven { url 'https://global.repo.jmix.io/repository/public' }
+            maven { url 'https://developer.huawei.com/repo'}
+            maven { url 'https://jitpack.io' }
+            google()
+            mavenCentral()
         }
     }
+
     configurations.all {
         resolutionStrategy {
-            // cache dynamic versions for 120 minutes
-            cacheDynamicVersionsFor 120 * 60, TimeUnit.SECONDS
+            // cache dynamic versions for 7 * 24 hours
+            cacheDynamicVersionsFor 7 * 24, TimeUnit.HOURS
             // don't cache changing modules at all
-            cacheChangingModulesFor 0, TimeUnit.SECONDS
+            cacheChangingModulesFor 24, TimeUnit.HOURS
         }
     }
 }
