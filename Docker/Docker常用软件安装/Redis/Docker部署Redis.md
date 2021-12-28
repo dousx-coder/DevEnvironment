@@ -12,24 +12,22 @@ docker search redis
 docker pull redis:latest
 ```
 
-3.配置redis.conf
+3.创建映射目录
+
+```sh
+mkdir  -p /usr/local/docker/redis
+```
+4.配置redis.conf（也可以直接拿同目录下配置使用）
 
 ```shell
-将redis.conf上传到改目录下
+将redis.conf上传到该目录(/usr/local/docker/redis/)下
 # bind 127.0.0.1
 protected-mode no
 daemonize no
 requirepass 密码
 
 ```
-
-4.创建映射目录
-
-```
-mkdir  -p /usr/local/docker/redis
-```
-
- 创建容器，设置端口映射
+5.创建容器，设置端口映射
 
 ```shell
 docker run -p 6379:6379 \
@@ -41,7 +39,7 @@ docker run -p 6379:6379 \
 --appendonly yes
 ```
 
-5.使用外部机器连接redis
+6.使用外部机器连接redis
 
 ```shell
 # -a后面为reids密码
