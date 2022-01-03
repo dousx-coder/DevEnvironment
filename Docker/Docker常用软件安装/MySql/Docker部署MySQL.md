@@ -58,6 +58,8 @@ docker exec -it mysql57 /bin/bash
 
 ```shell
 docker pull mysql:8.0
+mkdir -p /usr/local/docker/mysql80
+cd /usr/local/docker/mysql80
 ```
 
 ```shell
@@ -81,4 +83,5 @@ mysql -uroot -p
 use mysql;
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 FLUSH PRIVILEGES; 
+exit;
 ```
