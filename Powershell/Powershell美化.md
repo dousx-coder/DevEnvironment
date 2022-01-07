@@ -1,5 +1,7 @@
 # Powershell美化
 
+> 官方文档 https://ohmyposh.dev/docs/
+
 ## 1.安装Powershell
 
 https://hub.fastgit.org/PowerShell/PowerShell/releases/latest
