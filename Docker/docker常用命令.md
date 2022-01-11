@@ -1,4 +1,5 @@
-```
+# Docker常用命令
+```sh
 --name:为容器指定名称
 -it:启动一个交互型容器，此参数为我们和容器提供了一个交互shell
 -d:创建后台型容器
@@ -17,7 +18,7 @@
 ```
 
 ```shell
-查询容器独立ip
+#查询容器独立ip
 docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器id或者名称
 ```
 
@@ -32,5 +33,13 @@ docker cp /opt/dockerSoftware/my.cnf mysql802:/etc/mysql/my.cnf
 ```sh
 # ps查看指定的列
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}" -a
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" -a
+```
+
+```sh
+# 设置容器随docker启动自启
+docker update --restart=always CONTAINER ID
+# 设置所有容器随docker启动而启动
+docker update --restart=always $(docker ps -q)
 ```
 
