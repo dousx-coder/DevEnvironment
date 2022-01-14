@@ -86,3 +86,13 @@ java -javaagent:/opt/pinpoint-agent/pinpoint-bootstrap-2.1.0.jar -Dpinpoint.agen
 ```
 
 启动会稍微有点慢，启动完成之后在WebUI上刷新可看到应用信息
+
+
+
+## 删除application
+
+`applicationName`参数设置为需要删除的application
+
+```sh
+curl --location --request GET 'http://192.168.174.181:8079/admin/removeAgentId.pinpoint?applicationName=performance-1&agentId=agentId-1&password=admin'
+```

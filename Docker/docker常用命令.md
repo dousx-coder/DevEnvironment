@@ -43,3 +43,10 @@ docker update --restart=always CONTAINER ID
 docker update --restart=always $(docker ps -q)
 ```
 
+```sh
+# 将pinpoint images压缩到p.tar里
+docker save -o p.tar pinpointdocker/pinpoint-hbase:2.3.3 pinpointdocker/pinpoint-mysql:2.3.3 pinpointdocker/pinpoint-flink:2.3.3 pinpointdocker/pinpoint-collector:2.3.3 pinpointdocker/pinpoint-agent:2.3.3 pinpointdocker/pinpoint-quickstart:latest pinpointdocker/pinpoint-web:2.3.3 zookeeper:3.4
+# 通过tar加载镜像
+docker load<p.tar 
+```
+
