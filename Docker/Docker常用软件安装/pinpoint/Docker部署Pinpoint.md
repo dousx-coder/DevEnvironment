@@ -11,6 +11,7 @@ git checkout 2.1.0
 docker-compose pull && docker-compose up -d
 # 手动设置 所有容器随docker启动自启
 docker update --restart=always $(docker ps -q)
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" -a
 ```
 
 ## 访问

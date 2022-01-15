@@ -11,10 +11,16 @@ docker pull nacos/nacos-server
 ```shell
 #参数说明：
 #MODE standalone  单机模式
-docker run --env MODE=standalone --name nacos -d -p 8056:8848  -p 9056:9056 nacos/nacos-server
+docker run --env MODE=standalone --name nacos --restart=always -d -p 8056:8848  -p 9056:9056 nacos/nacos-server
 
 # nacos2.0 新开了两个端口默认端口（8848）+1000/1001, 就是9848、9849，用作gRPC与客户端、服务端做交互，所以如果引用的是2.0的客户端，server就要使用2.0的server
-docker run --env MODE=standalone --name nacos -d -p 8848:8848  -p 9848:9848 -p 9849:9849 nacos/nacos-server
+docker run --env MODE=standalone --name nacos --restart=always -d -p 8848:8848  -p 9848:9848 -p 9849:9849 nacos/nacos-server
+```
+
+2.0.3
+
+```sh
+docker run --name nacos -d -p 8848:8848 -p 9848:9848 -p 9849:9849 --privileged=true --restart=always -e MODE=standalone -e PREFER_HOST_MODE=hostname nacos/nacos-server:2.0.3
 ```
 
 3.访问测试
