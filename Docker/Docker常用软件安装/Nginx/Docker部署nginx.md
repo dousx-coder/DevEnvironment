@@ -53,7 +53,31 @@ server {
     }
 }
 ```
+#### 负载均衡配置
 
+```sh
+upstream gateway_servers {
+        server 192.168.174.202:8601;
+        server 192.168.174.202:8602;
+        server 192.168.174.202:8603;
+}
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    location /cloud-gateway/ {
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_pass http://gateway_servers/;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
 #### Linux查看docker宿主机ip
 
 > ifconfig 找到docker0的ip，可以代理docker宿主机的服务
@@ -144,3 +168,8 @@ Windows IP 配置
    子网掩码  . . . . . . . . . . . . : 255.255.255.0
    默认网关. . . . . . . . . . . . . : 192.168.0.1
 ```
+
+
+
+
+
