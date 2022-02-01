@@ -41,6 +41,10 @@ docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" -a
 docker update --restart=always CONTAINER ID
 # 设置所有容器随docker启动而启动
 docker update --restart=always $(docker ps -q)
+# 停止所有容器
+docker stop $(docker ps -a -q)
+# 删除所有容器
+docker rm $(docker ps -a -q)
 ```
 
 ```sh

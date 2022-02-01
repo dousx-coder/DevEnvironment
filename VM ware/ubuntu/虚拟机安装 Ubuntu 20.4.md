@@ -174,3 +174,13 @@ sudo apt-get upgrade
 sudo apt-get install build-essential
 ```
 
+### vim乱码
+
+`vim /etc/vim/vimrc`追加
+
+```
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+```
+
