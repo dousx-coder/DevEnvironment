@@ -29,3 +29,33 @@ elasticsearch.password: changeme
 # 默认没有这一句，配置这一句则为中文显示
 i18n.locale: "zh-CN"
 ```
+
+`logstash/pipeline/logstash.conf`
+
+```
+input {
+        beats {
+                port => 5044
+        }
+
+        tcp {
+                host => "0.0.0.0"
+                port => 5000
+        }
+}
+
+## Add your filters / logstash plugins configuration here
+
+output {
+        elasticsearch {
+                hosts => "elasticsearch:9200"
+                user => "elastic"
+                password => "changeme"
+                ecs_compatibility => disabled
+                index => "logstash-service-%{+YYYY.MM.dd}"
+        }
+}
+```
+
+
+
