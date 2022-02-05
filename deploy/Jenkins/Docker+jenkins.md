@@ -2,25 +2,25 @@
 
 ## 1. 安装Jenkins
 
-## 1.1 查找镜像
+### 1.1 查找镜像
 
 ```sh
 docker search jenkins
 ```
-## 1.2 拉取镜像
+### 1.2 拉取镜像
 ```sh
 docker pull jenkinsci/blueocean:latest
 ```
-## 1.3 创建容器
+### 1.3 创建容器
 ```sh
 docker run -d --name jenkins \
  --restart=always \
  -p 8080:8080 \
  -p 50000:50000 jenkinsci/blueocean:latest
 ```
-## 1.4 访问Jenkins
+### 1.4 访问Jenkins
 
-### 1.4.1 访问
+#### 1.4.1 访问
 
 打开浏览器输入http://ip:8080/
 
@@ -30,7 +30,7 @@ docker run -d --name jenkins \
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword                     
 ```
 
-### 1.4.2  进入插件安装页面
+#### 1.4.2  进入插件安装页面
 
 ![image-20220204174603494](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/04/05-46-03-883.png)
 
@@ -44,7 +44,7 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 ![image-20220204174712608](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/04/05-47-12-939.png)
 
-### 1.4.3创建管理员用户
+#### 1.4.3创建管理员用户
 
 ![image-20220204174751132](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/04/05-47-51-441.png)
 
@@ -267,7 +267,7 @@ esac
 
 ```
 
-### 4.7构建测试
+### 4.7 构建测试
 
 ![image-20220204185524094](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/04/06-55-24-382.png)
 
