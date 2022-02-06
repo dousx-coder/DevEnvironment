@@ -223,6 +223,12 @@ docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}" -f name=
 
 ![image-20220206141337482](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/06/02-13-37-710.png)
 
+**tips**
+
+如果出现`WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`，把`known_hosts`中，相关ip的删除即可（我这里出现，是因为gitlab搭建了两次）
+
+![image-20220206174128225](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/06/05-41-28-491.png)
+
 ### 5.3 push测试
 
 ![image-20220206141729794](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/06/02-17-30-071.png)
