@@ -15,16 +15,10 @@ CMD /bin/bash
 
 >Volume可以将容器以及容器产生的新数据分离开来，这样使用docker rm 容器删除容器时，不会影响相关数据。
 
-![image-20210717151906907](D:\DevEnvironment\Docker\DockerFile笔记.assets\image-20210717151906907.png)
-
 ```shell
 # 查看容器信息 其中Mounts为挂载卷信息,source为宿主机目录
 docker inspect 469442d13597 
 ```
-
-![image-20210717151447449](D:\DevEnvironment\Docker\DockerFile笔记.assets\image-20210717151447449.png)
-
-
 
 ## 构建
 
@@ -57,5 +51,3 @@ docker build -t doushaoxun/jenkins:0.1 .
 # / 前面需要是个人账号
 docker push doushaoxun/jenkins:0.1
 ```
-
-![image-20210718101440606](D:\DevEnvironment\Docker\DockerFile笔记.assets\image-20210718101440606.png)
