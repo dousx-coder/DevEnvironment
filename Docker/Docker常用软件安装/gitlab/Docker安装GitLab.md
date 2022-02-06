@@ -8,13 +8,13 @@ docker pull gitlab/gitlab-ce
 
 ## 2. 创建容器
 
-创建挂在目录
+### 2.1 创建挂在目录
 
 ```sh
 mkdir -p /usr/local/docker/gitlab
 ```
 
-创建容器
+### 2.2 创建容器
 
 ```sh
 docker run --name='gitlab' -d --restart=always \
@@ -23,6 +23,17 @@ docker run --name='gitlab' -d --restart=always \
 -v /usr/local/docker/gitlab/data:/var/opt/gitlab \
 -v /usr/local/docker/gitlab/logs:/var/log/gitlab \
 gitlab/gitlab-ce:latest
+```
+### 2.3 查看容器状态
+
+```shell
+~ # docker ps --format "table {{.Names}}\t{{.Status}}"  -f name=gitlab                         
+NAMES     STATUS
+gitlab    Up 12 seconds (health: starting)
+-----------------------------------------------------------------------------------------------
+~ # docker ps --format "table {{.Names}}\t{{.Status}}"  -f name=gitlab         
+NAMES     STATUS
+gitlab    Up 2 minutes (healthy)
 ```
 
 ## 3. 修改root密码
@@ -34,6 +45,8 @@ docker exec -it -u root gitlab /bin/bash
 ```
 
 ### 3.2 Ruby on Rails控制台
+
+容器状态为`healthy`的时候，在执行`gitlab-rails console`命令
 
 ```sh
 gitlab-rails console
@@ -83,7 +96,9 @@ exit
 
 ### 3.5 浏览器访问
 
-浏览器打开http://192.168.174.205:6001/，用root账号以及刚设置的密码登录GitLab
+浏览器打开http://192.168.174.205:6001/
+
+用root账号以及刚设置的密码登录GitLab
 
 ![image-20220206134151267](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/06/01-41-51-513.png)
 
@@ -162,13 +177,14 @@ production: &base
 第二个坑：如果`external_url`写了端口`6001`，重启配置，容器也能正常重启成功，但GitLab却访问不了了。问题的原因就出在external_url地址设置上。
  GitLab默认的http访问端口号为80端口，如果想更改端口号，一般是通过docker run时设置端口映射，将80端口映射为其他端口。
 
-**删除容器，重写创建容器**
+### 4.3 重新创建容器
+停止容器&删除容器&创建容器
+
+此时会用新的配置（`gitlab.yml`和`gitlab.rb`）创建容器
 
 ```sh
-docker stop gitlab &  docker rm -f gitlab
-```
-
-```sh
+docker stop gitlab & \
+docker rm -f gitlab & \
 docker run --name='gitlab' -d --restart=always \
 --publish 6001:6001 --publish 6002:443  --publish 6003:22 \
 -v /usr/local/docker/gitlab/etc:/etc/gitlab \
@@ -180,7 +196,7 @@ gitlab/gitlab-ce:latest
 查看容器状态
 
 ```sh
-docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}" -a
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}" -f name=gitlab 
 ```
 
 ## 5.创建项目
