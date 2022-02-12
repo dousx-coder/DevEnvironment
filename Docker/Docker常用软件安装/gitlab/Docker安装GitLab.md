@@ -234,3 +234,7 @@ docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}" -f name=
 ![image-20220206141729794](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/06/02-17-30-071.png)
 
 ![image-20220206141914121](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/06/02-19-14-426.png)
+
+**关闭持续集成**
+
+![image-20220212160444101](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/02/12/04-04-44-476.png)
