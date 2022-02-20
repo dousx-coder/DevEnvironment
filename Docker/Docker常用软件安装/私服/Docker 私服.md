@@ -123,6 +123,8 @@ docker pull nginx:latest \
 
 ### 安装 
 
+> [harbor](https://github.com/goharbor/harbor/releases)
+
 ` 192.168.174.203`搭建
 
 ```sh
@@ -205,7 +207,6 @@ docker push 192.168.174.203:80/ng/nginx.2022.02.20:v1
 ```sh
 ~ # docker images -a                                                                           
 REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
------------------------------------------------------------------------------------------------
 ~ # docker pull nginx:latest                                                                   
 latest: Pulling from library/nginx
 a2abf6c4d29d: Pull complete
@@ -217,14 +218,11 @@ a0bcbecc962e: Pull complete
 Digest: sha256:0d17b565c37bcbd895e9d92315a05c1c3c9a29f762b011a10c54a66cd53c9b31
 Status: Downloaded newer image for nginx:latest
 docker.io/library/nginx:latest
------------------------------------------------------------------------------------------------
 ~ # docker tag nginx:latest 192.168.174.203:80/ng/nginx.2022.02.20:v1                           
------------------------------------------------------------------------------------------------
 ~ # docker images -a                                                                           
 REPOSITORY                               TAG       IMAGE ID       CREATED       SIZE
 192.168.174.203:80/ng/nginx.2022.02.20   v1        605c77e624dd   7 weeks ago   141MB
 nginx                                    latest    605c77e624dd   7 weeks ago   141MB
------------------------------------------------------------------------------------------------
 ~ # docker push 192.168.174.203:80/ng/nginx.2022.02.20:v1                                       
 The push refers to repository [192.168.174.203:80/ng/nginx.2022.02.20]
 d874fd2bc83b: Layer already exists
@@ -234,7 +232,6 @@ b8d6e692a25e: Layer already exists
 e379e8aedd4d: Layer already exists
 2edcec3590a4: Layer already exists
 v1: digest: sha256:ee89b00528ff4f02f2405e4ee221743ebc3f8e8dd0bfd5c4c20a2fa2aaa7ede3 size: 1570
------------------------------------------------------------------------------------------------
 ~ # docker rmi 192.168.174.203:80/ng/nginx.2022.02.20:v1 nginx:latest -f                       
 Untagged: 192.168.174.203:80/ng/nginx.2022.02.20:v1
 Untagged: 192.168.174.203:80/ng/nginx.2022.02.20@sha256:ee89b00528ff4f02f2405e4ee221743ebc3f8e8dd0bfd5c4c20a2fa2aaa7ede3
@@ -247,10 +244,8 @@ Deleted: sha256:02b80ac2055edd757a996c3d554e6a8906fd3521e14d1227440afd5163a5f1c4
 Deleted: sha256:b92aa5824592ecb46e6d169f8e694a99150ccef01a2aabea7b9c02356cdabe7c
 Deleted: sha256:780238f18c540007376dd5e904f583896a69fe620876cabc06977a3af4ba4fb5
 Deleted: sha256:2edcec3590a4ec7f40cf0743c15d78fb39d8326bc029073b41ef9727da6c851f
------------------------------------------------------------------------------------------------
 ~ # docker images -a                                                                           
 REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
------------------------------------------------------------------------------------------------
 ~ # docker pull 192.168.174.203:80/ng/nginx.2022.02.20:v1                                       
 v1: Pulling from ng/nginx.2022.02.20
 a2abf6c4d29d: Pull complete
@@ -262,7 +257,6 @@ a0bcbecc962e: Pull complete
 Digest: sha256:ee89b00528ff4f02f2405e4ee221743ebc3f8e8dd0bfd5c4c20a2fa2aaa7ede3
 Status: Downloaded newer image for 192.168.174.203:80/ng/nginx.2022.02.20:v1
 192.168.174.203:80/ng/nginx.2022.02.20:v1
------------------------------------------------------------------------------------------------
 ~ # docker images -a                                                                           
 REPOSITORY                               TAG       IMAGE ID       CREATED       SIZE
 192.168.174.203:80/ng/nginx.2022.02.20   v1        605c77e624dd   7 weeks ago   141MB
