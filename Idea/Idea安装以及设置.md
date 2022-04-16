@@ -1,0 +1,170 @@
+# Idea安装以及设置
+
+## 1. 插件
+
+- `CUBA`                          
+- `Alibaba Java Coding Guidelines` 
+- `Jmix`                           
+- `Rainbow Brackets`              
+- `Translation`                    
+-  `CodeGlance3`   
+-  `Foldable ProjectView`
+
+## 2.设置参数
+
+`Help `-> `Edit Custom VM Options`
+
+```properties
+-Xms2048m
+-Xmx2048m
+-XX:ReservedCodeCacheSize=2048m
+-XX:+UseConcMarkSweepGC
+-Dfile.encoding=UTF-8
+```
+
+## 3.导入配色
+
+导入`.icls`配色
+
+![image-20220415211838821](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/15/09-18-39-114.png)
+
+`dousx_custom.icls`内容如下:
+
+```xml
+<scheme name="dousx-custom" version="142" parent_scheme="Darcula">
+  <metaInfo>
+    <property name="created">2022-04-14T22:06:33</property>
+    <property name="ide">Idea</property>
+    <property name="ideVersion">2022.1.0.0</property>
+    <property name="modified">2022-04-14T22:06:38</property>
+    <property name="originalScheme">dousx-custom</property>
+  </metaInfo>
+  <attributes>
+    <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="39cb0" />
+      </value>
+    </option>
+    <option name="ANNOTATION_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="39c8b0" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="ANONYMOUS_CLASS_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="39c8b0" />
+      </value>
+    </option>
+    <option name="CLASS_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="39c8b0" />
+      </value>
+    </option>
+    <option name="CONSTRUCTOR_CALL_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="1cb7db" />
+      </value>
+    </option>
+    <option name="ENUM_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="39c8b0" />
+      </value>
+    </option>
+    <option name="HTML_CODE">
+      <value />
+    </option>
+    <option name="INHERITED_METHOD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="6b73de" />
+      </value>
+    </option>
+    <option name="INTERFACE_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="3d8f7f" />
+      </value>
+    </option>
+    <option name="JAVA_NUMBER">
+      <value>
+        <option name="FOREGROUND" value="6897bb" />
+      </value>
+    </option>
+    <option name="KOTLIN_LABEL">
+      <value />
+    </option>
+    <option name="LOCAL_VARIABLE_ATTRIBUTES">
+      <value />
+    </option>
+    <option name="MATCHED_BRACE_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="3b514d" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="METHOD_CALL_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="787bb4" />
+      </value>
+    </option>
+    <option name="PARAMETER_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="499cd5" />
+      </value>
+    </option>
+    <option name="REASSIGNED_LOCAL_VARIABLE_ATTRIBUTES">
+      <value>
+        <option name="EFFECT_COLOR" value="707d95" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="STATIC_FIELD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="ffc66d" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="ffc66d" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="STATIC_METHOD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="a0a53d" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+  </attributes>
+</scheme>
+```
+
+## 4.设置
+
+### 4.1 注释不在行首
+
+进入 Settings -> Code Style -> Java ，在右边选择 “Code Generation” Tab，然后找到 Comment Code 那块，
+去掉`Line comment at first column`和`Block comment at first column`前面的复选框
+
+![image-20220416194737517](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/16/07-47-37-832.png)
+
+### 4.2 自动导包
+
+  ![image-20220416194627247](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/16/07-46-27-476.png)
+
+### 4.3 打开不自动加载项目
+
+![image-20220416194810321](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/16/07-48-10-612.png)
+
+
+
+## 5.忽略某些文件的显示
+
+![image-20220415211519212](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/15/09-15-19-552.png)
+
+## 6.编码配置
+
+`.properties`如果出现中文乱码,设置`UTF-8`
+
+![image-20220415211448738](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/15/09-14-49-045.png)
+
