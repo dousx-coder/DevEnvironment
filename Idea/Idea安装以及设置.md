@@ -15,8 +15,8 @@
 `Help `-> `Edit Custom VM Options`
 
 ```properties
--Xms2048m
--Xmx2048m
+-Xms4096m
+-Xmx4096m
 -XX:ReservedCodeCacheSize=2048m
 -XX:+UseConcMarkSweepGC
 -Dfile.encoding=UTF-8
