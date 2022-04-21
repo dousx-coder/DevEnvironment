@@ -44,11 +44,11 @@
   sed -i 's|$HOME/.oh-my-zsh|/etc/oh-my-zsh|g' /etc/skel/.zshrc
   ```
 
-- 更改默认主题（推荐 ys） https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+- 更改默认主题（推荐 ys/steeef/af-magic） https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
   ```sh
   # 编辑 /etc/skel/.zshrc 文件修改
-  sed -i '/^ZSH_THEME=.*/c ZSH_THEME="af-magic"' /etc/skel/.zshrc
+  sed -i '/^ZSH_THEME=.*/c ZSH_THEME="steeef"' /etc/skel/.zshrc
   # 刷新配置
   source /etc/skel/.zshrc
   ```
