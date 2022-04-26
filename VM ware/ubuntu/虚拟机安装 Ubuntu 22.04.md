@@ -1,4 +1,4 @@
-## 虚拟机安装 Ubuntu 20.4
+## 虚拟机安装 Ubuntu 22.4
 #### 修改虚拟机名称
 ```sh
 # 默认是很长的字符串，太占空间，也可在安装时候改好。
@@ -83,8 +83,6 @@ sudo ufw status
 
 #### vm ubuntu 20 固定ip
 
-![image-20210916111254794](D:\DevEnvironment\VM ware\ubuntu\虚拟机安装 Ubuntu 20.4.assets\image-20210916111254794.png)
-
 ```sh
 dousx@linux:~$ cd /etc/netplan/ && ls 
 01-network-manager-all.yaml
@@ -96,15 +94,21 @@ dousx@linux:/etc/netplan$
 # Let NetworkManager manage all devices on this system
 network:
   ethernets:
-    ens33:     #配置的网卡的名称
-      addresses: [192.168.174.201/24]    #配置的静态ip地址和掩码
-      dhcp4: no    #关闭DHCP，如果需要打开DHCP则写yes
+    #配置的网卡的名称
+    ens33:    
+      #配置的静态ip地址和掩码
+      addresses: [192.168.174.201/24]    
+      #关闭DHCP，如果需要打开DHCP则写yes
+      dhcp4: no   
       optional: true
-      gateway4: 192.168.174.2   #网关地址
+      #网关地址
+      gateway4: 192.168.174.2   
       nameservers:
-        addresses: [8.8.8.8,8.8.4.4]    #DNS服务器地址，多个DNS服务器地址需要用英文逗号分隔开
+        #DNS服务器地址，多个DNS服务器地址需要用英文逗号分隔开
+        addresses: [8.8.8.8,8.8.4.4]    
   version: 2
-  renderer: networkd    #指定后端采用systemd-networkd或者Network Manager，可不填写则默认使用systemd-workd
+  #指定后端采用systemd-networkd或者Network Manager，可不填写则默认使用systemd-workd
+  renderer: networkd    
 
 ```
 
@@ -174,11 +178,18 @@ sudo apt-get upgrade
 sudo apt-get install build-essential
 ```
 
-### vim乱码
+### vim配置
 
 `vim /etc/vim/vimrc`追加
 
 ```
+set nu
+syntax on
+set  ruler
+set hlsearch
+set ignorecase
+set noswapfile
+set undofile
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
