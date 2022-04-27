@@ -1,6 +1,10 @@
-### Ubuntu  install  Java
+# Ubuntu 安装JDK的两种方式
 
-####  1.安装
+## 1.在线安装
+
+> 在线安装通过`apt upgrade` 方式方便获得jdk的升级
+
+###  1.1.安装
 
 ```sh
 sudo apt update
@@ -10,7 +14,7 @@ sudo apt install openjdk-11-jdk -y
 sudo apt install openjdk-8-jdk -y
 ```
 
-#### 2.查看当前Java版本
+###  1.2.查看当前Java版本
 
 ```sh
 root@linux:~# java -version
@@ -18,7 +22,7 @@ openjdk version "1.8.0_292"
 OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~20.04-b10)
 OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
 ```
-#### 3.设置默认版本
+###  1.3.设置默认版本
 
 ```sh
 root@linux:~# sudo update-alternatives --config java
@@ -68,7 +72,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
 
 
 
-#### 4.卸载 Java
+###  1.4.卸载 Java
 
 > 卸载11为例
 
@@ -88,5 +92,41 @@ sudo apt purge openjdk-11* -y
 
 ```sh
 sudo update-alternatives --config java
+```
+
+
+
+## 2.通过官网下载安装包安装
+
+[清华镜像](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/)
+
+创建目录
+
+```
+sudo mkdir /usr/lib/jvm -p
+```
+
+上传压缩包解压到`/usr/lib/jvm`
+
+```
+ tar -zxvf OpenJDK8U-jdk_x64_linux_hotspot_8u322b06.tar.gz  -C /usr/lib/jvm
+```
+配置环境变量
+```sh
+vim /etc/profile
+```
+追加
+```
+export JAVA_HOME=/usr/lib/jvm/jdk8u322-b06
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+```
+刷新配置
+```sh
+source  /etc/profile
+```
+测试
+```sh
+java -version
 ```
 

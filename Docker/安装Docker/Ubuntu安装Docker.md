@@ -1,4 +1,4 @@
-# Ubuntu 20.4安装Docker
+# Ubuntu安装Docker
 
 ## 1. 安装Docker和docker-compose
 
@@ -60,7 +60,7 @@ sudo add-apt-repository \
 安装docker，顺便安装docker-compose
 
 ```sh
-apt-get update -y && apt-get upgrade -y
+sudo apt-get update -y && apt-get upgrade -y
 sudo apt install docker docker-compose -y
 ```
 

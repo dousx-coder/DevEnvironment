@@ -1,11 +1,11 @@
-## 虚拟机安装 Ubuntu 22.4
-#### 修改虚拟机名称
+# 虚拟机安装 Ubuntu 22.4
+## 修改虚拟机名称
 ```sh
 # 默认是很长的字符串，太占空间，也可在安装时候改好。
 sudo vim /etc/hostname
 sudo vim /etc/hosts
 ```
-#### 修改root密码
+## 修改root密码
 ```sh
 安装完成root没有密码，设置密码，在learn用户下切换到root，但是不能使用root登入图形界面。
 sudo passwd root
@@ -13,13 +13,13 @@ sudo passwd root
 切换用户
 su root
 ```
-#### 查看网络配置
+## 查看网络配置
 ```sh
 ifconfig
 #如果没有则安装：
 apt install net-tools
 ```
-#### 安装ssh
+## 安装ssh
 ```sh
 #安装命令
 apt-get install openssh-server
@@ -29,7 +29,7 @@ apt-get install openssh-server
 netstat -ntlp
 ps -e|grep ssh
 ```
-#### root允许远程登录
+## root允许远程登录
 
 ```sh
  vim /etc/ssh/sshd_config
@@ -68,7 +68,7 @@ PermitRootLogin yes
 sudo  service sshd restart
 ```
 
-#### 防火墙信息
+## 防火墙信息
 
 ```sh
 #启动防火墙
@@ -79,9 +79,7 @@ sudo ufw disable
 sudo ufw status
 ```
 
-
-
-#### vm ubuntu 20 固定ip
+## vm ubuntu  固定ip
 
 ```sh
 dousx@linux:~$ cd /etc/netplan/ && ls 
@@ -117,7 +115,7 @@ network:
 sudo netplan apply
 ```
 
-#### 设置启动模式（命令行/图形化）
+## 设置启动模式（命令行/图形化）
 
 ```sh
 # 默认进入命令行界面
@@ -126,7 +124,7 @@ sudo systemctl set-default multi-user.target
 sudo systemctl set-default graphical.target   
 ```
 
-#### 设置国内源
+## 设置国内源
 
 ```sh
 sudo vim /etc/apt/sources.list
@@ -178,7 +176,7 @@ sudo apt-get upgrade
 sudo apt-get install build-essential
 ```
 
-### vim配置
+## vim配置
 
 `vim /etc/vim/vimrc`追加
 
