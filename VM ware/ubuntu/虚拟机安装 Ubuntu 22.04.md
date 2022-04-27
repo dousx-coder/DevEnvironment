@@ -193,3 +193,27 @@ set termencoding=utf-8
 set encoding=utf-8
 ```
 
+## 移除 cloud-init 软件包及文件夹
+
+1.  通过创建文件禁用 `cloud-init`
+
+这是最简单最安全的方法，在 `/etc/cloud` 目录下创建 `cloud-init.disabled` 文件重启后生效。删除该文件就可以恢复。
+
+```sh
+sudo touch /etc/cloud/cloud-init.disabled
+#init 6
+sudo reboot
+```
+
+
+
+2. 移除 `cloud-init `软件包及文件夹
+
+该方法彻底移除 `cloud-init`
+
+```sh
+sudo apt purge cloud-init -y
+sudo rm -rf /etc/cloud && sudo rm -rf /var/lib/cloud/
+sudo reboot
+```
+
