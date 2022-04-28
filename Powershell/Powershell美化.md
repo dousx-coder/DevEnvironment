@@ -47,7 +47,12 @@ Set-PoshPrompt ys
 
 ![image-20220107142343530](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/01/07/02-23-43-728.png)
 
-主图列表 https://ohmyposh.dev/docs/themes/
+推荐主题,[更多主题](https://ohmyposh.dev/docs/themes/)
+
+1. Set-PoshPrompt honukai
+2. Set-PoshPrompt ys
+3. Set-PoshPrompt patriksvens
+4. Set-PoshPrompt powerlevel10k_lean
 
 ## 6.解决vscode字体展示问题
 
