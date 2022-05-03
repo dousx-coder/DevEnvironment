@@ -35,7 +35,7 @@ if (!(Test-Path -Path $PROFILE )) { New-Item -Type File -Path $PROFILE -Force }
 notepad $PROFILE
 ```
 
-> notepad $PROFILE 可以打开配置文件编辑
+> `notepad $PROFILE` 可以打开配置文件编辑
 
 粘贴下面到配置文件中
 
@@ -53,6 +53,7 @@ Set-PoshPrompt ys
 2. Set-PoshPrompt ys
 3. Set-PoshPrompt patriksvens
 4. Set-PoshPrompt powerlevel10k_lean
+4. Set-PoshPrompt spaceship
 
 ## 6.解决vscode字体展示问题
 
