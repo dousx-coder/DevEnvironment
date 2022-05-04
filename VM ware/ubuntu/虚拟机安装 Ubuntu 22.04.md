@@ -217,3 +217,25 @@ sudo rm -rf /etc/cloud && sudo rm -rf /var/lib/cloud/
 sudo reboot
 ```
 
+## 配置时区
+
+1. 设置时区为上海
+
+```sh
+sudo dpkg-reconfigure tzdata
+```
+
+选择`Asia`---->`Shanghai`
+
+2. 设置24小时
+
+```sh
+sudo vim /etc/default/locale
+```
+`/etc/default/locale`内容修改成如下
+
+```sh
+LANG=en_US.UTF-8
+LC_TIME=en_DK.UTF-8
+```
+
