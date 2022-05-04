@@ -239,3 +239,4 @@ LANG=en_US.UTF-8
 LC_TIME=en_DK.UTF-8
 ```
 
+重启生效
