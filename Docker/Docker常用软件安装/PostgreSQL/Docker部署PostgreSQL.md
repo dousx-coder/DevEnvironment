@@ -25,9 +25,9 @@ postgres:10
 
 >Win
 >
-
-> docker run -d  --name postgres --restart=always -e POSTGRES_PASSWORD=root -v  C:/Users/dousx/.data/.docker/postgres9.5:/var/lib/postgresql/data -p 5432:5432 postgres:9.5
-
+```powershell
+docker run -d  --name postgres --restart=always -e POSTGRES_PASSWORD=root -v  C:/Users/dousx/.data/.docker/postgres9.5:/var/lib/postgresql/data -p 5432:5432 postgres:9.5
+```
 4.说明
 
 ```
