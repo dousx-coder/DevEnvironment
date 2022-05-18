@@ -85,3 +85,9 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 FLUSH PRIVILEGES; 
 exit;
 ```
+
+
+> powershell
+```powershell
+docker run -id --restart=always -p 3306:3306 --name=mysql80 -v C:/Users/dousx/.data/.docker/mysql/conf:/etc/mysql/conf.d -v C:/Users/dousx/.data/.docker/mysql/logs:/logs -v C:/Users/dousx/.data/.docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root mysql:8.0 --lower_case_table_names=1
+```

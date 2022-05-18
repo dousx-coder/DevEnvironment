@@ -66,7 +66,7 @@ docker run -p 6379:6379 \
 
 例如：
 
-```
-docker run -p 6379:6379 --restart=always --name redis -v c:/docker_data/redis/redis.conf:/etc/redis/redis.conf  -d redis redis-server /etc/redis/redis.conf --appendonly yes
+```powershell
+docker run -p 6379:6379 --restart=always --name redis -v C:/Users/dousx/.data/.docker/redis/redis.conf:/etc/redis/redis.conf  -d redis redis-server /etc/redis/redis.conf --appendonly yes
 ```
 

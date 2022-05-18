@@ -215,3 +215,68 @@ docker-compose up -d
 http://192.168.0.182:8080/
 ```
 
+
+
+`win`下docker-compose.yml
+
+```yaml
+version: '3.5'
+services:
+  rmqnamesrv:
+    restart: always
+    image: foxiswho/rocketmq:server
+    container_name: rmqnamesrv
+    ports:
+      - 9876:9876
+    volumes:
+      - C:/Users/dousx/.data/.docker/rocketmq/data/logs:/opt/logs
+      - C:/Users/dousx/.data/.docker/rocketmq/data/store:/opt/store
+    networks:
+        rmq:
+          aliases:
+            - rmqnamesrv
+
+  rmqbroker:
+    restart: always
+    image: foxiswho/rocketmq:broker
+    container_name: rmqbroker
+    ports:
+      - 10909:10909
+      - 10911:10911
+    volumes:
+      - C:/Users/dousx/.data/.docker/rocketmq/data/logs:/opt/logs
+      - C:/Users/dousx/.data/.docker/rocketmq/data/store:/opt/store
+      - C:/Users/dousx/.data/.docker/rocketmq/data/brokerconf/broker.conf:/etc/rocketmq/broker.conf
+    environment:
+        NAMESRV_ADDR: "rmqnamesrv:9876"
+        JAVA_OPTS: " -Duser.home=/opt"
+        JAVA_OPT_EXT: "-server -Xms128m -Xmx128m -Xmn128m"
+    command: mqbroker -c /etc/rocketmq/broker.conf
+    depends_on:
+      - rmqnamesrv
+    networks:
+      rmq:
+        aliases:
+          - rmqbroker
+
+  rmqconsole:
+    restart: always
+    image: styletang/rocketmq-console-ng
+    container_name: rmqconsole
+    ports:
+      - 18080:8080
+    environment:
+        JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+    depends_on:
+      - rmqnamesrv
+    networks:
+      rmq:
+        aliases:
+          - rmqconsole
+
+networks:
+  rmq:
+    name: rmq
+    driver: bridge
+```
+
