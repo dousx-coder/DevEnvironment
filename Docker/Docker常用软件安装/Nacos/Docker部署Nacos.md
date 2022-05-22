@@ -1,12 +1,12 @@
-### Docker部署Nacos
+# Docker部署Nacos
 
-1.拉取镜像 默认会拉取最新的版本，如果是2.0则需要注意端口映射
+1. 拉取镜像 默认会拉取最新的版本，如果是2.0则需要注意端口映射
 
 ```shell
 docker pull nacos/nacos-server
 ```
 
-2.单机模式启动
+2. 单机模式启动
 
 ```shell
 #参数说明：
@@ -17,7 +17,7 @@ docker run --env MODE=standalone --name nacos --restart=always -d -p 8056:8848  
 docker run --env MODE=standalone --name nacos --restart=always -d -p 8848:8848  -p 9848:9848 -p 9849:9849 nacos/nacos-server
 ```
 
-2.0.3
+*2.0.3*
 
 ```sh
 docker run --name nacos -d -p 8848:8848 -p 9848:9848 -p 9849:9849 --privileged=true --restart=always -e MODE=standalone -e PREFER_HOST_MODE=hostname nacos/nacos-server:2.0.3
@@ -25,7 +25,5 @@ docker run --name nacos -d -p 8848:8848 -p 9848:9848 -p 9849:9849 --privileged=t
 
 3.访问测试
 
-```
 开放8848端口或者关闭防火墙
-直接访问 http://192.168.0.182:8848/nacos， 使用账号：nacos，密码：nacos 直接登录
-```
+直接访问 http://192.168.0.182:8848/nacos， 使用账号：`nacos`，密码：`nacos  `接登录

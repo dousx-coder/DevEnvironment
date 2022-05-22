@@ -1,23 +1,23 @@
-### 部署Redis
+# Docker部署Redis
 
-1.搜索redis镜像
+1. 搜索redis镜像
 
 ```shell
 docker search redis
 ```
 
-2.拉取redis镜像
+2. 拉取redis镜像
 
 ```shell
 docker pull redis:latest
 ```
 
-3.创建映射目录
+3. 创建映射目录
 
 ```sh
 mkdir  -p /usr/local/docker/redis
 ```
-4.配置redis.conf（也可以直接拿同目录下配置使用）
+4. 配置redis.conf（也可以直接拿同目录下配置使用）
 
 ```shell
 将redis.conf上传到该目录(/usr/local/docker/redis/)下
@@ -27,7 +27,7 @@ daemonize no
 requirepass 密码
 
 ```
-5.创建容器，设置端口映射
+5. 创建容器，设置端口映射
 
 ```shell
 docker run -p 6379:6379 \
@@ -39,7 +39,7 @@ docker run -p 6379:6379 \
 --appendonly yes
 ```
 
-6.使用外部机器连接redis
+6. 使用外部机器连接redis
 
 ```shell
 # -a后面为reids密码
@@ -60,11 +60,9 @@ docker run -p 6379:6379 \
 -d redislabs/rebloom:latest  
 ```
 
-### 提示
+**提示Windows创建容器**
 
->如果win上映射文件目录，文件目录中间不要出现空格
-
-例如：
+>Windows下映射路径不能出现空格和中文
 
 ```powershell
 docker run -p 6379:6379 --restart=always --name redis -v C:/Users/dousx/.data/.docker/redis/redis.conf:/etc/redis/redis.conf  -d redis redis-server /etc/redis/redis.conf --appendonly yes
