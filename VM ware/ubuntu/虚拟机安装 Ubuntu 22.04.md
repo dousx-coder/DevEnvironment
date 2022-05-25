@@ -37,6 +37,8 @@ ps -e|grep ssh
 
 修改内容如下: prohibit-password改为yes,Port 22 关闭注释
 
+`UseDNS no`
+
 ```sh
 Include /etc/ssh/sshd_config.d/*.conf
 
