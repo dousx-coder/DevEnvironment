@@ -182,7 +182,7 @@ sudo apt-get install build-essential
 
 `vim /etc/vim/vimrc`追加
 
-```
+```sh
 set nu
 syntax on
 set  ruler
@@ -242,3 +242,12 @@ LC_TIME=en_DK.UTF-8
 ```
 
 重启生效
+
+## 安装open-vm-tools-desktop
+
+```
+sudo apt upgrade -y
+sudo apt install open-vm-tools-desktop -y
+sudo reboot
+```
+
