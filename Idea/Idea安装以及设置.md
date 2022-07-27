@@ -21,7 +21,8 @@
 -XX:+UseConcMarkSweepGC
 -Dfile.encoding=UTF-8
 ```
-
+对应配置目录
+- Windows `C:\Users\dousx\AppData\Roaming\JetBrains\IntelliJIdea20221\idea64.exe.vmoptions`
 ## 3.导入配色
 
 导入`.icls`配色
