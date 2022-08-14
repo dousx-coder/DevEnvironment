@@ -136,20 +136,18 @@ java -version
 
 ### 2.2 多版本管理
 
-`/etc/profile`中追加,设置所有用户的默认jdk版本
-
-```sh
-export JAVA_HOME=/usr/lib/jvm/jdk8u322-b06
-export PATH=$JAVA_HOME/bin:$PATH
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-```
-
-在个人用户的bash(*`~/.bash_profile`*)或者zsh(*`~/.zshrc`*)配置中添加以下内容,可通过`jvm 8`等命令切换`当前窗口`jdk环境变量
+`/etc/profile`中追加
 
 ```sh
 Jdk8=/usr/lib/jvm/Jdk-8
 Jdk11=/usr/lib/jvm/Jdk-11
 Jdk17=/usr/lib/jvm/Jdk-17
+# 设置所有用户的默认jdk版本
+export JAVA_HOME=$Jdk17
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+# jvm 8 切换当前窗口jdk环境变量java8
 function jvm {
     version=$1
     case "$version" in
