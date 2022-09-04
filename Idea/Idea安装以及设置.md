@@ -169,3 +169,8 @@
 
 ![image-20220415211448738](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/15/09-14-49-045.png)
 
+## 7.控制台缓存
+
+>  控制台输出信息不全
+
+![image-20220816103841547](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/08/16/10-38-44-855.png)
