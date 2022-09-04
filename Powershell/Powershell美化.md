@@ -39,10 +39,12 @@ notepad $PROFILE
 
 粘贴下面到配置文件中
 
-```
+```powershell
 Import-Module posh-git
 Import-Module oh-my-posh
 Set-PoshPrompt ys
+# 使用历史记录进行脚本提示
+Set-PSReadLineOption -PredictionSource History
 ```
 
 ![image-20220107142343530](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/01/07/02-23-43-728.png)
