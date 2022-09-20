@@ -16,9 +16,9 @@
 
 ```properties
 -Xms4096m
--Xmx4096m
--XX:ReservedCodeCacheSize=2048m
+-Xmx8192m
 -XX:+UseConcMarkSweepGC
+-XX:ReservedCodeCacheSize=2048m
 -Dfile.encoding=UTF-8
 ```
 对应配置目录
