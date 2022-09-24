@@ -23,7 +23,14 @@
 ```
 对应配置目录
 - Windows `C:\Users\dousx\AppData\Roaming\JetBrains\IntelliJIdea20221\idea64.exe.vmoptions`
-## 3.导入配色
+
+## 3.关联位置类型文件
+
+> 使用系统关联的默认程序打开文件时，首先你的系统已经有默认的程序关联此文件的扩展名
+
+![image-20220921105201279](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/09/21/10-52-01-538.png)
+
+## 4.导入配色
 
 导入`.icls`配色
 
