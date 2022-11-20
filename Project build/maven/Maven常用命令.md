@@ -112,3 +112,6 @@ mvn help:help 或 mvn help:help -Ddetail=true
 mvn <plug-in>:help，比如：mvn dependency:help 或 mvn ant:help 等等。
 ```
 
+```
+mvn -T 1C clean source:jar javadoc:javadoc install -Dmaven.test.skip=false -Dmaven.javadoc.skip=false
+```
