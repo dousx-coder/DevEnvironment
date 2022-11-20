@@ -12,6 +12,8 @@ https://hub.fastgit.org/git-for-windows/git/releases/latest
 
 ## 3.安装字体
 
+`oh-my-posh font install`
+
 https://www.jetbrains.com/lp/mono/
 
 ```powershell
@@ -26,6 +28,10 @@ git clone https://github.com/abertsch/Menlo-for-Powerline.git
 ```powershell
 Install-Module posh-git
 Install-Module oh-my-posh
+
+Install-Module -Name PSReadLine -Scope AllUsers -Force -SkipPublisherCheck
+Install-Module posh-git -Scope AllUsers
+Install-Module oh-my-posh -Scope AllUsers
 ```
 
 设置 PowerShell 的`初始化`文件
