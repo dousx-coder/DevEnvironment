@@ -12,3 +12,7 @@
 ## 用户名密码
 
 ![image-20221121142949358](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/11/21/02-29-49-575.png)
+
+## 安装成功
+
+![image-20221121152113020](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/11/21/03-21-13-226.png)
