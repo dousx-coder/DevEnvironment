@@ -251,3 +251,13 @@ sudo apt install open-vm-tools-desktop -y
 sudo reboot
 ```
 
+## A start job is running for wait for network to be Configured
+开机卡在`A start job is running for wait for network to be Configured`
+
+```sh
+cd /etc/systemd/system/network-online.target.wants/
+
+sudo vi systemd-networkd-wait-online.service
+```
+
+在[Service]下添加`TimeoutStartSec=2sec`
