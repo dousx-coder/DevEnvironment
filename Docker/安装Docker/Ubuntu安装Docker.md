@@ -2,6 +2,12 @@
 
 ## 1. 安装Docker和docker-compose
 
+### 一键安装
+ ```sh
+ # 官方脚本安装
+ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+ ```
+### 手动安装
 卸载旧版本，旧版本被叫做docker、docker.io或者docker-engine。
 
 ```sh
