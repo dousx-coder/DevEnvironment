@@ -13,6 +13,9 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/lambda.omp.json" | Invoke-E
 
 # 使用历史记录进行脚本提示
 Set-PSReadLineOption -PredictionSource History
+# 编码问题
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
 ```
 
 3. `. $PROFILE`
