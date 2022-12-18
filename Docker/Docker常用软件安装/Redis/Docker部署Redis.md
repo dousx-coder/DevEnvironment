@@ -56,19 +56,31 @@ redis-cli -h 192.168.0.181 -p 6379 -a redis
 
 
 
->Docker安装redis布隆过滤器
+>Docker安装 rebloom
+
+redis布隆过滤器
 
 ```sh
-#
-docker search rebloom
-#
+# 拉取镜像
 docker pull redislabs/rebloom:latest
-#
+# 创建容器
 docker run -p 6379:6379 \
 --restart=always \
 --name redisbloom \
 -d redislabs/rebloom:latest  
+# 进入容器
+docker exec -it redisbloom bash
+root@ca96f02a2d3c:/data# redis-cli
+127.0.0.1:6379> config set requirepass foobared
+OK
+127.0.0.1:6379> config set requirepass 123456
+OK
+127.0.0.1:6379> exit
 ```
+
+默认用户  default[参考 ](https://blog.csdn.net/weixin_38858749/article/details/124686796)
+
+
 
 **提示Windows创建容器**
 
