@@ -64,7 +64,7 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt install build-essential -y
 
 ```sh
 # 安装以下可能需要科学上网
-sudo apt install gnome-tweaks chrome-gnome-shell nome-shell-extension-manager -y
+sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extension-manager -y
 ```
 2. `gnome-tweaks`设置窗口居中打开,时间显示秒等（系统语言为中文的时候gnome-tweaks叫做优化）
 
@@ -83,7 +83,7 @@ sudo apt install gnome-tweaks chrome-gnome-shell nome-shell-extension-manager -y
 ### 1.安装常用软件
 
 ```sh
-sudo apt install neofetch tree  net-tools openssh-server git vim maven -y
+sudo apt install neofetch tree  net-tools openssh-server git vim maven neofetch -y
 ```
 ### 2.vim配置
 `vim /etc/vim/vimrc`追加
@@ -216,6 +216,7 @@ function jvm {
  - chrome
  - postman
  - qq
+ - typora
 
 ### 7.配置Zsh
 待完善
