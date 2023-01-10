@@ -220,7 +220,7 @@ function jvm {
 
 ### 7.配置Zsh
 
-[Linux 全局配置 Zsh + oh-my-zsh.md](../zsh/Linux 全局配置 Zsh + oh-my-zsh.md)
+[Linux 全局配置 Zsh + oh-my-zsh.md](../Zsh/Linux 全局配置 Zsh + oh-my-zsh.md)
 
 
 
