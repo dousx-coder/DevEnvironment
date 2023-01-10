@@ -219,7 +219,8 @@ function jvm {
  - typora
 
 ### 7.配置Zsh
-待完善
+
+[Linux 全局配置 Zsh + oh-my-zsh.md](file:///../zsh/Linux 全局配置 Zsh + oh-my-zsh.md)
 
 
 
