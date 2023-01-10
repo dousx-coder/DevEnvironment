@@ -11,17 +11,6 @@
    ```sh
    sudo apt install zsh -y
    ```
-- 为 root 设置默认 shell
-
-  ```sh
-  sudo chsh -s /bin/zsh
-  ```
-- 为特定用户设置默认 shell
-
-  ```sh
-  # <username> 替换为实际用户名
-  sudo chsh -s /bin/zsh <username>
-  ```
 ## 全局配置 zsh
 
   >*注意：以下全局配置相关命令需要 root 权限，请切换到 root 账号，或者使用 sudo。*
@@ -58,21 +47,6 @@
   ```sh
   # 编辑 /etc/skel/.zshrc 文件修改
   sudo sed -i '/^ZSH_THEME=.*/c ZSH_THEME="steeef"' /etc/skel/.zshrc
-  # 刷新配置
-  source /etc/skel/.zshrc
-  ```
-  > 新用户登录后，将自动复制 .zshrc 和上述 cache 目录到用户主目录下，并自动加载 zsh 配置。
-
-- 针对现有用户
-
-  直接复制 /etc/skel/.zshrc 到 ~/
-
-  ```sh
-  # 执行之后 关闭当前窗口 重新连接
-  sudo cp /etc/skel/.zshrc ~/.zshrc && mkdir -p ~/.oh-my-zsh/cache && source ~/.zshrc
-  # 
-  # <username> 替换为实际用户名
-  sudo chsh -s /bin/zsh <username>
   ```
 
 ## 全局配置插件
@@ -98,6 +72,26 @@
 
   以下部分加入插件的名字
   plugins=([plugins…] zsh-syntax-highlighting)
+
+## 切换zsh
+
+  > 新用户登录后，将自动复制 .zshrc 和上述 cache 目录到用户主目录下，并自动加载 zsh 配置。
+
+- 针对现有用户
+
+  直接复制 /etc/skel/.zshrc 到 ~/
+
+  ```sh
+  # 执行之后 关闭当前窗口 重新连接 后面用户如果需要修改私有配置 修改~目录下即可 不影响其他用户
+  sudo cp /etc/skel/.zshrc ~/.zshrc && mkdir -p ~/.oh-my-zsh/cache && source ~/.zshrc
+  # 
+  # <username> 替换为实际用户名
+  sudo chsh -s /bin/zsh <username>
+  ```
+- 为 root 设置默认 shell
+  ```sh
+  sudo chsh -s /bin/zsh
+  ```
 
 
 
