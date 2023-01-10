@@ -83,7 +83,7 @@ sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extension-manager -
 ### 1.安装常用软件
 
 ```sh
-sudo apt install neofetch tree  net-tools openssh-server git vim maven neofetch -y
+sudo apt install neofetch tree  net-tools openssh-server git vim maven neofetch  curl -y
 ```
 ### 2.vim配置
 `vim /etc/vim/vimrc`追加
