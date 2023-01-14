@@ -25,7 +25,9 @@ sudo dnf install gnome-tweak-tool -y
 
 - Dash to Dock
 - Hide Activity Button
-
+- Blur my Shell 
+- Compiz alike magic lamp effect
+- Lock Keys
 ## 显卡驱动
 
 > 过度动画更流畅
