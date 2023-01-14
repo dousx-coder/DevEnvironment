@@ -52,3 +52,20 @@ sudo dnf install xorg-x11-drv-nvidia-470xx.x86_64  xorg-x11-drv-nvidia-470xx-cud
  nvidia-smi
 ```
 
+## vim配置
+```sh
+sudo vim /etc/vimrc
+```
+追加内容
+```sh
+set nu
+syntax on
+set  ruler
+set hlsearch
+set ignorecase
+set noswapfile
+set undofile
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+```
