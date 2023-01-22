@@ -51,6 +51,10 @@ sudo dnf install xorg-x11-drv-nvidia-470xx.x86_64  xorg-x11-drv-nvidia-470xx-cud
 ```sh
  nvidia-smi
 ```
+## 开启分数缩放
+```sh
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+```
 
 ## vim配置
 ```sh
