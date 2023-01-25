@@ -28,6 +28,7 @@ sudo dnf install gnome-tweak-tool -y
 - Blur my Shell 
 - Compiz alike magic lamp effect
 - Lock Keys
+- Tray Icons: Reloaded
 ## 显卡驱动
 
 > 过度动画更流畅
