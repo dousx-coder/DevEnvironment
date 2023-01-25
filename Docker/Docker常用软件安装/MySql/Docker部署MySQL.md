@@ -76,8 +76,20 @@ docker exec -it mysql80 /bin/bash
 mysql -uroot -p
 use mysql;
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+
 FLUSH PRIVILEGES; 
 exit;
+```
+
+5. MySql Clinet中文乱码
+```shell
+vim /etc/mysql/my.cnf
+```
+添加以下内容
+```
+[client]
+
+default-character-set=utf8
 ```
 
 ## 3.Windows下部署以及挂载目录
