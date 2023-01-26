@@ -74,3 +74,13 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 ```
+## 延长Linux中sudo密码在终端的有效时间
+使用`sudo`命令以超级用户权限打开`/etc/sudoers`文件
+```sh
+sudo vim /etc/sudoers
+```
+接着添加下面值，`sudo` 20 分钟后过期。`timestamp_timeout`单位分钟，
+如果要为每个执行的`sudo`命令弹出密码提示，也可以将时间设置为`0`，或者通过设置值`-1`永久禁用密码提示
+```
+Defaults     env_reset,timestamp_timeout=20
+```
