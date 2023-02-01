@@ -74,3 +74,12 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 ```
+## 卸载自带Jdk
+
+```sh
+rpm -qa|grep jdk
+```
+
+```sh
+sudo rpm -e --nodeps java-17-openjdk-headless-17.0.6.0.10-1.fc37.x86_64
+```
