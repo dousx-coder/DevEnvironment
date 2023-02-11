@@ -46,9 +46,11 @@ e47411ee61ec   none      null      local
 
 ## 2.redis节点创建及设置
 
->创建redis config脚本
+>创建`redis-config.sh`脚本
 
 ```sh
+#!/bin/bash
+
 for port in $(seq 1 6);
 do
 mkdir -p /data/redis/node-${port}/conf
@@ -66,18 +68,31 @@ appendonly yes
 EOF
 done 
 ```
->  创建节点脚本
+
+```sh
+chmod +x redis-config.sh
+sudo sh redis-config.sh
+```
+
+
+>  创建redis-node.sh节点脚本
 
 ```shell
+#!/bin/bash
+
 for port in $(seq 1 6);
 do
-	docker run -p 637${port}:6379 -p 1637${port}:16379 --name redis-${port} \
+ docker run -p 637${port}:6379 -p 1637${port}:16379 --name redis-${port} \
  -v /data/redis/node-${port}/data:/data \
  -v /data/redis/node-${port}/conf/redis.conf:/etc/redis/redis.conf \
  -d --net redis --ip 172.38.0.1${port} redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
 done
 ```
 
+```sh
+chmod +x redis-node.sh
+sudo sh redis-node.sh
+```
 ## 3.创建集群
 
 ```shell
