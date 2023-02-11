@@ -2,7 +2,13 @@
 
 >  机器 Y7000P 2019 1650
 >
+> `Fn`+`L`大Y背光灯
+>
+> `Fn`+`空格`键盘背光灯
+> 
 > [参考文档](https://docs.fedoraproject.org/zh_Hans/fedora/f32/install-guide/install/Preparing_for_Installation/)
+>
+
 
 ## 1.制作启动盘
 
