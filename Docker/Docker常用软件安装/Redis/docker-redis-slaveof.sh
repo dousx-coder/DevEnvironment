@@ -30,7 +30,7 @@ done
 echo "slaveof..."
 for port in $(seq 2 3);
 do
- docker exec  redis-${port}  redis-cli  slaveof 172.38.0.11 6379
+docker exec  redis-${port}  redis-cli  slaveof 172.38.0.11 6379
 done
 
 echo "done..."
