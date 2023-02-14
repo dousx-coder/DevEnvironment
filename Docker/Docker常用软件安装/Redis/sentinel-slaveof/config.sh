@@ -32,5 +32,5 @@ sentinel deny-scripts-reconfig yes
 EOF
 done
 
-
+chmod -R 0777 /data/redis
 echo "done..."

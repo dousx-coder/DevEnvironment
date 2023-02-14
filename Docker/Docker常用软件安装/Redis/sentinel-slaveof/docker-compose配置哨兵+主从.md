@@ -16,7 +16,10 @@ sudo chmod +x config.sh && sudo sh config.sh
 ```sh
 docker-compose up -d
 ```
-## 待解决问题
+## ~~待解决问题~~
 ```
 WARNING: Sentinel was not able to save the new configuration on disk!!!: Device or resource busy
 ```
+- 解决方法是使用目录映射
+- [stackoverflow](https://stackoverflow.com/questions/70384566/warning-sentinel-was-not-able-to-save-the-new-configuration-on-disk-device)
+- [issue-8172](https://github.com/redis/redis/issues/8172)
