@@ -1,6 +1,13 @@
 # Docker配置Redis哨兵&主从
 
 ## Docker配置Redis哨兵&主从
+**配置主从说明**
+命令`slaveof <ip> <prot>`
+- 方式一 config文件中配置(永久)
+- 方式二 命令配置(重启失效)
+
+**这里采用命令方式**
+
 `docker-redis-sentinel-slaveof.sh`脚本内容如下
 ```sh
 #!/bin/bash
