@@ -29,6 +29,8 @@ sentinel monitor redis-nodes 172.20.0.11 6379 2
 protected-mode no
 sentinel down-after-milliseconds redis-nodes 30000
 sentinel deny-scripts-reconfig yes
+sentinel announce-ip 192.168.96.151
+sentinel announce-port 2637${port}
 EOF
 done
 
