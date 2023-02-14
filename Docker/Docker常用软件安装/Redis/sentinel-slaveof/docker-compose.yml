@@ -1,0 +1,110 @@
+version: '3.5'
+services:
+  redis-node-1:
+      image: 'redis:6.2.4'
+      container_name: redis-node-1
+      command: redis-server /etc/redis/redis.conf
+      ports:
+        - '6371:6379'
+      volumes:
+        - /data/redis/node-1/conf/redis.conf:/etc/redis/redis.conf
+      networks:
+        redis_subnet:
+          ipv4_address: 172.20.0.11
+      environment:
+        - TZ=Asia/Shanghai
+
+  redis-node-2:
+      image: 'redis:6.2.4'
+      container_name: redis-node-2
+      command: redis-server /etc/redis/redis.conf
+      ports:
+        - '6372:6379'
+      volumes:
+        - /data/redis/node-2/conf/redis.conf:/etc/redis/redis.conf
+      depends_on:
+        - redis-node-1
+      networks:
+        redis_subnet:
+          ipv4_address: 172.20.0.12
+      environment:
+        - TZ=Asia/Shanghai
+
+  redis-node-3:
+      image: 'redis:6.2.4'
+      container_name: redis-node-3
+      command: redis-server /etc/redis/redis.conf
+      ports:
+        - '6373:6379'
+      volumes:
+        - /data/redis/node-3/conf/redis.conf:/etc/redis/redis.conf
+      depends_on:
+        - redis-node-1
+      networks:
+        redis_subnet:
+          ipv4_address: 172.20.0.13  
+      environment:
+        - TZ=Asia/Shanghai     
+# ----------------------------------------------
+ 
+  redis-sentinel-1:
+      image: 'redis:6.2.4'
+      container_name: redis-sentinel-1
+      command: redis-sentinel /etc/redis/sentinel.conf 
+      ports:
+        - '26371:26379'
+      volumes:
+        - /data/redis/sentinel-1/conf/sentinel.conf:/etc/redis/sentinel.conf
+      depends_on:
+        - redis-node-1
+        - redis-node-2
+        - redis-node-3 
+      networks:
+        redis_subnet:
+          ipv4_address: 172.20.0.21
+      environment:
+        - TZ=Asia/Shanghai
+
+  redis-sentinel-2:
+      image: 'redis:6.2.4'
+      container_name: redis-sentinel-2
+      command: redis-sentinel /etc/redis/sentinel.conf 
+      ports:
+        - '26372:26379'
+      volumes:
+        - /data/redis/sentinel-2/conf/sentinel.conf:/etc/redis/sentinel.conf
+      depends_on:
+        - redis-node-1
+        - redis-node-2
+        - redis-node-3 
+      networks:
+        redis_subnet:
+          ipv4_address: 172.20.0.22
+      environment:
+        - TZ=Asia/Shanghai
+
+  redis-sentinel-3:
+      image: 'redis:6.2.4'
+      container_name: redis-sentinel-3
+      command: redis-sentinel /etc/redis/sentinel.conf 
+      ports:
+        - '26373:26379'
+      volumes:
+        - /data/redis/sentinel-3/conf/sentinel.conf:/etc/redis/sentinel.conf
+      depends_on:
+        - redis-node-1
+        - redis-node-2
+        - redis-node-3 
+      networks:
+        redis_subnet:
+          ipv4_address: 172.20.0.23
+      environment:
+        - TZ=Asia/Shanghai
+# -------------------------------------------------------------------------
+networks:
+  redis_subnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24
