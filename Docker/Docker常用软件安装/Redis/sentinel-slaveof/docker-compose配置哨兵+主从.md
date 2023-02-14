@@ -2,6 +2,7 @@
 
 ## docker-compose配置哨兵+主从
 1. 创建配置文件
+[config.sh](./config.sh)
 ```sh
 sudo chmod +x config.sh && sudo sh config.sh
 ```
