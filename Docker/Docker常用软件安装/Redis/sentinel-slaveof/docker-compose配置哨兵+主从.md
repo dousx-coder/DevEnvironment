@@ -8,7 +8,9 @@
 >`<quorum>`:最小投票数，由于有三台redis-sentinel实例，所以可以设置成2
 ## docker-compose配置哨兵+主从
 1. 创建配置文件
-[config.sh](./config.sh)
+- [config.sh](./config.sh)
+  -  `vmIp=192.168.96.151`根据主机ip修改
+- [docker-compose.yml](./docker-compose.yml)
 ```sh
 sudo chmod +x config.sh && sudo sh config.sh
 ```
