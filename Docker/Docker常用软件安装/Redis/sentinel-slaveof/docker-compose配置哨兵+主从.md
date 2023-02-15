@@ -75,4 +75,7 @@ WARNING: Sentinel was not able to save the new configuration on disk!!!: Device 
 - [issue-8172](https://github.com/redis/redis/issues/8172)
 
 ## 待解决问题
-redis配置文件中配置`slaveof ${vmIp} 6371`,跟哨兵选出来的`master`冲突,Spring会提示`Skipped slave up`,所以要等容器启动之后用命令指定`master`?
+redis配置文件中配置`slaveof ${vmIp} 6371`,跟哨兵选出来的`master`冲突,`redisson`会提示`Skipped slave up`?
+- [1560](https://github.com/redisson/redisson/issues/1560)
+- [1324](https://github.com/redisson/redisson/issues/1324)
+- [哨兵模式不停警告 Skipped slave up](https://github.com/redisson/redisson/issues/2134)
