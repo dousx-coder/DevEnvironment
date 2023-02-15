@@ -78,6 +78,7 @@ WARNING: Sentinel was not able to save the new configuration on disk!!!: Device 
 
 ## 待解决问题
 redis配置文件中配置`slaveof ${vmIp} 6371`,跟哨兵选出来的`master`冲突,`redisson`会提示`Skipped slave up`?
+- 这个问题好像不用解决，启动哨兵+主从启动四五分钟左右，`Skipped slave up`就不见了???
 - [1560](https://github.com/redisson/redisson/issues/1560)
 - [1324](https://github.com/redisson/redisson/issues/1324)
 - [哨兵模式不停警告 Skipped slave up](https://github.com/redisson/redisson/issues/2134)
