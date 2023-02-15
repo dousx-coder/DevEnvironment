@@ -16,6 +16,7 @@
 2. 下载[制作工具](https://developers.redhat.com/blog/2016/04/26/fedora-media-writer-the-fastest-way-to-create-live-usb-boot-media)
 
 ## 配置源
+`/etc/yum.repos.d`
 
 https://mirrors.tuna.tsinghua.edu.cn/help/fedora/
 
