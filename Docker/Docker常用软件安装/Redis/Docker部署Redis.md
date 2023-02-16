@@ -7,7 +7,7 @@ docker search redis
 ```
 ## 2. 拉取redis镜像
 ```shell
-docker pull redis:redis:7.0.8-alpine
+docker pull redis:7.0.8-alpine
 ```
 ## 3. 创建容器并指定密码
 ```sh
