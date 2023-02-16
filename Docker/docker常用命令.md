@@ -1,4 +1,5 @@
 # Docker常用命令
+> Docker拉去镜像默认latest，应该指定版本
 #### 查询容器独立ip
 ```sh
 docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器id或者名称
