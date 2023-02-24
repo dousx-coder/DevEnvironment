@@ -30,7 +30,7 @@ postgres:10
 >挂载目录不能包含中文和空格
 
 ```powershell
-docker run -d  --name postgres --restart=always -e POSTGRES_PASSWORD=root -v  C:/Users/dousx/.data/.docker/postgres9.5:/var/lib/postgresql/data -p 5432:5432 postgres:9.5
+docker run -d  --name postgres --restart=always -e POSTGRES_PASSWORD=root -v  C:/Users/dousx/.data/.docker/postgres96:/var/lib/postgresql/data -p 5432:5432 postgres:9.6
 ```
 4. 说明
 
