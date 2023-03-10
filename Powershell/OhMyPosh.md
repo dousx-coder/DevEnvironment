@@ -57,22 +57,30 @@ oh-my-posh --init --shell pwsh --config $theme.FullName | Invoke-Expression
 ```
 
 **$PROFILE配置**
+配置
 ```powershell
+# 图标
 Import-Module -Name Terminal-Icons
 Import-Module posh-git
-Import-Module oh-my-posh
 
-$theme = Get-ChildItem $env:UserProfile\\AppData\\Local\\Programs\\oh-my-posh\\themes\\ys.omp.json
-#$theme = Get-ChildItem $env:UserProfile\\AppData\\Local\\Programs\\oh-my-posh\\themes\\zash.omp.json
-oh-my-posh --init --shell pwsh --config $theme.FullName | Invoke-Expression
-
+# oh-my-posh init pwsh | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/amro.omp.json" | Invoke-Expression
 
 # 使用历史记录进行脚本提示
 Set-PSReadLineOption -PredictionSource History
+
+
+# 设置 Ctrl+z 为撤销
+Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo 
 # 编码问题
 $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
 ```
+
 
 ## 3.合成VSCODE
 
 当你设置好上面的操作后，你的VScode也会有相应的变化，但如果不设置字体，也会出现主题显示也会有问题，在设置里将终端的字体样式也需要做相应的修改。`（注意是修改VScode终端的，不是VScode整体的字体）`,这样主题也能在VScode终端上完美显示。
+
+
+
