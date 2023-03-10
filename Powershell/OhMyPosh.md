@@ -84,3 +84,14 @@ $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Obj
 
 
 
+**字体配置不对某些主题下的图标会展示错误**
+
+**amro.omp.json使用下图所示字体**
+
+![image-20230310090607808](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2023/03/10/09-06-08-420.png)
+
+
+
+**amro.omp.json效果**
+
+![image-20230310090646477](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2023/03/10/09-06-47-305.png)
