@@ -1,3 +1,13 @@
 CLASSPATH
 
 .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+
+
+win11 用户环境变量和系统环境变量有一点小坑
+有些程序走的是cmd，如果只配置系统环境变量 可能会找不到java
+所以两个都配置
+
+
+再系统变量中配置SYS_JAVA_HOME
+
+然后JAVA_HOME=%SYS_JAVA_HOME%
