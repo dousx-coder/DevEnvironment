@@ -183,9 +183,9 @@ sudo apt-get install build-essential
 `vim /etc/vim/vimrc`追加
 
 ```sh
-set nu
 syntax on
-set  ruler
+set nu
+set ruler
 set hlsearch
 set ignorecase
 set noswapfile
@@ -193,6 +193,8 @@ set undofile
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
+set termguicolors
+set backspace=indent,eol,start
 ```
 
 ## 移除 cloud-init 软件包及文件夹
