@@ -2,7 +2,7 @@
 ## 固定ip
 1. 固定ip,其中`ens160`为网卡名
 ```sh
-nmcli device modify ens160  ipv4.gateway 192.168.111.1 ipv4.addresses 192.168.111.180/24
+sudo nmcli conn modify ens160 ipv4.addresses 192.168.111.180/24 ipv4.gateway 192.168.1.1 ipv4.method manual
 ```
 2. 重启
 ```sh
