@@ -1,5 +1,12 @@
 # 虚拟机安装fedora
 ## 固定ip
+> 配置文件地址
+>
+> `ls /etc/NetworkManager/system-connections/`
+> 
+> `sudo cat /etc/NetworkManager/system-connections/ens160.nmconnection`
+
+
 1. 固定ip,其中`ens160`为网卡名
 ```sh
 sudo nmcli conn modify ens160 ipv4.addresses 192.168.111.180/24 ipv4.gateway 192.168.111.2 ipv4.dns "8.8.8.8 8.8.4.4" ipv4.method manual
