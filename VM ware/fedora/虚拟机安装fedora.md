@@ -13,7 +13,7 @@ sudo nmcli conn modify ens160 ipv4.addresses 192.168.111.180/24 ipv4.gateway 192
 ```
 2. 重启
 ```sh
-systemctl restart NetworkManager
+sudo shutdown -r now
 ```
 
 ### 其他命令
