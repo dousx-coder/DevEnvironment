@@ -6,14 +6,14 @@
 docker pull rabbitmq:3.11.9-management-alpine
 ```
 2. 创建容器
-
+> Apple M系列芯片用3.11.9连接报错
 ```shell
 docker run -d \
 --restart=always \
 --name rabbitmq \
 -p 5672:5672 \
 -p 15672:15672 \
-rabbitmq:3.11.9-management-alpine
+rabbitmq:3.12-rc-management-alpine
 ```
 3. 测试
 
@@ -27,5 +27,5 @@ username: `guest` ,password: `guest`
 **Windows创建容器**
 
 ```powershell
-docker run -d --restart=always --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.11.9-management-alpine
+docker run -d --restart=always --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.11.9连接报错-management-alpine
 ```
