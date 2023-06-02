@@ -24,6 +24,12 @@ docker update --restart=always CONTAINER ID
 ```sh
 docker update --restart=always $(docker ps -q)
 ```
+
+#### 设置所有容器不随docker启动而启动
+```sh
+docker update --restart=no $(docker ps -q)
+```
+
 #### 停止所有容器
 ```sh
 docker stop $(docker ps -a -q)
