@@ -36,3 +36,6 @@ Line |
      |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      | Exception calling "SetEnvironmentVariable" with "3" argument(s): "Requested registry access is not allowed."
 ```
+
+**需要管理员打开终端执行命令才生效，且生效之后没有立刻刷新环境变量**
+后面抽空研究如何立刻刷新当前命令窗口环境
