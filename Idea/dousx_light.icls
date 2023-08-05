@@ -1,9 +1,9 @@
 <scheme name="dousx-light" version="142" parent_scheme="Default">
   <metaInfo>
-    <property name="created">2023-07-01T09:20:55</property>
+    <property name="created">2023-08-05T18:03:04</property>
     <property name="ide">idea</property>
-    <property name="ideVersion">2023.1.3.0.0</property>
-    <property name="modified">2023-07-01T09:21:17</property>
+    <property name="ideVersion">2023.2.0.0</property>
+    <property name="modified">2023-08-05T18:03:23</property>
     <property name="originalScheme">dousx-light</property>
   </metaInfo>
   <colors>
@@ -18,20 +18,30 @@
   <attributes>
     <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="d4404" />
+        <option name="FOREGROUND" value="6b726b" />
       </value>
     </option>
+    <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES" baseAttributes="DEFAULT_METADATA" />
     <option name="ANNOTATION_NAME_ATTRIBUTES" baseAttributes="DEFAULT_METADATA" />
+    <option name="ANONYMOUS_CLASS_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="787a7a" />
+      </value>
+    </option>
     <option name="CLASS_NAME_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="356979" />
-        <option name="FONT_TYPE" value="1" />
+        <option name="FOREGROUND" value="2f718a" />
       </value>
     </option>
     <option name="CONSTRUCTOR_CALL_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="356979" />
         <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="CONSTRUCTOR_DECLARATION_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="32744" />
       </value>
     </option>
     <option name="CTRL_CLICKABLE">
@@ -176,6 +186,11 @@
         <option name="ERROR_STRIPE_COLOR" value="b6d2f2" />
       </value>
     </option>
+    <option name="ENUM_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="421a" />
+      </value>
+    </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="414d41" />
@@ -307,10 +322,19 @@
         <option name="FOREGROUND" value="851691" />
       </value>
     </option>
-    <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD" />
+    <option name="INHERITED_METHOD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="15ab02" />
+      </value>
+    </option>
+    <option name="INSTANCE_FIELD_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="871094" />
+      </value>
+    </option>
     <option name="INTERFACE_NAME_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="45b407" />
+        <option name="FOREGROUND" value="5c60ff" />
       </value>
     </option>
     <option name="JAVA_NUMBER">
@@ -355,6 +379,7 @@
     <option name="METHOD_CALL_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="38ba9" />
+        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="PARAMETER_ATTRIBUTES">
@@ -381,7 +406,7 @@
     <option name="STATIC_FINAL_FIELD_ATTRIBUTES" baseAttributes="STATIC_FIELD_ATTRIBUTES" />
     <option name="STATIC_METHOD_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="5347f5" />
+        <option name="FOREGROUND" value="6b66ce" />
         <option name="FONT_TYPE" value="3" />
       </value>
     </option>
