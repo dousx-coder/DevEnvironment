@@ -1,10 +1,10 @@
 <scheme name="material-light" version="142" parent_scheme="Default">
   <option name="FONT_SCALE" value="1.0" />
   <metaInfo>
-    <property name="created">2023-08-14T09:10:47</property>
+    <property name="created">2023-08-14T09:29:27</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2023.2.0.0</property>
-    <property name="modified">2023-08-14T09:11:04</property>
+    <property name="modified">2023-08-14T09:29:38</property>
     <property name="originalScheme">material-light</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.4" />
@@ -150,8 +150,8 @@
     <option name="RIGHT_MARGIN_COLOR" value="d3d4d5" />
     <option name="SELECTED_INDENT_GUIDE" value="809b" />
     <option name="SELECTED_TEARLINE_COLOR" value="809b" />
-    <option name="SELECTION_BACKGROUND" value="e5e5e6" />
-    <option name="SELECTION_FOREGROUND" value="232324" />
+    <option name="SELECTION_BACKGROUND" value="a6d2ff" />
+    <option name="SELECTION_FOREGROUND" value="" />
     <option name="SEPARATOR_BELOW_COLOR" value="d3d4d5" />
     <option name="SOFT_WRAP_SIGN_COLOR" value="9d9d9f" />
     <option name="TAB_UNDERLINE" value="2979ff" />
