@@ -1,10 +1,10 @@
 <scheme name="material-light" version="142" parent_scheme="Default">
   <option name="FONT_SCALE" value="1.0" />
   <metaInfo>
-    <property name="created">2023-08-13T15:14:08</property>
+    <property name="created">2023-08-14T09:10:47</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2023.2.0.0</property>
-    <property name="modified">2023-08-13T15:14:20</property>
+    <property name="modified">2023-08-14T09:11:04</property>
     <property name="originalScheme">material-light</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.4" />
@@ -27,7 +27,8 @@
   </console-font>
   <colors>
     <option name="ADDED_LINES_COLOR" value="50a14e" />
-    <option name="ANNOTATIONS_COLOR" value="ffffff" />
+    <option name="ANNOTATIONS_COLOR" value="5a5d6b" />
+    <option name="ANNOTATIONS_LAST_COMMIT_COLOR" value="0" />
     <option name="ActionButton.hoverBackground" value="dbdbdcc0" />
     <option name="ActionButton.iconTextForeground" value="7f7f7f" />
     <option name="ActionButton.pressedBackground" value="dbdbdc" />
@@ -157,11 +158,11 @@
     <option name="TAB_UNDERLINE_INACTIVE" value="2979ff80" />
     <option name="TEARLINE_COLOR" value="d3d4d5" />
     <option name="TOOLTIP" value="eaeaeb" />
-    <option name="VCS_ANNOTATIONS_COLOR_1" value="a626a4" />
-    <option name="VCS_ANNOTATIONS_COLOR_2" value="d2ff" />
-    <option name="VCS_ANNOTATIONS_COLOR_3" value="2979ff" />
-    <option name="VCS_ANNOTATIONS_COLOR_4" value="39adb5" />
-    <option name="VCS_ANNOTATIONS_COLOR_5" value="e4564a" />
+    <option name="VCS_ANNOTATIONS_COLOR_1" value="a1bef7" />
+    <option name="VCS_ANNOTATIONS_COLOR_2" value="dee8fc" />
+    <option name="VCS_ANNOTATIONS_COLOR_3" value="edf2fa" />
+    <option name="VCS_ANNOTATIONS_COLOR_4" value="edf2fa" />
+    <option name="VCS_ANNOTATIONS_COLOR_5" value="f7f8fa" />
     <option name="VISUAL_INDENT_GUIDE" value="d3d4d5" />
     <option name="WHITESPACES" value="e5e5e6" />
     <option name="WHITESPACES_MODIFIED_LINES_COLOR" value="eaeaeb" />
@@ -789,28 +790,10 @@
         <option name="EFFECT_TYPE" value="3" />
       </value>
     </option>
-    <option name="DIFF_CONFLICT">
-      <value>
-        <option name="BACKGROUND" value="ff4b4c" />
-        <option name="ERROR_STRIPE_COLOR" value="b03435" />
-      </value>
-    </option>
-    <option name="DIFF_DELETED">
-      <value>
-        <option name="BACKGROUND" value="dbdbdc" />
-        <option name="ERROR_STRIPE_COLOR" value="656e76" />
-      </value>
-    </option>
-    <option name="DIFF_INSERTED">
-      <value>
-        <option name="BACKGROUND" value="c9e67f" />
-        <option name="ERROR_STRIPE_COLOR" value="447152" />
-      </value>
-    </option>
     <option name="DIFF_MODIFIED">
       <value>
-        <option name="BACKGROUND" value="d9ff" />
-        <option name="ERROR_STRIPE_COLOR" value="43698d" />
+        <option name="BACKGROUND" value="c2d8f2" />
+        <option name="ERROR_STRIPE_COLOR" value="b6d2f2" />
       </value>
     </option>
     <option name="DUPLICATE_FROM_SERVER">
