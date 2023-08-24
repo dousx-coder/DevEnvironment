@@ -181,3 +181,9 @@
 >  控制台输出信息不全
 
 ![image-20220816103841547](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/08/16/10-38-44-855.png)
+
+
+
+## 8.@Deprecated删除线
+
+![image-20230824092702180](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2023/08/24/09-27-02-522.png)
