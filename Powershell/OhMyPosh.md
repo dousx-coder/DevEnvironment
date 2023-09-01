@@ -1,5 +1,7 @@
 # OhMyPosh安装
 
+ > [terminalsplash主题](https://terminalsplash.com/) 
+
 ## 1.安装字体,下载MESLO LGM NF字体，解压，安装（给所有人）：
 
 [https://ohmyposh.dev/docs/installation/fonts](https://ohmyposh.dev/docs/installation/fonts)
