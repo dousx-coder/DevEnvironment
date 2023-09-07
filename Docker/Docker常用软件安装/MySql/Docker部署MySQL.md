@@ -99,7 +99,7 @@ default-character-set=utf8
 > - 挂载目录中不能包含空格和中文
 
 ```powershell
-docker run -id --restart=always -p 3306:3306 --name=mysql80 -v C:/Users/dousx/.data/.docker/mysql/conf:/etc/mysql/conf.d -v C:/Users/dousx/.data/.docker/mysql/logs:/logs -v C:/Users/dousx/.data/.docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root mysql:8.0 --lower_case_table_names=1
+docker run -id --restart=always -p 3306:3306 --name=mysql80 -v C:/Users/dousx/.data/.docker/mysql/conf:/etc/mysql/conf.d -v C:/Users/dousx/.data/.docker/mysql/logs:/logs -v C:/Users/dousx/.data/.docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e TZ=Asia/Shanghai mysql:8.0 --lower_case_table_names=1 
 ```
 ## 4.命令说明
 
@@ -113,6 +113,7 @@ docker run -id --restart=always -p 3306:3306 --name=mysql80 -v C:/Users/dousx/.d
 - -v $PWD/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。数据目录
 
 - -e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码
+- -e TZ=Asia/Shanghai 时区
 
 - --lower_case_table_names=1 忽略sql大小写
 
