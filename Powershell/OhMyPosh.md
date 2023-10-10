@@ -66,7 +66,9 @@ Import-Module -Name Terminal-Icons
 Import-Module posh-git
 
 # oh-my-posh init pwsh | Invoke-Expression
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/amro.omp.json" | Invoke-Expression
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/amro.omp.json" | Invoke-Expression
+# 将配置文件下载到用户目录下~/oh-my-posh-themes 可提高加载速度 https://github.com/JanDeDobbeleer/oh-my-posh/tree/main/themes
+oh-my-posh init pwsh --config ~/oh-my-posh-themes/amro.omp.json | Invoke-Expression
 
 # 使用历史记录进行脚本提示
 Set-PSReadLineOption -PredictionSource History
