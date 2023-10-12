@@ -63,19 +63,9 @@ oh-my-posh --init --shell pwsh --config $theme.FullName | Invoke-Expression
 ```powershell
 Import-Module -Name Terminal-Icons
 Import-Module posh-git
-Import-Module PSReadLine
-New-Alias -Name ll -Value ls
 
 # 读取本地配置 加快加载速度
 oh-my-posh init pwsh --config ~/oh-my-posh-themes/amro.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config ~/oh-my-posh-themes/zash.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config ~/oh-my-posh-themes/ys.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config ~/oh-my-posh-themes/xtoys.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config ~/oh-my-posh-themes/robbyrussell.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\avit.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\craver.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\negligible.omp.json | Invoke-Expression
-#oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\neko.omp.json | Invoke-Expression
 
 # 使用历史记录进行脚本提示
 Set-PSReadLineOption -PredictionSource History
@@ -85,7 +75,6 @@ Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo 
 # 编码问题
 $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
-
 ```
 
 
