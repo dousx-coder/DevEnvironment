@@ -3,7 +3,7 @@
   "blocks": [
     {
       "alignment": "left",
-      "newline": true,
+      "newline": false,
       "segments": [
         {
           "foreground": "#45F1C2",
@@ -39,6 +39,7 @@
     },
     {
       "alignment": "right",
+      "newline": false,
       "segments": [
         {
           "foreground": "#F6B65C",
