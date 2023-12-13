@@ -8,7 +8,7 @@
         {
           "foreground": "#45F1C2",
           "style": "plain",
-          "template": "\ueb99 {{ .UserName }} on",
+          "template": "\ueb99 {{ .UserName }} at",
           "type": "session"
         },
         {
@@ -22,7 +22,7 @@
           "type": "path"
         },
         {
-          "foreground": "#ee79d1",
+          "foreground": "#96ffF2",
           "properties": {
             "branch_icon": "\ue725",
             "fetch_stash_count": true,
@@ -31,7 +31,7 @@
             "fetch_worktree_count": true
           },
           "style": "diamond",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "template": "on {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "type": "git"
         }
       ],
@@ -41,21 +41,7 @@
       "alignment": "right",
       "segments": [
         {
-          "foreground": "#bc93ff",
-          "properties": {
-            "time_format": "Monday <#ffffff>at</> 15:04:01"
-          },
-          "style": "diamond",
-          "template": " {{ .CurrentDate | date .Format }} ",
-          "type": "time"
-        },
-        {
-          "foreground": "#a9ffb4",
-          "style": "plain",
-          "type": "text"
-        },
-        {
-          "foreground": "#a9ffb4",
+          "foreground": "#F6B65C",
           "properties": {
             "style": "dallas",
             "threshold": 0
@@ -73,10 +59,19 @@
           "type": "root"
         },
         {
-          "foreground": "#94ffa2",
+          "foreground": "#bc93ff",
           "style": "diamond",
-          "template": " <#ffffff>MEM:</> {{ round .PhysicalPercentUsed .Precision }}% ({{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB)",
+          "template": " <#ffffff>MEM:</> {{ round .PhysicalPercentUsed .Precision }}% [{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB]",
           "type": "sysinfo"
+        },
+        {
+          "foreground": "#3a8cb0",
+          "properties": {
+            "time_format": "<#ffffff></>15:04"
+          },
+          "style": "diamond",
+          "template": " <#ffffff>TIME:</> {{ .CurrentDate | date .Format }} ",
+          "type": "time"
         }
       ],
       "type": "prompt"
