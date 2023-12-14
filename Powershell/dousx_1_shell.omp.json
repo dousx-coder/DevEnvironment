@@ -53,6 +53,15 @@
           "style": "diamond",
           "template": " {{ round .PhysicalPercentUsed .Precision }}%",
           "type": "sysinfo"
+        },
+        {
+          "foreground": "#4a83d8",
+          "properties": {
+            "time_format": "Monday 15:04:05"
+          },
+          "style": "plain",
+          "template": " \ue641 \u2665 \uebaa \uf49b \uf073 </>{{ .CurrentDate | date .Format }} ",
+          "type": "time"
         }
       ],
       "type": "prompt"
