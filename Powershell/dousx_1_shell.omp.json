@@ -19,7 +19,7 @@
           "foreground": "#0CA0D8",
           "properties": {
             "folder_separator_icon": "/",
-            "style": "full"
+            "style": "folder"
           },
           "style": "plain",
           "template": " \uf07b {{ .Path }}",
