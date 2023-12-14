@@ -6,13 +6,13 @@
       "newline": false,
       "segments": [
         {
-          "foreground": "#45F1C2",
-          "leading_diamond": "<#45F1C2>\ueb99 </>",
+          "foreground": "#31f8c3",
+          "leading_diamond": "<#45F1C2>\u279c </>",
           "properties": {
             "display_host": true
           },
           "style": "diamond",
-          "template": "{{ .UserName }}</>",
+          "template": "<b>{{ .UserName }}</b> ",
           "type": "session"
         },
         {
@@ -22,7 +22,7 @@
             "style": "folder"
           },
           "style": "plain",
-          "template": " \uf07b {{ .Path }}",
+          "template": "\uf07b {{ .Path }}",
           "type": "path"
         },
         {
@@ -37,14 +37,7 @@
           "style": "diamond",
           "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}",
           "type": "git"
-        }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "right",
-      "newline": false,
-      "segments": [
+        },
         {
           "foreground": "#F6B65C",
           "properties": {
@@ -56,9 +49,9 @@
           "type": "executiontime"
         },
         {
-          "foreground": "#3F8cb0",
+          "foreground": "#02a937",
           "style": "diamond",
-          "template": " [{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB] {{ round .PhysicalPercentUsed .Precision }}%",
+          "template": " {{ round .PhysicalPercentUsed .Precision }}%",
           "type": "sysinfo"
         }
       ],
@@ -69,15 +62,15 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#cd5e42",
+          "foreground": "#cd4265",
           "style": "plain",
-          "template": "\ue3bf ",
+          "template": "\ue3bf",
           "type": "root"
         },
         {
-          "foreground": "#CD4277",
+          "foreground": "#42c6cd",
           "style": "plain",
-          "template": "# ",
+          "template": "\u26a1",
           "type": "text"
         }
       ],
