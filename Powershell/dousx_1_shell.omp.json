@@ -39,19 +39,9 @@
           "type": "git"
         },
         {
-          "foreground": "#F6B65C",
-          "properties": {
-            "style": "dallas",
-            "threshold": 0
-          },
-          "style": "diamond",
-          "template": " \ue601 {{ .FormattedMs }}s </>",
-          "type": "executiontime"
-        },
-        {
           "foreground": "#02a937",
           "style": "diamond",
-          "template": " {{ round .PhysicalPercentUsed .Precision }}%",
+          "template": "  {{ round .PhysicalPercentUsed .Precision }}%",
           "type": "sysinfo"
         },
         {
@@ -60,8 +50,18 @@
             "time_format": "Monday 15:04:05"
           },
           "style": "plain",
-          "template": " \uf073 </>{{ .CurrentDate | date .Format }} ",
+          "template": " \uf073 </>{{ .CurrentDate | date .Format }}",
           "type": "time"
+        },
+        {
+          "foreground": "#F6B65C",
+          "properties": {
+            "style": "dallas",
+            "threshold": 0
+          },
+          "style": "diamond",
+          "template": " \ue601 {{ .FormattedMs }}s </>",
+          "type": "executiontime"
         }
       ],
       "type": "prompt"
