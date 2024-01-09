@@ -173,3 +173,20 @@ Windows IP 配置
 
 
 
+
+```
+    #  jmix 里有vaadinServlet 需要配置server.servlet.context-path=/erep
+    location /erep/ {
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_read_timeout     3600;
+        proxy_connect_timeout  240;
+        proxy_set_header   X-Forwarded-For $remote_addr;
+        proxy_http_version  1.1;
+        proxy_set_header    Upgrade $http_upgrade;
+        proxy_set_header    Connection "upgrade";
+        proxy_set_header    Host $http_host;
+        proxy_set_header    X-Real-IP $remote_addr;
+        proxy_pass http://172.28.16.1:8271/erep/;
+    }
+```
