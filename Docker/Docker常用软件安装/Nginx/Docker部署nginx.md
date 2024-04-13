@@ -8,6 +8,11 @@ docker pull nginx
 ```sh
 docker run --restart=always --name nginx -p 81:81 -p 82:82 -d nginx
 ```
+```sh
+# 使用宿主机配置
+docker run --restart=always --name nginx -v C:/Users/dousx/.data/.docker/nginx/conf.d/:/etc/nginx/conf.d/ -p 81:81 -p 82:82 -d nginx
+```
+
 ###  进入容器
 ```sh
 docker exec -it nginx /bin/bash
