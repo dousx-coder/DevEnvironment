@@ -1,10 +1,8 @@
 <scheme name="dousx-light" version="142" parent_scheme="Default">
   <option name="FONT_SCALE" value="1.0" />
   <metaInfo>
-    <property name="created">2023-10-21T17:04:10</property>
     <property name="ide">idea</property>
-    <property name="ideVersion">2023.2.3.0.0</property>
-    <property name="modified">2023-10-21T17:04:27</property>
+    <property name="ideVersion">2024.1.1.0.0</property>
     <property name="originalScheme">dousx-light</property>
   </metaInfo>
   <console-font>
@@ -558,11 +556,6 @@
         <option name="FONT_TYPE" value="3" />
       </value>
     </option>
-    <option name="DEFAULT_DOC_MARKUP">
-      <value>
-        <option name="FOREGROUND" value="a0a1a7" />
-      </value>
-    </option>
     <option name="DEFAULT_DOT">
       <value>
         <option name="FOREGROUND" value="383a42" />
@@ -788,9 +781,6 @@
         <option name="EFFECT_TYPE" value="1" />
       </value>
     </option>
-    <option name="GHERKIN_OUTLINE_PARAMETER_SUBSTITUTION" baseAttributes="DEFAULT_INSTANCE_FIELD" />
-    <option name="GHERKIN_PYSTRING" baseAttributes="DEFAULT_STRING" />
-    <option name="GHERKIN_REGEXP_PARAMETER" baseAttributes="DEFAULT_PARAMETER" />
     <option name="GIT_TOOLBOX.CHANGED_COUNT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="e4564a" />
@@ -2686,8 +2676,9 @@
     </option>
     <option name="TODO_DEFAULT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="808080" />
+        <option name="FOREGROUND" value="8dde" />
         <option name="FONT_TYPE" value="2" />
+        <option name="ERROR_STRIPE_COLOR" value="54aae3" />
       </value>
     </option>
     <option name="TS.ANY">
