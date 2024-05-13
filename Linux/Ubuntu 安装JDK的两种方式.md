@@ -1,10 +1,10 @@
-# Ubuntu 安装JDK的两种方式
+# Ubuntu 安装 JDK 的两种方式
 
 ## 1.在线安装
 
-> 在线安装通过`apt upgrade` 方式方便获得jdk的升级
+> 在线安装通过`apt upgrade` 方式方便获得 jdk 的升级
 
-###  1.1.安装
+### 1.1.安装
 
 ```sh
 sudo apt update
@@ -14,7 +14,7 @@ sudo apt install openjdk-11-jdk -y
 sudo apt install openjdk-8-jdk -y
 ```
 
-###  1.2.查看当前Java版本
+### 1.2.查看当前 Java 版本
 
 ```sh
 root@linux:~# java -version
@@ -22,7 +22,8 @@ openjdk version "1.8.0_292"
 OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~20.04-b10)
 OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
 ```
-###  1.3.设置默认版本
+
+### 1.3.设置默认版本
 
 ```sh
 root@linux:~# sudo update-alternatives --config java
@@ -53,13 +54,13 @@ sudo vim /etc/environment
 source /etc/environment
 ```
 
-> 此外，/etc/environment 设置的也是全局变量，从文件本身的作用上来说，/etc/environment 设置的是整个系统的环境，而/etc/profile是设置所有用户的环境。有几点需注意：
+> 此外，/etc/environment 设置的也是全局变量，从文件本身的作用上来说，/etc/environment 设置的是整个系统的环境，而/etc/profile 是设置所有用户的环境。有几点需注意：
 >
-> - 登陆系统时shell读取的顺序应该是 
->          /etc/profile ->/etc/environment -->$HOME/.profile  -->$HOME/.env
-> - /etc/environment中不能包含命令，即直接通过 VAR=”…” 的方式设置，不使用 export 。
+> - 登陆系统时 shell 读取的顺序应该是
+>   /etc/profile ->/etc/environment -->$HOME/.profile  -->$HOME/.env
+> - /etc/environment 中不能包含命令，即直接通过 VAR=”…” 的方式设置，不使用 export 。
 > - 使用 source /etc/environment 可以使变量设置在当前窗口立即生效，需注销/重启之后，才能对每个新终端窗口都生效。
-> - 如果所需环境变量 与 用户无关则直接设置/etc/environment即可。
+> - 如果所需环境变量 与 用户无关则直接设置/etc/environment 即可。
 
 /etc/profile 环境变量
 
@@ -70,11 +71,9 @@ export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 ```
 
+### 1.4.卸载 Java
 
-
-###  1.4.卸载 Java
-
-> 卸载11为例
+> 卸载 11 为例
 
 查看包
 
@@ -82,7 +81,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
  dpkg -l | grep openjdk*
 ```
 
- 彻底删除（包括配置文件）
+彻底删除（包括配置文件）
 
 ```sh
 sudo apt purge openjdk-11* -y
@@ -94,13 +93,19 @@ sudo apt purge openjdk-11* -y
 sudo update-alternatives --config java
 ```
 
+#### 如何从 Ubuntu 中删除 default-jre java 安装？
 
+1. 键入 sudo apt-get autoremove default-jdk openjdk- （不要立即点击 Enter ）。
+2. 现在按 tab 按钮 2 或 3 次，您将获得以 openjdk- 开头的包列表。
+3. 寻找类似 openjdk-11-jdk 的名称。你需要获取 java 版本，这里是 11。
+4. 现在完成对 sudo apt-get autoremove default-jdk openjdk-11-jdk 的命令。 （将 11 更改为您的 java 版本）
+5. 然后点击 Enter 按钮。
 
 ## 2.通过官网下载安装包安装
 
 [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/)
 
-### 2.1常规配置
+### 2.1 常规配置
 
 创建目录
 
@@ -113,26 +118,32 @@ sudo mkdir /usr/lib/jvm -p
 ```
  tar -zxvf OpenJDK8U-jdk_x64_linux_hotspot_8u322b06.tar.gz  -C /usr/lib/jvm
 ```
+
 配置环境变量
+
 ```sh
 vim /etc/profile
 ```
+
 追加
+
 ```
 export JAVA_HOME=/usr/lib/jvm/jdk8u322-b06
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ```
+
 刷新配置
+
 ```sh
 source  /etc/profile
 ```
+
 测试
+
 ```sh
 java -version
 ```
-
-
 
 ### 2.2 多版本管理
 
