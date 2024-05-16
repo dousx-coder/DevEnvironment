@@ -175,6 +175,14 @@ move code fragments with drag-and-drop
 
 ![image-20240514102835426](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/05/14/10-28-35-656.png)
 
+### 4.6 自定义快速模板
+
+自带的模板有`psvm`、`sout`等
+
+![image-20240516134153779](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/05/16/01-41-53-967.png)
+
+
+
 ## 5.忽略某些文件的显示
 
 ![image-20220415211519212](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2022/04/15/09-15-19-552.png)
