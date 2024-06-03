@@ -1,35 +1,17 @@
 import java.util.concurrent.TimeUnit
-// //gradle的可执行目录
-// gradle.println "gradleHomeDir:${gradle.gradleHomeDir}"
-// //gradle的用户目录,用于缓存一些下载好的资源,编译好的构建脚本等
-// gradle.println "gradleUserHomeDir:${gradle.gradleUserHomeDir}"
+
 //gradle的版本号
 gradle.println "gradleVersion:${gradle.gradleVersion}"
 //gralde当前构建的启动参数
 gradle.println "startParameter:${gradle.startParameter}"
 
 allprojects { Project project ->
-    repositories {
-        mavenLocal()
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/spring/' }
-        mavenCentral()
-        // jcenter()
-    }
-    buildscript {
-        repositories {
-            mavenLocal()
-            mavenCentral()
-            // jcenter()
-        }
-    }
     configurations.all {
         resolutionStrategy {
-            // cache dynamic versions for 7 * 24 hours
-            cacheDynamicVersionsFor 1, TimeUnit.HOURS
+            // cache dynamic versions for 100 * 365 * 24 hours
+            cacheDynamicVersionsFor 100 * 365 * 24, TimeUnit.HOURS
             // don't cache changing modules at all
-            cacheChangingModulesFor 1, TimeUnit.HOURS
+            cacheChangingModulesFor 100 * 365 * 24, TimeUnit.HOURS
         }
     }
 }
