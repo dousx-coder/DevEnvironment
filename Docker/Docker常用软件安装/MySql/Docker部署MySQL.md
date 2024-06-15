@@ -94,6 +94,14 @@ default-character-set=utf8
 > - 挂载目录需要有权限
 > - 挂载目录中不能包含空格和中文
 
+### 3.1 mysql 5.7
+
+```powershell
+docker run -id -p 3305:3306 --name=mysql-5.7 -v C:/Users/dousx/.data/.docker/mysql-5.7/conf:/etc/mysql/conf.d -v C:/Users/dousx/.data/.docker/mysql-5.7/logs:/logs -v C:/Users/dousx/.data/.docker/mysql-5.7/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e TZ=Asia/Shanghai mysql:5.7 --lower_case_table_names=1
+```
+
+### 3.2 mysql 8.4
+
 ```powershell
 docker run -id --restart=always -p 3306:3306 --name=mysql-8.4 -v C:/Users/dousx/.data/.docker/mysql-8.4/conf:/etc/mysql/conf.d -v C:/Users/dousx/.data/.docker/mysql-8.4/logs:/logs -v C:/Users/dousx/.data/.docker/mysql-8.4/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e TZ=Asia/Shanghai mysql:8.4-oracle --lower_case_table_names=1
 ```
