@@ -95,7 +95,7 @@ default-character-set=utf8
 > - 挂载目录中不能包含空格和中文
 
 ```powershell
-docker run -id --restart=always -p 3306:3306 --name=mysql-8.4 -v C:/Users/dousx/.data/.docker/mysql/conf:/etc/mysql/conf.d -v C:/Users/dousx/.data/.docker/mysql/logs:/logs -v C:/Users/dousx/.data/.docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e TZ=Asia/Shanghai mysql:8.4-oracle --lower_case_table_names=1
+docker run -id --restart=always -p 3306:3306 --name=mysql-8.4 -v C:/Users/dousx/.data/.docker/mysql-8.4/conf:/etc/mysql/conf.d -v C:/Users/dousx/.data/.docker/mysql-8.4/logs:/logs -v C:/Users/dousx/.data/.docker/mysql-8.4/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e TZ=Asia/Shanghai mysql:8.4-oracle --lower_case_table_names=1
 ```
 
 ## 4.命令说明
