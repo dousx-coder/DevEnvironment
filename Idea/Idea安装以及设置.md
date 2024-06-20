@@ -181,7 +181,15 @@ move code fragments with drag-and-drop
 
 ![image-20240516134153779](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/05/16/01-41-53-967.png)
 
+**变量说明**
 
+只有text中使用了变量，右侧的edit 按钮才能点击
+
+```
+// todo $user$ $date$ :
+```
+
+![image-20240620093514504](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/06/20/09-35-14-738.png)
 
 ## 5.忽略某些文件的显示
 
