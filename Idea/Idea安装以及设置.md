@@ -99,3 +99,7 @@ move code fragments with drag-and-drop
 ## 8.@Deprecated 删除线
 
 ![image-20230824092702180](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2023/08/24/09-27-02-522.png)
+
+## 9. 使用系统默认程序打开文件
+
+![image-20240704092406254](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/07/04/09-24-06-490.png)
