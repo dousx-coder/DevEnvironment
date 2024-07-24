@@ -82,6 +82,7 @@ $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Obj
 ## 3.VSCODE 终端设置
 
 > 字体: JetBrainsMono Nerd Font Mono
+> vscode 默认字体：Consolas, 'Courier New', monospace
 
 当你设置好上面的操作后，你的 VScode 也会有相应的变化，但如果不设置字体，也会出现主题显示也会有问题，在设置里将终端的字体样式也需要做相应的修改。`（注意是修改VScode终端的，不是VScode整体的字体）`,这样主题也能在 VScode 终端上完美显示。
 
