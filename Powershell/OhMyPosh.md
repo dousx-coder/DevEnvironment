@@ -1,12 +1,13 @@
-# OhMyPosh安装
+# OhMyPosh 安装
 
- > [terminalsplash主题](https://terminalsplash.com/) 
+> [terminalsplash 主题](https://terminalsplash.com/)
 
-## 1.安装字体,下载MESLO LGM NF字体，解压，安装（给所有人）：
+## 1.安装字体,下载 MESLO LGM NF 字体，解压，安装（给所有人）：
 
 [https://ohmyposh.dev/docs/installation/fonts](https://ohmyposh.dev/docs/installation/fonts)
 
-## 2.安装和配置oh-my-posh
+## 2.安装和配置 oh-my-posh
+
 ```powershell
 # 安装oh-my-posh
 winget install JanDeDobbeleer.OhMyPosh -s winget
@@ -58,8 +59,9 @@ oh-my-posh --init --shell pwsh --config $theme.FullName | Invoke-Expression
 
 ```
 
-**$PROFILE配置**
+**$PROFILE 配置**
 配置
+
 ```powershell
 Import-Module -Name Terminal-Icons
 Import-Module posh-git
@@ -72,26 +74,23 @@ Set-PSReadLineOption -PredictionSource History
 
 
 # 设置 Ctrl+z 为撤销
-Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo 
+Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 # 编码问题
 $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 ```
 
+## 3.VSCODE 终端设置
 
-## 3.合成VSCODE
+> 字体: JetBrainsMono Nerd Font Mono
 
-当你设置好上面的操作后，你的VScode也会有相应的变化，但如果不设置字体，也会出现主题显示也会有问题，在设置里将终端的字体样式也需要做相应的修改。`（注意是修改VScode终端的，不是VScode整体的字体）`,这样主题也能在VScode终端上完美显示。
-
-
+当你设置好上面的操作后，你的 VScode 也会有相应的变化，但如果不设置字体，也会出现主题显示也会有问题，在设置里将终端的字体样式也需要做相应的修改。`（注意是修改VScode终端的，不是VScode整体的字体）`,这样主题也能在 VScode 终端上完美显示。
 
 **字体配置不对某些主题下的图标会展示错误**
 
-**amro.omp.json使用下图所示字体**
+**amro.omp.json 使用下图所示字体**
 
 ![image-20230310090607808](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2023/03/10/09-06-08-420.png)
 
-
-
-**amro.omp.json效果**
+**amro.omp.json 效果**
 
 ![image-20230310090646477](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2023/03/10/09-06-47-305.png)
