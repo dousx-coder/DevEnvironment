@@ -1,12 +1,14 @@
-# 命令行中修改jdk环境变量
+# 命令行中修改 jdk 环境变量
+
 - [参考](https://zhuanlan.zhihu.com/p/611832551)
 - [issues17](https://github.com/neolee/pilot/issues/17)
-
 
 ```ps
  code $PROFILE
 ```
+
 添加
+
 ```ps
 function Java8{
     $JAVA_HOME_8 = [System.Environment]::GetEnvironmentVariable('JAVA_HOME_8','Machine')
@@ -24,8 +26,8 @@ Set-Alias jvm8 JAVA8
 Set-Alias jvm17 JAVA17
 ```
 
-
 **待解决**
+
 ```ps
  dousx on  ~
 # jvm8
