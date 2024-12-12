@@ -103,3 +103,19 @@ move code fragments with drag-and-drop
 ## 9. 使用系统默认程序打开文件
 
 ![image-20240704092406254](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/07/04/09-24-06-490.png)
+
+## 10. 隐藏idea左侧项目路径
+
+````properties
+# custom IntelliJ IDEA properties
+project.tree.structure.show.url=false
+ide.tree.horizontal.default.autoscrolling=false
+````
+
+### 开启效果
+
+![image-20241212093218644](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/12/12/09-32-18-828.png)
+
+### 未隐藏效果(默认)
+
+![image-20241212093322967](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/12/12/09-33-23-158.png)
