@@ -380,6 +380,11 @@
       </value>
     </option>
     <option name="INSTANCE_FIELD_ATTRIBUTES" baseAttributes="DEFAULT_INSTANCE_FIELD" />
+    <option name="INTERFACE_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="5e80" />
+      </value>
+    </option>
     <option name="JS.GLOBAL_VARIABLE">
       <value>
         <option name="FOREGROUND" value="830091" />
