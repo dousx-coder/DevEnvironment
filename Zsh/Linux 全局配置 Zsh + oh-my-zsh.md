@@ -93,7 +93,14 @@
   sudo chsh -s /bin/zsh
   ```
 
+## WSL 2 卡顿
 
+[In `/etc/wsl.conf` (create if it doesn't exist) add:](https://github.com/zdharma-continuum/fast-syntax-highlighting/issues/13)
+
+```conf
+[interop]
+appendWindowsPath=false
+```
 
 ## `.zshrc`配置示例
 
