@@ -16,7 +16,7 @@
           "type": "session"
         },
         {
-          "foreground": "#87FF00",
+          "foreground": "#16C60C",
           "properties": {
             "folder_separator_icon": "/",
             "style": "folder"
@@ -26,7 +26,7 @@
           "type": "path"
         },
         {
-          "foreground": "#5FD7FF",
+          "foreground": "#5ac7eb",
           "properties": {
             "branch_icon": "\ue725 ",
             "fetch_stash_count": true,
