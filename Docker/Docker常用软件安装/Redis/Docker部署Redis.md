@@ -7,14 +7,14 @@ docker search redis
 ```
 ## 2. 拉取redis镜像
 ```shell
-docker pull redis:7.0.8-alpine
+docker pull redis:7.4.2-alpine
 ```
 ## 3. 创建容器并指定密码
 ```sh
 docker run -d --name redis \
 --restart=always \
 -p 6379:6379 \
-redis:7.0.8-alpine \
+redis:7.4.2-alpine \
 --requirepass "fsv234vs2323"
 ```
 
@@ -24,7 +24,7 @@ redis:7.0.8-alpine \
 **提示Windows下映射路径不能出现空格和中文**
 
 ```powershell
-docker run -d --name redis --restart=always -p 6379:6379 redis:7.0.8-alpine --requirepass "fsv234vs2323"
+docker run -d --name redis --restart=always -p 6379:6379 redis:7.4.2-alpine --requirepass "fsv234vs2323"
 ```
 
 ## 4.布隆过滤器
