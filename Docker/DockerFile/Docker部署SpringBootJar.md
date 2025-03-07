@@ -1,39 +1,44 @@
-### Docker部署SpringBootJar
+### Docker 部署 SpringBootJar
 
->将可执行jar包和Dockerfile放在同一目录
+> 将可执行 jar 包和 Dockerfile 放在同一目录
 
-Dockerfile内容如下
+Dockerfile 内容如下
 
 ```dockerfile
-FROM java:8
+# Dockerfile
+FROM ringcentral/jdk:17
+# 创建统一存放配置的目录
+RUN mkdir -p /app/config
+RUN chmod -R 755 /app/config
 
-# 作者
-MAINTAINER dousx <dsx@gmail.com>
+# 设置工作目录为 /app（后续操作默认在此目录下执行）
+WORKDIR /app
 
-# VOLUME 指定了临时文件目录为/tmp。
-# 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp
-VOLUME /tmp 
+ENV CONFIG_DIR=/app/config
 
-# 将jar包添加到容器中并更名为app.jar
-ADD app.jar app.jar 
+COPY build/libs/boot-upload-download.jar /app/app.jar
+COPY src/main/resources/application-docker.yml ${CONFIG_DIR}/
+COPY src/main/resources/redisson-single-docker.yml ${CONFIG_DIR}/
+COPY src/main/resources/logback-spring-docker.xml ${CONFIG_DIR}/
 
-# 运行jar包
-RUN bash -c 'touch /app.jar'
-
-# 指定docker容器启动时运行jar包 并且指定运行环境为prod
-ENTRYPOINT ["java","-Dspring.profiles.active=prod", "-jar","/app.jar"]
+# 指定spring配置文件 spring.redis.redisson.file配置文件
+CMD ["java", "-jar", "/app/app.jar",\
+"--spring.config.location=file:${CONFIG_DIR}/application-docker.yml",\
+"--spring.redis.redisson.file=file:${CONFIG_DIR}/redisson-single-docker.yml",\
+"--logging.config=file:${CONFIG_DIR}/logback-spring-docker.xml"]
 ```
 
 ### 执行命令
 
 ```shell
-# 其中app是镜像名称  字母貌似要全小写 
-# 切换到jar包和Dockerfile所在目录执行
-docker build -t app:0.1 .
+docker build -t bud:0.1 .
 ```
 
 ### 创建容器
 
-```shell
-docker run -d -p 8899:8899 --name=app app:0.1
+````shell
+docker run -d -p 17100:17100 --name=bud bud:0.1
 ```
+
+[示例项目](https://github.com/dousx-coder/boot-upload-download)
+````
