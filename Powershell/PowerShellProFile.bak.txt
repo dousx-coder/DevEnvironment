@@ -1,0 +1,14 @@
+# Terminal-Icons 图标
+Import-Module -Name Terminal-Icons
+
+# 使用历史记录进行脚本提示
+Set-PSReadLineOption -PredictionSource History
+
+# 设置 Ctrl+z 为撤销
+# Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo 
+
+# 编码问题
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
+# 命令别名 ll 当作ls别名
+function ll {ls}
