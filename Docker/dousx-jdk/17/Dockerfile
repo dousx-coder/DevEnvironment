@@ -21,5 +21,8 @@ RUN apt-get autoremove -y
 RUN apt-get install -y vim     
 RUN apt-get install -y iputils-ping
 
+# 清理缓存
+RUN rm -rf /var/lib/apt/lists/*
+
 # 默认命令或其他CMD指令
 CMD ["echo", "built  by dousx"]
