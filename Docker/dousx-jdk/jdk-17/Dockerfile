@@ -15,32 +15,15 @@ COPY aliyun.ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources
 
 RUN apt-get update -y
 RUN apt-get upgrade -y 
-RUN apt-get autoremove -y
 
-# 安装 vim 编辑器
-RUN apt-get install -y vim     
+RUN apt-get install -y vim   
+
 RUN apt-get install -y iputils-ping
 
+RUN apt-get install -y openjdk-17-jdk 
 
-
-# ------------ JDK 17 配置 ------------
-# https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz下载到宿主机，copy到镜像
-# oracle似乎有限制,wget下载似乎会失败
-COPY jdk-17_linux-x64_bin.tar.gz /tmp/
-# 解压并安装 JDK
-RUN mkdir -p /usr/local/java && \
-    tar -xzf /tmp/jdk-17_linux-x64_bin.tar.gz -C /usr/local/java --strip-components=1 && \
-    rm /tmp/jdk-17_linux-x64_bin.tar.gz
-
-# 安装 JDK 17（手动下载解压，避免镜像膨胀）
-# RUN mkdir -p /usr/local/java && \
-#     wget -qO jdk17.tar.gz https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz && \
-#     tar -xzf jdk17.tar.gz -C /usr/local/java --strip-components=1 && \
-#     rm jdk17.tar.gz
-
-# 设置 Java 环境变量
-ENV JAVA_HOME=/usr/local/java
-ENV PATH=$JAVA_HOME/bin:$PATH
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
 
 # 验证安装
 RUN java -version 
