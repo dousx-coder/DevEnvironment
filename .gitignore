@@ -1,6 +1,6 @@
 .DS_Store
 *.un~
 .idea
-*-dev-*
+*dev*
 jdk-17_linux-x64_bin.tar.gz
 jdk-21_linux-x64_bin.tar.gz

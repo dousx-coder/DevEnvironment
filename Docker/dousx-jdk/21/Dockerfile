@@ -17,23 +17,13 @@ RUN apt-get update -y
 RUN apt-get upgrade -y 
 RUN apt-get autoremove -y
 
-# 安装 vim 编辑器
+
 RUN apt-get install -y vim     
 RUN apt-get install -y iputils-ping
+RUN apt install -y openjdk-21-jdk 
 
-
-# ------------ JDK 配置 ------------
-# https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz下载到宿主机，copy到镜像
-# oracle似乎有限制,wget下载似乎会失败
-COPY jdk-21_linux-x64_bin.tar.gz /tmp/
-# 解压并安装 JDK
-RUN mkdir -p /usr/local/java && \
-    tar -xzf /tmp/jdk-21_linux-x64_bin.tar.gz -C /usr/local/java --strip-components=1 && \
-    rm /tmp/jdk-21_linux-x64_bin.tar.gz
-
-# 设置 Java 环境变量
-ENV JAVA_HOME=/usr/local/java
-ENV PATH=$JAVA_HOME/bin:$PATH
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
 
 # 验证安装
 RUN java -version 
