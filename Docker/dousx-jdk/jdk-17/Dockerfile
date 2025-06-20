@@ -24,7 +24,8 @@ RUN apt-get install -y iputils-ping
 
 
 # ------------ JDK 17 配置 ------------
-#如果网络不好可以考虑 从宿主机拷贝 JDK 17 压缩包到容器
+# https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz下载到宿主机，copy到镜像
+# oracle似乎有限制,wget下载似乎会失败
 COPY jdk-17_linux-x64_bin.tar.gz /tmp/
 # 解压并安装 JDK
 RUN mkdir -p /usr/local/java && \
