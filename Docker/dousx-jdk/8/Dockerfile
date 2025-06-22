@@ -1,30 +1,39 @@
-# 使用 ringcentral/jdk 作为基础镜像
-FROM ringcentral/jdk:8
+FROM ubuntu:24.04
 
 LABEL maintainer="dousx_cn@163.com"
 LABEL author="dousx"
-LABEL description="基于 ringcentral/jdk:8 的自定义镜像，配置了时区、ping 和 vim"
+LABEL description="基于 ubuntu:24.04(ubuntu24.04 cat /etc/os-release) 的自定义镜像，配置了jdk 时区、ping 和 vim"
 
-# 设置时区为上海（可根据需要调整）
+# 设置时区为上海
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# 安装 vim 编辑器
-# 假设是基于 Debian 或 Ubuntu 的镜像
-RUN apt-get update && \
-    apt-get install -y vim && \
-    rm -rf /var/lib/apt/lists/*
+# 设置aliyun镜像源    
+RUN mv /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak    
+# RUN echo 易引入隐藏格式错误，这里选用 COPY 预置文件
+COPY aliyun.ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources
 
-# 安装 ping 工具
-# 同样地，假设是基于 Debian 或 Ubuntu 的镜像
-RUN apt-get update && \
-    apt-get install -y iputils-ping && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
+RUN apt-get install -y vim     
+RUN apt-get install -y iputils-ping
+RUN apt install -y openjdk-8-jdk 
+
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
+
+# 验证安装
+RUN java -version 
+
+# 清理缓存
+RUN apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/*
+
+# 设置工作目录
+WORKDIR /workspace
 
 
-
-# 可以在这里添加更多所需的配置或软件包
-
-
-# 默认命令或其他CMD指令（可选）
-CMD ["echo", "built by dousx"]
+# 默认命令或其他CMD指令
+CMD ["echo", "built  by dousx"]
