@@ -1,7 +1,7 @@
 # 构建命令
 
 ```
-docker build -t dousx/jdk-opencv-libreoffice:2025.06.20 .
+docker build -t dousx/jdk-opencv-libreoffice:2025.06.24 .
 ```
 
 
