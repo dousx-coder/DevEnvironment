@@ -24,6 +24,7 @@ RUN apt-get install -y openjdk-17-jdk
 
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
+ENV JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 
 # 验证安装
 RUN java -version 

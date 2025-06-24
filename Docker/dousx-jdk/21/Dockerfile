@@ -22,6 +22,7 @@ RUN apt-get install -y vim
 RUN apt-get install -y iputils-ping
 RUN apt install -y openjdk-21-jdk 
 
+ENV JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
 
