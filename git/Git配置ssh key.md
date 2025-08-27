@@ -3,6 +3,6 @@
 ```sh
 git config --global user.name  "your_account"
 git config --global user.email "youremail@example.com"
-ssh-keygen -o
+ssh-keygen -t ed25519 -o
 ```
 
