@@ -6,21 +6,22 @@
   ```sh
   echo $SHELL
   ```
- - 安装 zsh
+- 安装 zsh
 
-   ```sh
-   sudo apt install zsh -y
-   ```
+  ```sh
+  sudo apt install zsh -y
+  ```
+
 ## 全局配置 zsh
 
-  >*注意：以下全局配置相关命令需要 root 权限，请切换到 root 账号，或者使用 sudo。*
+> _注意：以下全局配置相关命令需要 root 权限，请切换到 root 账号，或者使用 sudo。_
 
 - 全局安装 zsh 到 /etc 目录
 
   ```sh
   sudo git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/oh-my-zsh
   ```
-  
+
 - 从模板文件复制 .zshrc 创建默认配置文件（新用户将使用该配置文件）
 
   ```sh
@@ -32,10 +33,12 @@
   ```sh
   vim /etc/skel/.zshrc
   ```
+
   ```sh
   # .zshrc文件第一行添加
   source /etc/profile
   ```
+
 - 修改 on-my-zsh 的安装目录 `export ZSH=$HOME/.oh-my-zsh` 为 `export ZSH=/etc/oh-my-zsh`
 
   ```sh
@@ -51,7 +54,7 @@
 
 ## 全局配置插件
 
-> *全局安装插件（安装到 /etc/oh-my-zsh/custom/plugins/）*
+> _全局安装插件（安装到 /etc/oh-my-zsh/custom/plugins/）_
 
 - **zsh-autosuggestions：作用是根据历史输入命令的记录即时的提示，然后按键盘 → 即可补全。**
 
@@ -73,9 +76,9 @@
   以下部分加入插件的名字
   plugins=([plugins…] zsh-syntax-highlighting)
 
-## 切换zsh
+## 切换 zsh
 
-  > 新用户登录后，将自动复制 .zshrc 和上述 cache 目录到用户主目录下，并自动加载 zsh 配置。
+> 新用户登录后，将自动复制 .zshrc 和上述 cache 目录到用户主目录下，并自动加载 zsh 配置。
 
 - 针对现有用户
 
@@ -84,16 +87,19 @@
   ```sh
   # 执行之后 关闭当前窗口 重新连接 后面用户如果需要修改私有配置 修改~目录下即可 不影响其他用户
   sudo cp /etc/skel/.zshrc ~/.zshrc && mkdir -p ~/.oh-my-zsh/cache && source ~/.zshrc
-  # 
+  #
   # <username> 替换为实际用户名
   sudo chsh -s /bin/zsh <username>
   ```
+
 - 为 root 设置默认 shell
   ```sh
   sudo chsh -s /bin/zsh
   ```
 
 ## WSL 2 卡顿
+
+修改 wsl 中的配置文件`/etc/wsl.conf`
 
 [In `/etc/wsl.conf` (create if it doesn't exist) add:](https://github.com/zdharma-continuum/fast-syntax-highlighting/issues/13)
 
@@ -209,6 +215,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ```
-
-
-
