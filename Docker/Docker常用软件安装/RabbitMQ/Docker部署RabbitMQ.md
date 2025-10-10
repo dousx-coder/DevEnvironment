@@ -5,7 +5,7 @@
 1. 拉取镜像，并指定版本，该版本包含了 web 控制页面
 
 ```shell
-docker pull rabbitmq:3.13.3-management
+docker pull rabbitmq:4.2-rc-management
 ```
 
 2. 创建容器
@@ -17,7 +17,7 @@ docker run -d \
 --name rabbitmq \
 -p 5672:5672 \
 -p 15672:15672 \
-rabbitmq:3.13.3-management
+rabbitmq:4.2-rc-management
 ```
 
 3. 测试
@@ -31,5 +31,5 @@ username: `guest` ,password: `guest`
 **Windows 创建容器**
 
 ```powershell
-docker run -d --restart=always --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13.3-management
+docker run -d --restart=always --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4.2-rc-management
 ```
