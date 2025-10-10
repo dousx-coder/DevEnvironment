@@ -1,36 +1,44 @@
-## Docker部署nginx
+## Docker 部署 nginx
 
-###  拉取镜像
+### 拉取镜像
+
 ```sh
-docker pull nginx:1.27.0
+docker pull nginx:1.29.2
 ```
+
 ### 创建容器
+
 ```sh
-docker run --restart=always --name nginx -p 81:81 -p 82:82 -d nginx:1.27.0
+docker run --restart=always --name nginx -p 81:81 -p 82:82 -d nginx:1.29.2
 ```
+
 ```sh
 # 使用宿主机配置
-docker run --restart=always --name nginx -v C:/Users/dousx/.data/.docker/nginx/conf.d/:/etc/nginx/conf.d/ -p 81:81 -p 82:82 -d nginx:1.27.0
+docker run --restart=always --name nginx -v C:/Users/dousx/.data/.docker/nginx/conf.d/:/etc/nginx/conf.d/ -p 81:81 -p 82:82 -d nginx:1.29.2
 ```
 
-###  进入容器
+### 进入容器
+
 ```sh
 docker exec -it nginx /bin/bash
 ```
-###  安装常用工具
+
+### 安装常用工具
+
 ```sh
 # 需要先 update一下 否则无法下载
 apt update -y
 apt install vim tree net-tools iputils-ping -y
 ```
-###  配置
+
+### 配置
+
 ```sh
 # 切换到nginx配置目录下
 cd /etc/nginx/conf.d/
-# 备份默认配置
-cp default.conf default.conf.bak
+# 备份默认配置(1.29.2没有default.conf默认配置)
+# cp default.conf default.conf.bak
 ```
-
 
 ```sh
 # 修改默认配置或者根据需要新建配置
@@ -58,6 +66,7 @@ server {
     }
 }
 ```
+
 #### 负载均衡配置
 
 ```sh
@@ -83,12 +92,13 @@ server {
     }
 }
 ```
-#### Linux查看docker宿主机ip
 
-> ifconfig 找到docker0的ip，可以代理docker宿主机的服务
+#### Linux 查看 docker 宿主机 ip
+
+> ifconfig 找到 docker0 的 ip，可以代理 docker 宿主机的服务
 
 ```sh
-~ # ifconfig                                                                                  
+~ # ifconfig
 docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
         inet6 fe80::42:d4ff:fe61:9861  prefixlen 64  scopeid 0x20<link>
@@ -97,7 +107,7 @@ docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 8  bytes 800 (800.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-~ # ip addr show docker0                                                                       
+~ # ip addr show docker0
 3: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
     link/ether 02:42:d4:61:98:61 brd ff:ff:ff:ff:ff:ff
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
@@ -106,11 +116,11 @@ docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
        valid_lft forever preferred_lft forever
 ```
 
-#### Windows查看docker宿主机ip 
+#### Windows 查看 docker 宿主机 ip
 
-查看win配置找到docker网络配置（172.25.224.1）
+查看 win 配置找到 docker 网络配置（172.25.224.1）
 
->以太网适配器 vEthernet (Default Switch)每次开机会变，这里以太网适配器 VMware Network Adapter VMnet8的ip是固定的，且容器能ping通，故配置采用192.168.174.1
+> 以太网适配器 vEthernet (Default Switch)每次开机会变，这里以太网适配器 VMware Network Adapter VMnet8 的 ip 是固定的，且容器能 ping 通，故配置采用 192.168.174.1
 
 ```powershell
 PS C:\Users\dousx> ipconfig
@@ -173,11 +183,6 @@ Windows IP 配置
    子网掩码  . . . . . . . . . . . . : 255.255.255.0
    默认网关. . . . . . . . . . . . . : 192.168.0.1
 ```
-
-
-
-
-
 
 ```
     #  jmix 里有vaadinServlet 需要配置server.servlet.context-path=/erep
