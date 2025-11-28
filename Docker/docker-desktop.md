@@ -23,3 +23,23 @@
   ]
 }
 ```
+
+```json
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "registry-mirrors": [
+    "https://docker.1ms.run",
+    "https://docker-0.unsee.tech",
+    "https://docker.m.daocloud.io",
+    "https://hub-mirror.c.163.com",
+    "https://mirror.ccs.tencentyun.com",
+    "https://mirrors.aliyun.com"
+  ]
+}
+```
