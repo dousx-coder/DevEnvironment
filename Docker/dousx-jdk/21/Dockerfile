@@ -4,6 +4,9 @@ LABEL maintainer="dousx_cn@163.com"
 LABEL author="dousx"
 LABEL description="基于 ubuntu:24.04(ubuntu24.04 cat /etc/os-release) 的自定义镜像，配置了jdk 时区、ping 和 vim"
 
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV JAVA_OPTS="-Dfile.encoding=UTF-8"
 # 设置时区为上海
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
