@@ -119,3 +119,9 @@ ide.tree.horizontal.default.autoscrolling=false
 ### 未隐藏效果(默认)
 
 ![image-20241212093322967](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2024/12/12/09-33-23-158.png)
+
+
+
+## 11 关闭注释的校对
+
+![image-20251226140148887](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2025/12/26/14-01-49-053-3fbbffe5344d44d39d49f406cbb555eb.png)
