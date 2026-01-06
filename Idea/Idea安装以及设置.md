@@ -124,4 +124,4 @@ ide.tree.horizontal.default.autoscrolling=false
 
 ## 11 关闭注释的校对
 
-![image-20251226140148887](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2025/12/26/14-01-49-053-3fbbffe5344d44d39d49f406cbb555eb.png)
+![image-20260106162818521](https://cruder-figure-bed.oss-cn-beijing.aliyuncs.com/markdown/2026/01/06/16-28-18-674-43def8ae73e24dd68808f29182848262.png)
